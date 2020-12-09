@@ -16,7 +16,7 @@ Integrantes:
 
 Javier Gutierrez Canitrot
 
-
+Gonzalo Gabriel Barrionuevo
 
 Ignacio Manzo:
 Músico.
@@ -36,6 +36,9 @@ https://suferreteriaonline.com.ar/
 Modelo del sector, con diseño minimalista tipo Google:
 https://elferretero.com.ar/
 
+Modelo del sector, detalle sobre la categorización de los productos a la venta:
+https://ferreteriacentralsrl.com/productos/
+
 
 Referencias entregadas por el cliente:
 https://www.buloneraatlas.com.ar/
@@ -48,5 +51,5 @@ amazon y mercadolibre tienen, en la página de cada producto que lo necesite, un
 casalibertella es un negocio de música que linkea los productos publicados en su marketplace con mercadolibre. A nuestro cliente le interesa tener algo similar para cargar todo en un mismo lugar y que no haya duplicaciones.
 
 
-Gonzalo Gabriel Barrionuevo
+
 
