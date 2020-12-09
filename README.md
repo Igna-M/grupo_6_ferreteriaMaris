@@ -16,7 +16,7 @@ Integrantes:
 
 Javier Gutierrez Canitrot
 
-Gonzalo Gabriel Barrionuevo
+
 
 Ignacio Manzo:
 Músico.
@@ -46,3 +46,7 @@ https://www.casalibertella.com/
 amazon y mercadolibre tienen, en la página de cada producto que lo necesite, una función para especificar modelos, colores y tamaños. Vamos a implementar ese sistema en los casos de los productos que lo necesiten.
 
 casalibertella es un negocio de música que linkea los productos publicados en su marketplace con mercadolibre. A nuestro cliente le interesa tener algo similar para cargar todo en un mismo lugar y que no haya duplicaciones.
+
+
+Gonzalo Gabriel Barrionuevo
+
