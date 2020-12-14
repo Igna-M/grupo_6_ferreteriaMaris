@@ -68,10 +68,8 @@ Modelo del sector, detalle sobre la categorización de los productos a la venta:
 
 * [Casa Libertella](https://www.casalibertella.com/)
 
-
 Amazon y mercadolibre tienen, en la página de cada producto que lo necesite, una función para especificar modelos, colores y tamaños. Vamos a implementar ese sistema en los casos de los productos que lo necesiten.
 Casalibertella es un negocio de música que linkea los productos publicados en su marketplace con mercadolibre. A nuestro cliente le interesa tener algo similar para cargar todo en un mismo lugar y que no haya duplicaciones.
 
-
-
-
+* [Apple](https://www.apple.com/)
+Tiene un sistema de ir definiendo los detalles del producto que vas a comprar, a medida que vas avanzando en la compra. Puede ser útil para algunos productos de la ferretería.
