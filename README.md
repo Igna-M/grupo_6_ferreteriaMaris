@@ -19,6 +19,9 @@ Hablando con el cliente, dice que sería genial que haya una funcionalidad para 
 #### Integrantes:
 
 ## Javier Gutierrez Canitrot
+Soporte IT - Help Desk
+
+> [Mi github] (https://github.com/JavierGutierrezCanitrot)
 
 ## Gonzalo Gabriel Barrionuevo
 Diseño de interiores/Cursando Analista en Sistemas.
