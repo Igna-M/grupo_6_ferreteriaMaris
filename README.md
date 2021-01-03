@@ -73,3 +73,9 @@ Casalibertella es un negocio de música que linkea los productos publicados en s
 
 * [Apple](https://www.apple.com/)
 Tiene un sistema de ir definiendo los detalles del producto que vas a comprar, a medida que vas avanzando en la compra. Puede ser útil para algunos productos de la ferretería.
+
+
+-------------------------------------------
+### Tablero de trabajo:
+Estamos usando el tablero de github:
+https://github.com/Igna-M/grupo_6_ferreteriaMaris/projects/1
