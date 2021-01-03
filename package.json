@@ -1,0 +1,22 @@
+{
+  "name": "grupo_6_ferreteriamaris",
+  "version": "1.0.0",
+  "description": "------------------------------------ ## - Proyecto Integrador - Digital House - Ferretería -  ---------------------------",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Igna-M/grupo_6_ferreteriaMaris.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Igna-M/grupo_6_ferreteriaMaris/issues"
+  },
+  "homepage": "https://github.com/Igna-M/grupo_6_ferreteriaMaris#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
