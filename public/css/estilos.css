@@ -1,0 +1,42 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: auto;
+}
+
+.cabecera{
+    border: gray solid 2px;
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: block;
+    margin-left: 0;
+    border: springgreen solid 1px;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.login{
+    display: block;
+    margin-right: 0;
+    border: springgreen solid 1px;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+
+
+
+
+h1{
+    color: blue;
+    background-color: #EAC926;
+}
+
+h2{
+    color: yellow;
+    background-color: black;
+}
