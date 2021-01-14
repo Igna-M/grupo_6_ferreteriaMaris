@@ -1,45 +1,112 @@
-<<<<<<< HEAD
 * {
     font-family: 'Montserrat', sans-serif;
     margin: auto;
+    box-sizing: border-box;
 }
 
 .cabecera{
-    border: gray solid 2px;
     width: 99%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 5px;
+    background-color: #1E4E75;
+    
 }
 
 .logo{
     display: block;
     margin-left: 0;
-    border: springgreen solid 1px;
-    min-width: 200px;
-    max-width: 300px;
+    border: white solid 3px;
+    min-width: 50%;
+    max-width: 50%;
+    font-size: 30px;
 }
 
 .login{
     display: block;
     margin-right: 0;
-    border: springgreen solid 1px;
-    min-width: 200px;
-    max-width: 300px;
+    border: white solid 3px;;
+    min-width: 50%;
+    max-width: 50%;
+    font-size: 30px;
+    text-align: right;
 }
 
+.cabecera-abajo {border: dotted red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
 
+}
 
+.burguer-button {
+    
+    background-color:#1E4E75 ;
+    color: white;
+    display: block;
+    max-width: 50px;
+    padding: 15px 15px;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 8px;
+    margin-left: 20px;
+}
 
+.shopping-cart {
+    color: #ffffff;
+    display: block;
+    font-size: 23px;
+    margin-right: 20px;
+}
 
-=======
->>>>>>> e254ec070eed235f9a38bc87aac1077adbaaafcc
 h1{
     color: blue;
     background-color: #EAC926;
+
 }
 
 h2{
     color: yellow;
-    background-color: black;
+    background-color: red;
+}
+
+h4{
+    color: black;
+    font-size: 18px;
+}
+
+header {
+    background-size: 100%;
+    background-color: #157ed2;
+   
+
+}
+
+.nav-bar ul {
+    list-style: none;
+    margin: 0px;
+    padding: 5px
+}
+
+footer{
+    background-size: 100%;
+    background-color: #157ed2;
+    text-align: center;
+}
+
+footer i{
+    color: white;
+    
+}
+
+footer p {
+    font-size: 13px;
+
+}
+
+/******@media*******/
+
+@media (min-width: 361px) {
+
 }
