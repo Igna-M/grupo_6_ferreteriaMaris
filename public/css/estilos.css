@@ -201,8 +201,8 @@ footer p {
 
 
 
-.pre-footer{
-    height: 80px;
+.separador{
+    height: 20px;
     width: 100%;
     text-align: center;
 }
@@ -225,6 +225,66 @@ footer p {
     height: auto;
     padding: 2%;
 }
+
+
+/****** EN CONTACTO *******/
+
+.en-contacto{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: cornflowerblue;
+    border: darkblue 1px solid;
+    padding: 15px;
+    justify-content: space-around;
+    box-shadow: 0 0 10px rgb(100, 100 , 100);
+}
+
+.medio{
+    background-color: rgb(240, 250, 255);
+    border: darkblue 1px solid;
+    width: 45%;
+    padding: 10px;
+    margin: 5px 0;
+    height: 50px;
+    box-shadow: 0 0 10px rgb(100, 100 , 100);
+    text-align: center;
+    overflow: auto;
+}
+
+
+
+footer{
+    padding: 20px;
+}
+
+.pie-de-pag article .icono{
+    padding: 5px;
+    transition: all 0.5s;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.pie-de-pag article .icono:hover{
+    /* color: #39b54a; */
+    font-size: 2.5em;
+}
+
+    
+.legales{
+    border-top: white 1px solid;
+    padding: 5px;
+    margin-top: 25px;
+}
+
+.legales p{
+    padding: 5px;
+    margin-top: 5px;
+}
+
+    
+
+
 
 /****** @media *******/
 
@@ -282,4 +342,8 @@ footer p {
         padding: 20px;
     }
     
+    .medio{
+        width: 22%;
+        height: 50px;
+    }
 }
