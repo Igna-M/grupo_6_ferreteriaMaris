@@ -337,7 +337,7 @@ footer{
 
     .art-destacado{
         flex-basis: 30%;
-        height: 400px;
+        /* height: 400px; */
         justify-content: space-between;
         padding: 20px;
     }
