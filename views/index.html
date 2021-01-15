@@ -12,37 +12,60 @@
 <body>
 
     <header>
-        <div class="cabecera">
-            <p class="logo">Logo</p>
-            <p class="login">Login</p>
-        </div>
-        <br>
-        <div class="cabecera-abajo">
-            <a href="#" class="burguer-button">
-            <i class="fas fa-bars"></i><!--la media query a partir de 767?-->
-            </a>
-        
-            <a href="#" class="shopping-cart">
-            <i class="fas fa-shopping-cart"></i>
-            </a>
-        </div>
+        <section class="cabecera">
 
-        <nav class="nav-bar">
-            <ul>
-                <li>|Home</li>
-                <li>|Productos</li>
-                <li>|Novedades</li>
-                <li>|Ofertas</li>
-                <li>|Quiénes somos</li>
-                <li>|Barra de Busqueda</li>
-            </ul>
-        </nav>
-        <br>
+            <div class="logo">
+                <a href="/">
+                    <img alt="Logo_Ferreteria_Maris" src="/images/LogoFerre.jpeg" class="img-logo"> 
+                </a>
+            </div>
+            
+            <p class="login">Login</p>
+        </section>
+        
+        <section class="cabecera-abajo">
+            <div class="cabecera-abajo-top">
+                <a href="#" class="burguer-button">
+                    <i class="fas fa-bars"></i><!--la media query a partir de 767?-->
+                </a>    
+                <nav class="nav-bar-burger"> <!--En principio, no lo mostramos. Sólo para cuando activemos la funcionalidad de la hamburguesa-->
+                    <ul>
+                        <li>|Home</li>
+                        <li>|Productos</li>
+                        <li>|Novedades</li>
+                        <li>|Ofertas</li>
+                        <li>|Quiénes somos</li>
+                    </ul>
+                </nav>
+            
+            </div>
+
+            <form class="search-bar" action="#" method="GET">
+                <input type="text" placeholder="Buscar producto" name="search-bar">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+
+            <a href="#" class="shopping-cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+
+            <nav class="nav-bar-desktop">
+                <ul>
+                    <li>Home</li>
+                    <li>Productos</li>
+                    <li>Novedades</li>
+                    <li>Ofertas</li>
+                    <li>Quiénes somos</li>
+                </ul>
+            </nav>
+
+        </section>
+
     </header>
 
     <main>
         <section>
-            <img src="/images/slide1.JPG" alt="imagen-slide-1">
+            <img src="/images/slide1.JPG" alt="imagen-slide-1" class="carrousel1">
             Aca tendria que ir un carrousel de fotos de prodcutos
         </section>
         <br>
@@ -69,7 +92,7 @@
             <h4>telefonos</h4>
         </article>
         <br>
-        <p>Copyright © 2019 Ferreteria Maris.</p>
+        <p>Copyright © 2021 Ferreteria Maris.</p>
         <br>
         <p>El uso de este sitio web implica la aceptación de los Términos y Condiciones y de las Políticas de Privacidad de Ferreteria Maris. Las fotos son a modo ilustrativo. La venta de cualquiera de los productos publicados está sujeta a la verificación de stock. Los precios online para los productos presentados/publicados.</p>  
 
