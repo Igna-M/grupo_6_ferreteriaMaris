@@ -370,3 +370,84 @@ footer{
         height: 50px;
     }
 }
+
+
+
+
+
+/****** PAGINA DETALLE DE PRODUCTOS *******/
+
+@media (min-width:700px) {
+
+    .productDetails{
+        display: flex;
+        width: 100%;
+        min-height: 200px;
+        border: chartreuse 2px solid;
+    }
+
+
+    .columna1{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 59%;
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+    .columna2{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 39%;
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+
+
+    .productTitle{
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+
+    .productImg{
+        border: chartreuse 2px solid;
+        padding: 10px;
+
+    }
+
+    .productDescription{
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+
+    .productInfo{
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+
+    .productBotonComprar{
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+    .productArticulosSimilares{
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+    .ProductRedesSociales{
+        border: chartreuse 2px solid;
+        padding: 10px;
+    }
+
+}
+
+
+
+
+
+  
