@@ -79,3 +79,9 @@ Tiene un sistema de ir definiendo los detalles del producto que vas a comprar, a
 ### Tablero de trabajo:
 Estamos usando el tablero de github:
 https://github.com/Igna-M/grupo_6_ferreteriaMaris/projects/1
+
+-------------------------------------------
+### Heroku:
+Podés seguir los avances en Heroku:
+https://integrador-ferres.herokuapp.com/
+
