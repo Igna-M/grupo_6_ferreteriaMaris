@@ -302,20 +302,84 @@ footer{
 }
 
 .legales p{
+    color: white;
     padding: 5px;
     margin-top: 5px;
 }
 
-    
-
-
-
 
 /****** PAGINA DETALLE DE PRODUCTOS *******/
 
+.productDetails{
+    width: 98%;
+}
+
+.productDescription{
+    margin-top: 10px;
+}
+
+.productTitle{
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+.productImg{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.productImg img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+}
+
+.productDescription{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.productDetails h3{
+    font-size: 1.5em;
+    text-align: left;
+    font-weight: bold;
+}
+
+.productDetails .titulo{
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 2px;
+    margin-bottom: 4px;
+}
+
+.productInfoList,
+.productBotonComprar,
+.productArticulosSimilares,
+.ProductRedesSociales{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.productInfoList{
+    border-top: gray solid 1px;
+    margin-top: 15px;
+    margin-left: 3px;
+}
+
+.productInfoList p{
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.productInfoList li{
+    margin-bottom: 4px;
+}
+
 
 .productBotonComprar{
-    margin-top: 5px;
+    margin-top: 25px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -331,7 +395,6 @@ footer{
     text-decoration:none;
     width: 85%;
     text-align: center;
-    /* min-width: 80px; */
     margin: 5px;
 }
 
@@ -350,13 +413,52 @@ footer{
 }
 
 
+.productArticulosSimilares{
+    background-color: cornflowerblue;
+    padding: 5px;
+    color: white;
+    border: steelblue 2px solid;
+    margin-bottom: 15px;
+}
+
+.productArticulosSimilares,
+.ProductRedesSociales{
+    text-align: center;
+}
+
+.pequeno-cubo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    border: white 1px solid;
+}
+
+.pequeno-cubo article{
+    border: white 2px solid;
+}
+
+.pequeno-cubo article p{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    
+}
+
+.related-productImg img{
+    max-width: 100%;
+            
+}
+
 
 
 /****** @media *******/
 
+/* 
 @media (min-width: 361px) {
 
 }
+ */
 
 @media (min-width:700px) {
     
@@ -417,7 +519,7 @@ footer{
 
 
 
-/****** PAGINA DETALLE DE PRODUCTOS *******/
+/****** MEDIA PARA LA PAGINA DETALLE DE PRODUCTOS *******/
 
 @media (min-width:700px) {
 
@@ -426,135 +528,52 @@ footer{
         width: 100%;
     }
 
-
     .columna1,
     .columna2{
         padding: 2px;
     }
 
     .columna1{
-        flex-basis: 59%;
+        flex-basis: 49%;
         margin-top: 0px;
         margin-bottom: 20px;
     }
 
     .columna2{
         justify-content: flex-start;
-        flex-basis: 39%;
+        flex-basis: 49%;
         margin-top: 0px;
         margin-bottom: 20px;                
     }
 
-    .productTitle,
-    .productImg,
-    .productDescription{
+    .productTitle{
+        margin-left: 10px;
         margin-top: 2px;
-        margin-left: 20px;
     }
 
-    .productTitle{
-        padding: 5px 0;
+    .productImg{
+        margin-top: 2px;
     }
 
     .productImg{
         width: 100%;
     }
 
-    .productDetails h3{
-        font-size: 1.5em;
-        text-align: left;
-    }
-
-    .productDetails .titulo{
-        font-weight: bold;
-        font-size: 1.2em;
-        padding: 2px;
-        margin-bottom: 4px;
-    }
-
-    .productDescription{
-        padding: 4px;
-        margin-bottom: 8px;
-    }
-
-    /* ------ columna 2 -------- */
-    
+    .productDescription,
     .productInfoList,
     .productBotonComprar,
     .productArticulosSimilares,
     .ProductRedesSociales{
-        margin-top: 40px;
-        margin-left: 20px;
+        margin-top: 30px;
+        margin-left: 10px;
     }
-
-
+    
     .productInfoList{
-        margin-top: 35px;
-        margin-left: 1px;
+        border-top: none
     }
-
-    .productInfoList p{
-        margin-bottom: 10px;
-    }
-
 
     .productBotonComprar{
         justify-content: flex-start;
     }
-
-    .productArticulosSimilares,
-    .ProductRedesSociales{
-        text-align: center;
-    }
-
-    .pequeno-cubo{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;        
-    }
-
-    /* .related-productImg{
-        
-    } */
-
-    .related-productImg img{
-        max-width: 95%;
-        
-    }
-
-    /*     
-    .productTitle{
-        
-    }
-
-
     
-
-    .productDescription{
-        
-    }
-
-
-
-
-
-    .productBotonComprar{
-        
-    }
-
-    .productArticulosSimilares{
-        
-    }
-
-    .ProductRedesSociales{
-        
-    } */
-
 }
-
-
-
-
-
-  
