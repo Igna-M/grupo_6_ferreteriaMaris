@@ -77,7 +77,7 @@ Tiene un sistema de ir definiendo los detalles del producto que vas a comprar, a
 -------------------------------------------
 ### Logo
 Todos las versiones del logo en /public/images/logos
-![Logo](https://github.com/Igna-M/grupo_6_ferreteriaMaris.git/public/images/logos/LogoAppHD.jpeg)
+![Logo](https://github.com/Igna-M/grupo_6_ferreteriaMaris/blob/main/public/images/Logos/LogoCircularHD.jpeg)
 
 - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -92,7 +92,7 @@ Otros
 Celeste: #33A4FF
 Amarillo: #FFD700
 
-![Paleta de colores](https://github.com/Igna-M/grupo_6_ferreteriaMaris.git/public/images/Paleta_de_Colores.png)
+![Paleta de colores](https://github.com/Igna-M/grupo_6_ferreteriaMaris/blob/main/public/images/Paleta_de_Colores.png)
 
 - - - - - - - - - - - - - - - - - - - - - - 
 
