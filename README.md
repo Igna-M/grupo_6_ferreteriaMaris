@@ -74,6 +74,30 @@ Casalibertella es un negocio de música que linkea los productos publicados en s
 * [Apple](https://www.apple.com/)
 Tiene un sistema de ir definiendo los detalles del producto que vas a comprar, a medida que vas avanzando en la compra. Puede ser útil para algunos productos de la ferretería.
 
+-------------------------------------------
+### Logo
+Todos las versiones del logo en /public/images/logos
+![Logo](https://github.com/Igna-M/grupo_6_ferreteriaMaris.git/public/images/logos/LogoAppHD.jpeg?raw=true)
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+### Colores
+Azul principal: #157ED2
+Azul Oscuro: #004985 
+Rojo: #D12F2A
+Verde: #40D10A
+Fondo:  #F2F6F7
+
+Otros
+Celeste: #33A4FF
+Amarillo: #FFD700
+
+![Paleta de colores](https://github.com/Igna-M/grupo_6_ferreteriaMaris.git/public/images/Paleta_de_Colores.png?raw=true)
+
+- - - - - - - - - - - - - - - - - - - - - - 
+
+### Tipografías
+'Montserrat', sans-serif
 
 -------------------------------------------
 ### Tablero de trabajo:
@@ -84,4 +108,3 @@ https://github.com/Igna-M/grupo_6_ferreteriaMaris/projects/1
 ### Heroku:
 Podés seguir los avances en Heroku:
 https://integrador-ferres.herokuapp.com/
-
