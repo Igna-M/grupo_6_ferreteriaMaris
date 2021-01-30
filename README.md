@@ -86,7 +86,8 @@ Azul principal: #157ED2
 Azul Oscuro: #004985 
 Rojo: #D12F2A
 Verde: #40D10A
-Fondo:  #F2F6F7
+Fondo / letras / blanco:  #F2F6F7
+Verde Precios: #2d9706
 
 Otros
 Celeste: #33A4FF
