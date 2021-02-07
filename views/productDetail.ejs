@@ -1,69 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/c066586938.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/estilos.css">
+    <%- include('./partials/head') %>
 
     <title>Detalle de producto</title>
 </head>
 <body>
 
-    <header>
-        <section class="cabecera">
-
-            <div class="logo">
-                <a href="/">
-                    <img alt="Logo_Ferreteria_Maris" src="/images/LogoFerre.jpeg" class="img-logo"> 
-                </a>
-            </div>
-            
-            <p class="login"><a href="/login">Login</a></p>
-        </section>
-        
-        <section class="cabecera-abajo">
-            <div class="cabecera-abajo-top">
-                <a href="#" class="burguer-button">
-                    <i class="fas fa-bars"></i><!--la media query a partir de 767?-->
-                </a>    
-                <nav class="nav-bar-burger"> <!--En principio, no lo mostramos. Sólo para cuando activemos la funcionalidad de la hamburguesa-->
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/">Productos</a></li>
-                        <li><a href="/">Novedades</a></li>
-                        <li><a href="/">Ofertas</a></li>
-                        <li><a href="/register">Registro</a></li>
-                        <li><a href="/">Quiénes somos</a></li>
-                    </ul>
-                </nav>
-            
-            </div>
-
-            <form class="search-bar" action="#" method="GET">
-                <input type="text" placeholder="Buscar producto" name="search-bar">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-
-            <a href="#" class="shopping-cart">
-                <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
-            </a>
-
-            <nav class="nav-bar-desktop">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/">Productos</a></li>
-                    <li><a href="/">Novedades</a></li>
-                    <li><a href="/">Ofertas</a></li>
-                    <li><a href="/register">Registro</a></li>
-                    <li><a href="/">Quiénes somos</a></li>
-                </ul>
-            </nav>
-
-        </section>
-
-    </header>
+    <%- include('./partials/header') %>
 
     
     <main>
@@ -147,59 +91,10 @@
  
 
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
 
     </main>
         
-    <footer>
-        
-        <div class="pie-de-pag">
-            <article>
-                <i class="fas fa-credit-card icono"></i>
-                <h4>Pagá con tarjeta o en efectivo</h4>
-            </article>
-            <article>
-                <i class="fas fa-gift icono"></i>
-                <h4>Envío gratis desde los $ 2.500</h4>
-                <p>Solo por estar registrad@ en MercadoLiebre tenés envíos gratis en miles de productos. Es un beneficio de
-                    MercadoPuntos.</p>
-            </article>
-            <article>
-                <i class="fas fa-user-shield icono"></i>
-                <h4>Seguridad de principio a fin</h4>
-                <p>¿No te gusta? ¡Devolvelo! En MercadoLiebre no hay nada que no puedas hacer porque estás siempre prtegid@.
-                </p>
-            </article>
-            <article>
-                <i class="fa fa-phone icono"></i>
-                <h4>Servisio de atención al cliente</h4>
-                <p>de 9:00 a 18:00
-                </p>
-            </article>
-            <article>
-                <i class="fas fa-at icono"></i>
-                <h4>gerencia@ferreteriamaris.com</h4>
-                </p>
-            </article>
-        </div>
-
-        <div class="legales">
-            <p>El uso de este sitio web implica la aceptación de los Términos y Condiciones y de las Políticas de Privacidad de Ferreteria Maris. Las fotos son a modo ilustrativo. La venta de cualquiera de los productos publicados está sujeta a la verificación de stock. Los precios online para los productos presentados/publicados.</p> 
-            <p>Copyright © 2021 Ferreteria Maris.</p>
-        </div>
-    </footer>
+    <%- include('./partials/footer') %>
 
 </body>
 </html>
