@@ -1,0 +1,40 @@
+.crear-producto{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width: 95%;
+    text-align: center;
+}
+
+
+.form-query{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width: 95%;
+    margin: 15px;
+}
+
+.form-space{
+    min-width: 300px;
+}
+
+.padd05{
+    padding: 5px;
+}
+
+.margen05{
+    margin: 5px;
+}
+
+.enviar{
+    border: solid 2px #40D10A;
+    /* background-color: #40D10A ; */
+    /* color: #40D10A; */
+}
+
+.resetear{
+    border: solid 2px #D12F2A;
+}
