@@ -24,6 +24,16 @@
             </div>
 
             <div class="form-query">
+                <label for="name">Marca</label>
+                <input type="text" name="brand" id="brand" required minlength="3" class="form-space">
+            </div>
+
+            <div class="form-query">
+                <label for="name">Modelo</label>
+                <input type="text" name="model" id="model" required minlength="3" class="form-space">
+            </div>
+
+            <div class="form-query">
                 <label for="description">Descripción</label>
                 <input type="text" name="description" id="description" required minlength="5" class="form-space">
             </div>
@@ -57,6 +67,11 @@
             <div class="form-query">
                 <label for="precio">Precio</label>
                 <input type="number" min="0" max="10000" step="1" name="price" id="price" required="required" class="form-space">
+            </div>
+
+            <div class="form-query">
+                <label for="precio">Cantidad agregada</label>
+                <input type="number" min="0" max="10000" step="1" name="amount" id="amount" required="required" class="form-space">
             </div>
 
             <div class="form-query">
