@@ -15,7 +15,7 @@
         <h2>Crear producto</h2>
       
 
-        <form action="#" method="POST" autocomplete="on" >
+        <form action="/products/create" method="POST" autocomplete="on" enctype="multipart/form-data">
 
 
             <div class="form-query">
@@ -38,10 +38,8 @@
                 <input type="text" name="description" id="description" required minlength="5" class="form-space">
             </div>
 
-            <div>
-                <p style="border: solid red 1px;">
-                ##### SUBIR IMAGEN #####
-                </p>
+            <div class="form-query">
+                <input type="file" name="product_img" id="file">
             </div>
             <div class="form-query">
                 <label>
