@@ -300,7 +300,14 @@ footer{
     padding: 20px;
 }
 
+
 .pie-de-pag{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
     color: #F2F6F7;
 }
 
@@ -606,6 +613,14 @@ footer{
         flex-basis: 50%;
     }
     
+    .pie-de-pag {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+    }
     
     
 }
