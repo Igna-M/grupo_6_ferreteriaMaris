@@ -1,16 +1,21 @@
+const fs = require('fs');
 
 const productsController = {
     products: function(req, res) {
-        res.render('products');
+        return res.render('products');
     },
-    create:  function(req, res) {
-        console.log(req.file)
-        res.send('Archivo subido correctamente');
-        // next()
+    create: function(req, res) {
+        datosCapturados = req.body
+        archivoCapturado = req.file
+        unProducto = [datosCapturados, archivoCapturado]
+        
+        fs.writeFileSync('./public/jsonProducts/datosProductos', JSON.stringify(unProducto))
+
+        return res.send(unProducto);
+        
 
     },
     
 }
-
 
 module.exports = productsController
