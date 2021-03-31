@@ -1,29 +1,17 @@
 var express = require('express');
-const multer  = require('multer');
-var path = require('path');
-
 var router = express.Router();
 
+var path = require('path');
+const validation = require('../middlewares/createProductValidation');
 const productsController = require('../controllers/productsController');
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/images/uploads')
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-        // cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    //   cb(null, '${Date.now()}_img_${path.extname(file.originalname)}')
-    }
-});
-   
-const uploadFile = multer({ storage: storage })
+const uploadFile = require('../middlewares/productsMulter')
 
 
+router.get('/', productsController.productsList);
 
-router.get('/', productsController.products);
+router.get('/create', productsController.createProduct);
 
-router.post('/create', uploadFile.single('product_img'), productsController.create);
+router.post('/create', uploadFile.single('product_img'), validation, productsController.createProduct);
 
 
 

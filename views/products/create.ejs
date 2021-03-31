@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/head') %>
-    <link rel="stylesheet" href="stylesheets/products.css">
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/products.css">
     <title>Products</title>
 </head>
 
 
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
 
     <main class="crear-producto">
-      
-        <h2>Crear producto</h2>
-      
 
         <form action="/products/create" method="POST" autocomplete="on" enctype="multipart/form-data">
-
+            <h2>Crear producto</h2>
 
             <div class="form-query">
                 <label for="name">Nombre del producto</label>
-                <input type="text" name="name" id="name" required minlength="3" class="form-space">
+                <input type="text" name="name" id="name" placeholder="Nombre del producto" required minlength="3" class="form-space">
             </div>
 
             <div class="form-query">
                 <label for="name">Marca</label>
-                <input type="text" name="brand" id="brand" required minlength="3" class="form-space">
+                <input type="text" name="brand" id="brand" required minlength="1" placeholder="Marca del producto" class="form-space">
             </div>
 
             <div class="form-query">
                 <label for="name">Modelo</label>
-                <input type="text" name="model" id="model" required minlength="3" class="form-space">
+                <input type="text" name="model" id="model" placeholder="Modelo del producto" required minlength="1" class="form-space">
             </div>
 
             <div class="form-query">
                 <label for="description">Descripción</label>
-                <input type="text" name="description" id="description" required minlength="5" class="form-space">
+                <input type="text" name="description" id="description" class="form-space" placeholder="Descripción del producto">
             </div>
 
             <div class="form-query">
@@ -44,35 +41,32 @@
                 </label>
                 <input type="file" name="product_img" id="file">
             </div>
+            
             <div class="form-query">
                 <label>
                     Categoría
-                </label>
+                </label>               
                 <select id="category" name="category" class="form-space">
-                    <option value="herramientas">Herramientas</option>    
-                    <option value="tornillos">Tornillos</option>    
-                    <option value="electricidad">Electricidad</option>    
-                    <option value="adhesivos">Electricidad</option>
-                    <option value="maquinaria">Maquinaria</option>    
-                    <option value="otra">Otra</option>
+                    <% for (let i = 0; i < categories.length; i++) { %>                    
+                    <option value="<%=categories[i]%>"><%=categories[i]%></option> 
+                    <% } %>
                 </select>
-
             </div>
 
 
             <div class="form-query">
-                <label for="caracteristicas">Características específica del producto</label>
-                <input type="text" name="caracteristicas" id="caracteristicas" class="form-space">
+                <label for="features">Características específica del producto</label>
+                <input type="text" name="features" id="features" class="form-space" placeholder="Características del producto">
             </div>
 
             <div class="form-query">
                 <label for="precio">Precio</label>
-                <input type="number" min="0" max="10000" step="1" name="price" id="price" required="required" class="form-space">
+                <input type="number" min="0" max="10000" step="1" name="price" id="price" required="required" class="form-space" placeholder="0">
             </div>
 
             <div class="form-query">
                 <label for="precio">Cantidad agregada</label>
-                <input type="number" min="0" max="10000" step="1" name="amount" id="amount" required="required" class="form-space">
+                <input type="number" min="0" max="10000" step="1" name="amount" id="amount" required="required" class="form-space" placeholder="1">
             </div>
 
             <div class="form-query">
@@ -89,7 +83,7 @@
 
     </main>
         
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
 
 </body>
 </html>
