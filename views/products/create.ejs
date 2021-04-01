@@ -12,34 +12,62 @@
 
     <main class="crear-producto">
 
-        <form action="/products/create" method="POST" autocomplete="on" enctype="multipart/form-data">
+        <form action="/products/create" method="POST" autocomplete="on" enctype="multipart/form-data" class="ancho-total">
+            
+            <br>
+            
             <h2>Crear producto</h2>
-
+            
+            <br>
+            
             <div class="form-query">
                 <label for="name">Nombre del producto</label>
-                <input type="text" name="name" id="name" placeholder="Nombre del producto" required minlength="3" class="form-space">
+                <input type="text" name="name" id="name" placeholder="Nombre del producto" class="form-space" <%= locals.errores && errores.name ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.name : null %>"
+                >
+                <% if (locals.errores && errores.name) { %>
+                    <div class="text-alert">
+                        <%= errores.name.msg %> 
+                    </div>
+                <% } %>
             </div>
 
             <div class="form-query">
                 <label for="name">Marca</label>
-                <input type="text" name="brand" id="brand" required minlength="1" placeholder="Marca del producto" class="form-space">
+                <input type="text" name="brand" id="brand" placeholder="Marca del producto" class="form-space" <%= locals.errores && errores.brand ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.brand : null %>"
+                >
+                <% if (locals.errores && errores.brand) { %>
+                    <div class="text-alert">
+                        <%= errores.brand.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
             </div>
 
             <div class="form-query">
                 <label for="name">Modelo</label>
-                <input type="text" name="model" id="model" placeholder="Modelo del producto" required minlength="1" class="form-space">
+                <input type="text" name="model" id="model" placeholder="Modelo del producto" class="form-space" <%= locals.errores && errores.model ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.model : null %>"
+                >
+                <% if (locals.errores && errores.model) { %>
+                    <div class="text-alert">
+                        <%= errores.model.msg %> 
+                    </div>
+                <% } %>
             </div>
 
             <div class="form-query">
                 <label for="description">Descripción</label>
-                <input type="text" name="description" id="description" class="form-space" placeholder="Descripción del producto">
-            </div>
-
-            <div class="form-query">
-                <label>
-                    Imagen del producto
-                </label>
-                <input type="file" name="product_img" id="file">
+                <input type="text" name="description" id="description" class="form-space" placeholder="Descripción del producto" <%= locals.errores && errores.description ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.description : null %>"
+                >
+                <% if (locals.errores && errores.description) { %>
+                    <div class="text-alert">
+                        <%= errores.description.msg %> 
+                    </div>
+                <% } %>
             </div>
             
             <div class="form-query">
@@ -55,19 +83,57 @@
 
 
             <div class="form-query">
-                <label for="features">Características específica del producto</label>
-                <input type="text" name="features" id="features" class="form-space" placeholder="Características del producto">
+                <label for="features">Características específicas del producto</label>
+                <input type="text" name="features" id="features" class="form-space" placeholder="Características del producto" <%= locals.errores && errores.features ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.features : null %>"
+                >
+                <% if (locals.errores && errores.features) { %>
+                    <div class="text-alert">
+                        <%= errores.features.msg %> 
+                    </div>
+                <% } %>
             </div>
 
             <div class="form-query">
-                <label for="precio">Precio</label>
-                <input type="number" min="0" max="10000" step="1" name="price" id="price" required="required" class="form-space" placeholder="0">
+                <label for="price">Precio</label>
+                <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" placeholder="0" <%= locals.errores && errores.price ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.price : null %>"
+                >
+                <% if (locals.errores && errores.price) { %>
+                    <div class="text-alert">
+                        <%= errores.price.msg %> 
+                    </div>
+                <% } %>
             </div>
 
             <div class="form-query">
                 <label for="precio">Cantidad agregada</label>
-                <input type="number" min="0" max="10000" step="1" name="amount" id="amount" required="required" class="form-space" placeholder="1">
+                <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" placeholder="1" <%= locals.errores && errores.amount ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.amount : null %>"
+                >
+                <% if (locals.errores && errores.amount) { %>
+                    <div class="text-alert">
+                        <%= errores.amount.msg %> 
+                    </div>
+                <% } %>
             </div>
+
+            <br>
+
+            <div class="form-query">
+                <label>
+                    Imagen del producto
+                </label>
+                <input type="file" name="product_img" id="file" <%= locals.errors && errors.product_img ? 'is-invalid' : null %>"
+                >
+                <% if (locals.errors && errors.product_img) { %>
+                    <div class="text-danger">
+                        <%= errors.product_img.msg %>
+                    </div>
+                <% } %>
+            </div>
+
+            <br>
 
             <div class="form-query">
                 <button class="form-space padd05 margen05 resetear" type="reset" value="Reset">Reset</button>

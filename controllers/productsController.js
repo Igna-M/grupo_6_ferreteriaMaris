@@ -2,12 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 
-const productsDataDBPath = path.resolve(__dirname, '../data/productosDB.json');
-const products = JSON.parse(fs.readFileSync(productsDataDBPath, 'utf-8'));
+const productsDataDBPath = path.resolve(__dirname, '../data/productsDB.json');
+const productsInDB = JSON.parse(fs.readFileSync(productsDataDBPath, 'utf-8'));
 const categoriesDataDBPath = path.resolve(__dirname, '../data/categories.json');
 const categories = JSON.parse(fs.readFileSync(categoriesDataDBPath, 'utf-8'));
 
-
+// console.log('');
+// console.log('DataBase Original');
+// console.log(productsInDB);
 
 const productsController = {
 
@@ -22,22 +24,25 @@ const productsController = {
 
     create: function(req, res) {
         const errores = validationResult(req);
-        if (!errores.isEmpty()) { // Si hay errores, tengo que volver a renderear el formulario, con los erores.
+        if (!errores.isEmpty()) {
 
-            let filePath = path.resolve(__dirname,'../public/img/products/' + req.file.filename);
-            fs.unlinkSync(filePath);
+            // let filePath = path.resolve(__dirname,'../public/images/uploads/' + req.file.filename);
+            // fs.unlinkSync(filePath);
 
-            let enviarALaVista = {
+            let aLaVista = {
                 categories: categories,
-				errors: resultValidation.mapped(),
-				oldData: req.body
+				errores: errores.mapped(),
+				originalData: req.body
 			}
-
-			return res.render('products/create', enviarALaVista);
+			return res.render('products/create', aLaVista);
 		}
+        
+        let lastElement = productsInDB[productsInDB.length -1];
+        let lastID = lastElement.id;
+        let nextID = lastID + 1;
 
         let nuevoProducto = {
-			// id: products.length == 0 ? 1 : products[products.length -1].id +1,
+            id: nextID,
 			name: req.body.name,
 			brand: req.body.brand,
 			model: req.body.model,
@@ -47,70 +52,20 @@ const productsController = {
             price: req.body.price,
             amount: req.body.amount,
             image: req.file.filename
-		};
+		};  
 
+        productsInDB.push(nuevoProducto);
 
-        // products.push(nuevoProducto);
-        // let productoSubir = JSON.stringify(products, null , 2);
-		// fs.writeFileSync(productsFilePath ,productoSubir)
+        console.log('');
+        console.log('DataBase + Producto nuevo');
+        console.log(productsInDB);
 
+        let uploadProducts = JSON.stringify(productsInDB, null , 2);
+		fs.writeFileSync(productsDataDBPath, uploadProducts)
 
-        // let datosCapturados = req.body
-        // let archivoCapturado = req.file
-        // let unProducto = [datosCapturados, archivoCapturado]
-        // fs.writeFileSync('../data/ProductosDB', JSON.stringify(unProducto))
-
-        return res.send(unProducto);
+        return res.send(productsInDB);
     }
     
 }
 
 module.exports = productsController
-
-
-// store:(req, res) => {
-//     const resultValidation = validationResult(req);
-//     if (resultValidation.errors.length > 0) {
-
-//         let filePath = path.resolve(__dirname,'../public/img/products/' + req.file.filename);
-//         fs.unlinkSync(filePath);
-
-//         return res.render('products/productCreate', {
-//             errors: resultValidation.mapped(),
-//             oldData: req.body
-//         });
-//     }
-
-//     let productoAgregar = {
-//         id: products.length == 0 ? 1 : products[products.length -1].id +1,
-//         name: req.body.name,
-//         price: req.body.price,
-//         color: req.body.color ,
-//         accesorios: req.body.accesorios,
-//         marca: req.body.marca,
-//         modelo: req.body.modelo,
-//         category: req.body.category ,
-//         description: req.body.description,
-//         image: req.file.filename
-
-        
-//     };
-
-    
-//     products.push(productoAgregar);
-//     let productoSubir = JSON.stringify(products, null , 2);
-//     fs.writeFileSync(productsFilePath ,productoSubir)
-    
-
-//     return res.redirect("/")
-  
-// },
-
-
-    // list:(req,res)=>{
-    //     // const productosList = products.find( producto => producto.id == req.params.id);
-
-    //     let show = {}
-
-    //     res.render('products/productsList', show)
-    // },

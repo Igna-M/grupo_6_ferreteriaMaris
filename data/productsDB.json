@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Taladro",
+    "brand": "Urrea",
+    "model": "Modelo 3",
+    "description": "Negro",
+    "category": "Maquinaria",
+    "features": "Eléctrico",
+    "price": "2600",
+    "amount": "10",
+    "image": "product_img-1617228009307.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Destornillador Plano",
+    "brand": "Desconocida",
+    "model": "Desconocido",
+    "description": "Buen destornillador para buenos tornillos",
+    "category": "Herramientas",
+    "features": "Mango rojo",
+    "price": "350",
+    "amount": "20",
+    "image": "product_img-1617228119621.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "Clavos",
+    "brand": "Desconocida",
+    "model": "Desconocido",
+    "description": "Buenos clavos firmes",
+    "category": "Clavos",
+    "features": "Un clavo saca otro clavo",
+    "price": "5",
+    "amount": "2000",
+    "image": "product_img-1617286502651.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Tenaza Carpintero",
+    "brand": "Desconocida",
+    "model": "Desconocido",
+    "description": "Excelente tenaza de carpintero",
+    "category": "Herramientas",
+    "features": "Mango naranja",
+    "price": "500",
+    "amount": "20",
+    "image": "product_img-1617286644949.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Martillo",
+    "brand": "HR",
+    "model": "Desconocido",
+    "description": "Martillo de Thor",
+    "category": "Herramientas",
+    "features": "Colores Negro y Naranja",
+    "price": "699",
+    "amount": "20",
+    "image": "product_img-1617291657741.jpg"
+  }
+]

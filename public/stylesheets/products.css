@@ -5,6 +5,8 @@
     justify-content: center;
     max-width: 95%;
     text-align: center;
+    padding: 20px;
+
 }
 
 
@@ -14,11 +16,13 @@
     flex-wrap: nowrap;
     justify-content: center;
     max-width: 95%;
-    margin: 15px;
+    /* margin: 15px; */
+    margin-top: 20px;
 }
 
 .form-space{
-    min-width: 300px;
+    min-width: 90%;
+    min-height: 30px;
 }
 
 .padd05{
@@ -37,4 +41,14 @@
 
 .resetear{
     border: solid 2px #D12F2A;
+}
+
+
+.text-alert{
+    padding: 5px;
+    color: #D12F2A;
+}
+
+.ancho-total{
+    width: 100%;
 }
