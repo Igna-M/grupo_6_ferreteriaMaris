@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('../partials/head') %>
-
+    <link rel="stylesheet" href="/stylesheets/products.css">
     <title>Lista de productos</title>
 </head>
 <body>
@@ -12,51 +12,48 @@
 
     <main>
         
-        <section class="separador1">
+        <!-- <section class="separador1">
             <br>
-        </section>
+        </section> -->
+
+
+        <div class="create-prod-button">
+            <a href="/products/create" class="boton-detalles">Crear un producto nuevo</a>
+        </div>
+
 
         <section class="destacados">
-            <!-- En este section van los 3 productos destacados-->
+        
+
+            <!-- En este section van los productos-->
             
-            <article class="art-destacado">
-                <img src="/images/600px-No_image.png" alt="producto destacaso" class="destacados-img">
+
+            <% for (let i = 0; i < products.length; i++) { %>
+            <article class="art-lista">
+                <img src="../images/uploads/products/<%= products[i].image %>" alt="<%= products[i].name %>" class="destacados-img">
                 <div class="caja-descripcion">
-                    <h4 class="description">Herramienta #1</h4>
-                    <p class="precio">$9999,99</p>
+                    <h4 class="description"><%= products[i].name %></h4>
+                    <hr>
+                    <div class="description-box">
+                        <p class="description-dato">Marca: <%= products[i].brand %></p>
+                        <p class="description-dato">Modelo: <%= products[i].model %></p>
+                        <p class="description-dato"><%= products[i].description %></p>
+                        <p class="description-dato">Características: <%= products[i].features %></p>
+                        <p class="description-dato">Categoría: <%= categories.find(categoria => categoria.id == products[i].category).category  %></p>
+                        <p class="description-dato">Precio: $ <%= products[i].price %></p>
+                        <p class="description-dato">Disponible: <%= products[i].amount %></p>
+                    </div>
                     <div class="caja-boton">
-                        <a href="#" class="boton-comprar">Comprar</a>
-                        <a href="/productDetail" class="boton-detalles">Detalles</a>
+                        <a href="#" class="boton-comprar">Borrar</a>
+                        <a href="/productDetail" class="boton-detalles">Editar</a>
                     </div>
                 </div>
-                
+
             </article>
-                
-            <article class="art-destacado">
-                <img src="/images/600px-No_image.png" alt="producto destacaso" class="destacados-img">
-                <div class="caja-descripcion">
-                    <h4 class="description">Herramienta #2</h4>
-                    <p class="precio">$9999,99</p>
-                    <div class="caja-boton">
-                        <a href="#" class="boton-comprar">Comprar</a>
-                        <a href="/productDetail" class="boton-detalles">Detalles</a>
-                    </div>
-                </div>
-            </article>
+            <% } %>
 
 
-            <article class="art-destacado">
-                
-                <img src="/images/600px-No_image.png" alt="producto destacaso" class="destacados-img">
-                <div class="caja-descripcion">
-                    <h4 class="description">Herramienta #3</h4>
-                    <p class="precio">$9999,99</p>
-                    <div class="caja-boton">
-                        <a href="#" class="boton-comprar">Comprar</a>
-                        <a href="/productDetail" class="boton-detalles">Detalles</a>
-                    </div>
-                </div>
-            </article>
+
         </section>
 
         <section class="separador2">

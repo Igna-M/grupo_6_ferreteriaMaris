@@ -11,7 +11,12 @@ const productsController = {
 
     productsList: function(req, res) {
         
-        return res.render('products/productsList');
+        aLaVista = {
+            categories: categories,
+            products: productsInDB
+        }
+
+        return res.render('products/productsList', aLaVista);
     },
 
     createProduct: function(req, res) {
@@ -65,7 +70,7 @@ const productsController = {
         let uploadProducts = JSON.stringify(productsInDB, null , 2);
 		fs.writeFileSync(productsDataDBPath, uploadProducts)
 
-        return res.send(productsInDB);
+        return res.redirect('/productsList');
     }
     
 }

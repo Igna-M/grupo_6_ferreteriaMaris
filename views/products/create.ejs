@@ -3,7 +3,7 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/stylesheets/products.css">
-    <title>Products</title>
+    <title>Productos</title>
 </head>
 
 
@@ -75,7 +75,7 @@
                     Categoría
                 </label>               
                 <select id="category" name="category" class="form-space">
-                    <% for (let i = 0; i < categories.length; i++) { %>                    
+                    <% for (let i = 0; i < categories.length; i++) { %>
                     <option value="<%=categories[i].id%>"><%=categories[i].category%></option> 
                     <% } %>
                 </select>

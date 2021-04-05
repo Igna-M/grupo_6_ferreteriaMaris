@@ -1,1 +1,2 @@
 Armar los modelos para cargar los productos (CRUD)
+Dividir la base de datos?

@@ -9,6 +9,7 @@ Azul Oscuro: #004985
 Rojo: #D12F2A
 Verde: #40D10A
 Verde precios: #2d9706
+gris: #F2F6F7
 
 Fondo / letras / blanco:  #F2F6F7
 
@@ -148,7 +149,7 @@ footer p {
     width: 100%;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     background-color: #F2F6F7;
     border: #004985 1px solid;
     padding: 15px;
@@ -241,6 +242,7 @@ footer p {
     height: 5px;
     width: 100%;
     text-align: center;
+    background-color: #157ED2;
 }
 
 .separador2{
@@ -483,11 +485,6 @@ footer{
 
 /****** @media *******/
 
-/* 
-@media (min-width: 361px) {
-
-}
- */
 
 @media (min-width:700px) {
     
@@ -501,7 +498,6 @@ footer{
         padding: 15px;
     }
     
-
     .nav-bar-desktop{
         display: flex;
         flex-basis: 100%;
@@ -513,7 +509,8 @@ footer{
         margin-top: 5px;
         margin-bottom: 5px;
         width: 100%;
-        border-top: #F2F6F7 1px solid;
+        border-top: #afafaf 1px solid;
+        border-bottom: #ffffff 1px solid;
         display: flex;
         list-style: none;
         justify-content: space-around;      

@@ -52,3 +52,44 @@
 .ancho-total{
     width: 100%;
 }
+
+.art-lista h4{
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.description-box{
+    padding: 10px;
+}
+
+.description-dato{
+    padding-top: 10px;
+}
+
+
+.art-lista{
+    background-color:#157ED2;
+    border: #004985 1px solid;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-shadow: 0 0 10px rgb(100, 100 , 100);
+}
+
+.create-prod-button{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    background-color: #157ED2;
+}
+
+@media (min-width:700px) {
+    
+    .art-lista{
+        flex-basis: 22%;
+        justify-content: space-between;
+        padding: 15px;
+    }
+}
