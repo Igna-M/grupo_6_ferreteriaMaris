@@ -10,18 +10,18 @@ const categories = JSON.parse(fs.readFileSync(categoriesDataDBPath, 'utf-8'));
 const productsController = {
 
     productsList: function(req, res) {
-        
         aLaVista = {
             categories: categories,
             products: productsInDB
         }
-
         return res.render('products/productsList', aLaVista);
     },
+
 
     createProduct: function(req, res) {
         return res.render('products/create', {categories: categories});
     },
+
 
     create: function(req, res) {
         const errores = validationResult(req);
@@ -42,19 +42,6 @@ const productsController = {
         let lastID = lastElement.id;
         let nextID = lastID + 1;
 
-        // let nuevoProducto = {
-        //     id: nextID,
-		// 	   name: req.body.name,
-		// 	   brand: req.body.brand,
-		// 	   model: req.body.model,
-        //     description: req.body.description,
-        //     category: req.body.category,
-        //     features: req.body.features,
-        //     price: req.body.price,
-        //     amount: req.body.amount,
-        //     image: req.file.filename
-		// };  
-
         let nuevoProducto = {
             id: nextID,
             ...req.body,
@@ -70,8 +57,26 @@ const productsController = {
         let uploadProducts = JSON.stringify(productsInDB, null , 2);
 		fs.writeFileSync(productsDataDBPath, uploadProducts)
 
-        return res.redirect('/productsList');
-    }
+        return res.redirect('/products');
+    },
+
+    
+    delete: (req, res) => {
+
+        let newList = productsInDB.filter(producto => producto.id != req.params.id);
+        
+		let deleteImage = productsInDB.find(producto => producto.id == req.params.id);
+
+		let imagePath = path.resolve(__dirname,'../public/images/uploads/products/' + deleteImage.image);
+
+		fs.unlinkSync(imagePath);
+         
+
+        let uploadProducts = JSON.stringify(newList, null , 2);
+		fs.writeFileSync(productsDataDBPath, uploadProducts)
+
+		return res.redirect('/products');
+    },
     
 }
 

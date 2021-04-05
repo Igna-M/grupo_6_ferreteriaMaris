@@ -42,9 +42,16 @@
                         <p class="description-dato">Categoría: <%= categories.find(categoria => categoria.id == products[i].category).category  %></p>
                         <p class="description-dato">Precio: $ <%= products[i].price %></p>
                         <p class="description-dato">Disponible: <%= products[i].amount %></p>
+                        <p class="description-dato">id: <%= products[i].id %></p>
                     </div>
                     <div class="caja-boton">
-                        <a href="#" class="boton-comprar">Borrar</a>
+                        
+                        <form action="/products/delete/<%= products[i].id %>" method="POST">
+                        <!-- <form action="/products/delete/<%= products[i].id %>?_method=DELETE" method="POST"> -->
+                            <button type="submit" class="boton-borrar"><h3>Borrar</h3></button>
+                          </form>
+
+                        
                         <a href="/productDetail" class="boton-detalles">Editar</a>
                     </div>
                 </div>

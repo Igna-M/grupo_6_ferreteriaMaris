@@ -14,6 +14,7 @@ router.get('/create', productsController.createProduct);
 router.post('/create', uploadFile.single('product_img'), validation, productsController.create);
 
 
+router.post('/delete/:id', productsController.delete);
 
 
 module.exports = router;

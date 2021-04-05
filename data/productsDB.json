@@ -1,17 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Taladro",
-    "brand": "Urrea",
-    "model": "Modelo 3",
-    "description": "Negro",
-    "category": "4",
-    "features": "Eléctrico",
-    "price": "2600",
-    "amount": "10",
-    "image": "product_img-1617228009307.jpeg"
-  },
-  {
     "id": 2,
     "name": "Destornillador Plano",
     "brand": "Desconocida",
@@ -37,38 +25,26 @@
   },
   {
     "id": 4,
-    "name": "Tenaza Carpintero",
-    "brand": "Desconocida",
-    "model": "Desconocido",
-    "description": "Excelente tenaza de carpintero",
+    "name": "Llave Plateada",
+    "brand": "Silverline",
+    "model": "Silver",
+    "description": "Una excelente llave",
     "category": "1",
-    "features": "Mango naranja",
-    "price": "500",
+    "features": "Plateada",
+    "price": "450",
     "amount": "20",
-    "image": "product_img-1617286644949.jpeg"
+    "image": "product_img-1617655354808.png"
   },
   {
     "id": 5,
     "name": "Martillo",
-    "brand": "HR",
-    "model": "Desconocido",
-    "description": "Martillo de Thor",
+    "brand": "Thor",
+    "model": "Thor 3.0",
+    "description": "El martillo de Thor",
     "category": "1",
-    "features": "Colores Negro y Naranja",
-    "price": "699",
-    "amount": "20",
-    "image": "product_img-1617291657741.jpg"
-  },
-  {
-    "id": 6,
-    "name": "Llave Plateada",
-    "brand": "Silverline",
-    "model": "Plateada",
-    "description": "La mejor llave",
-    "category": "1",
-    "features": "Plateada",
-    "price": "300",
-    "amount": "10",
-    "image": "product_img-1617642070242.png"
+    "features": "Mango naranja y negr0",
+    "price": "12",
+    "amount": "500",
+    "image": "product_img-1617655444902.jpg"
   }
 ]
