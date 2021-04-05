@@ -78,6 +78,13 @@ const productsController = {
 		return res.redirect('/products');
     },
     
+    edit: function(req, res) {
+        aLaVista = {
+            categories: categories,
+            products: productsInDB
+        }
+        return res.render('products/edit', aLaVista);
+    },
 }
 
 module.exports = productsController

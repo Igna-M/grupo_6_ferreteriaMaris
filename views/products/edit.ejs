@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/products.css">
+    <title>Productos</title>
+</head>
+
+
+<body>
+    <%- include('../partials/header') %>
+
+
+
+
+    <section class="productDetails">
+        <div class="columna1">
+            <div class="productTitle">
+                <h3>Conductores Electricos</h3>
+            </div>
+
+            <div class="productImg">
+                <img src="/images/ConductoresElectricos.JPG" alt="Conductores Electricos">
+
+            </div>
+
+        </div>    
+            
+
+        <div class="columna2">
+
+            <div class="productDescription">
+                <p class="titulo">Conductores Electricos</p>
+                <p>    
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+            
+            <div class="productInfoList">
+                <p>Tamaños y medidas disponibles:</p>
+                <ul>
+                    <li>Caracterisctica #1</li>
+                    <li>Caracterisctica #2</li>
+                    <li>Caracterisctica #3</li>
+                    <li>Caracterisctica #4</li>
+                    <li>Caracterisctica #5</li>
+                </ul>
+
+            </div>
+
+            <div class="productBotonComprar">
+                <a href="#" class="boton-comprar-art">Comprar</a>
+
+            </div>
+
+            <div class="productArticulosSimilares">
+                <p class="titulo">Articulos similares</p>
+                <div class="pequeno-cubo">
+                    
+                    <article>
+                        <div class="related-productImg">
+                            <img src="/images/producto1.JPG" alt="Producto 1">
+            
+                        </div>
+                        <p>Producto 1</p>
+                    </article>
+                    
+                    <article>
+                        <div class="related-productImg">
+                            <img src="/images/producto2.JPG" alt="Producto 2">
+            
+                        </div>
+                        <p>Producto 2</p>
+                    </article>
+
+                    <article>
+                        <div class="related-productImg">
+                            <img src="/images/producto3.JPG" alt="Producto 3">
+            
+                        </div>
+                        <p>Producto 3</p>
+                    </article>
+                </div>
+            </div>
+
+            </div>
+        
+        </div>
+
+
+   </section>
+
+
+
+   
+
+
+   
+    <main class="crear-producto">
+
+        <form action="/products/create" method="POST" autocomplete="on" enctype="multipart/form-data" class="ancho-total">
+            
+            <br>
+            
+            <h2>Crear producto</h2>
+            
+            <br>
+            
+            <div class="form-query">
+                <label for="name">Nombre del producto</label>
+                <input type="text" name="name" id="name" placeholder="Nombre del producto" class="form-space" <%= locals.errores && errores.name ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.name : null %>"
+                >
+                <% if (locals.errores && errores.name) { %>
+                    <div class="text-alert">
+                        <%= errores.name.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="name">Marca</label>
+                <input type="text" name="brand" id="brand" placeholder="Marca del producto" class="form-space" <%= locals.errores && errores.brand ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.brand : null %>"
+                >
+                <% if (locals.errores && errores.brand) { %>
+                    <div class="text-alert">
+                        <%= errores.brand.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            </div>
+
+            <div class="form-query">
+                <label for="name">Modelo</label>
+                <input type="text" name="model" id="model" placeholder="Modelo del producto" class="form-space" <%= locals.errores && errores.model ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.model : null %>"
+                >
+                <% if (locals.errores && errores.model) { %>
+                    <div class="text-alert">
+                        <%= errores.model.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="description">Descripción</label>
+                <input type="text" name="description" id="description" class="form-space" placeholder="Descripción del producto" <%= locals.errores && errores.description ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.description : null %>"
+                >
+                <% if (locals.errores && errores.description) { %>
+                    <div class="text-alert">
+                        <%= errores.description.msg %> 
+                    </div>
+                <% } %>
+            </div>
+            
+            <div class="form-query">
+                <label>
+                    Categoría
+                </label>               
+                <select id="category" name="category" class="form-space">
+                    <% for (let i = 0; i < categories.length; i++) { %>
+                    <option value="<%=categories[i].id%>"><%=categories[i].category%></option> 
+                    <% } %>
+                </select>
+            </div>
+
+
+            <div class="form-query">
+                <label for="features">Características específicas del producto</label>
+                <input type="text" name="features" id="features" class="form-space" placeholder="Características del producto" <%= locals.errores && errores.features ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.features : null %>"
+                >
+                <% if (locals.errores && errores.features) { %>
+                    <div class="text-alert">
+                        <%= errores.features.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="price">Precio</label>
+                <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" placeholder="0" <%= locals.errores && errores.price ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.price : null %>"
+                >
+                <% if (locals.errores && errores.price) { %>
+                    <div class="text-alert">
+                        <%= errores.price.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="precio">Cantidad agregada</label>
+                <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" placeholder="1" <%= locals.errores && errores.amount ? 'is-invalid' : null %> 
+                value="<%= locals.originalData ? originalData.amount : null %>"
+                >
+                <% if (locals.errores && errores.amount) { %>
+                    <div class="text-alert">
+                        <%= errores.amount.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <br>
+
+            <div class="form-query">
+                <label>
+                    Imagen del producto
+                </label>
+                <input type="file" name="product_img" id="file" <%= locals.errors && errors.product_img ? 'is-invalid' : null %>"
+                >
+                <% if (locals.errors && errors.product_img) { %>
+                    <div class="text-danger">
+                        <%= errors.product_img.msg %>
+                    </div>
+                <% } %>
+            </div>
+
+            <br>
+
+            <div class="form-query">
+                <!-- <button class="form-space padd05 margen05 resetear" type="reset" value="Reset">Reset</button> -->
+                <button class="form-space padd05 margen05 enviar" type="submit" value="Submit">Enviar</button>
+            </div>
+        
+        </form>
+
+
+
+
+          
+
+    </main>
+        
+    <%- include('../partials/footer') %>
+
+</body>
+</html>
