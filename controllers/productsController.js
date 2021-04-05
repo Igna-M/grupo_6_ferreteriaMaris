@@ -7,10 +7,6 @@ const productsInDB = JSON.parse(fs.readFileSync(productsDataDBPath, 'utf-8'));
 const categoriesDataDBPath = path.resolve(__dirname, '../data/categories.json');
 const categories = JSON.parse(fs.readFileSync(categoriesDataDBPath, 'utf-8'));
 
-// console.log('');
-// console.log('DataBase Original');
-// console.log(productsInDB);
-
 const productsController = {
 
     productsList: function(req, res) {
@@ -26,8 +22,8 @@ const productsController = {
         const errores = validationResult(req);
         if (!errores.isEmpty()) {
 
-            // let filePath = path.resolve(__dirname,'../public/images/uploads/' + req.file.filename);
-            // fs.unlinkSync(filePath);
+            let filePath = path.resolve(__dirname,'../public/images/uploads/' + req.file.filename);
+            fs.unlinkSync(filePath);
 
             let aLaVista = {
                 categories: categories,
@@ -41,18 +37,24 @@ const productsController = {
         let lastID = lastElement.id;
         let nextID = lastID + 1;
 
+        // let nuevoProducto = {
+        //     id: nextID,
+		// 	   name: req.body.name,
+		// 	   brand: req.body.brand,
+		// 	   model: req.body.model,
+        //     description: req.body.description,
+        //     category: req.body.category,
+        //     features: req.body.features,
+        //     price: req.body.price,
+        //     amount: req.body.amount,
+        //     image: req.file.filename
+		// };  
+
         let nuevoProducto = {
             id: nextID,
-			name: req.body.name,
-			brand: req.body.brand,
-			model: req.body.model,
-            description: req.body.description,
-            category: req.body.category,
-            features: req.body.features,
-            price: req.body.price,
-            amount: req.body.amount,
+            ...req.body,
             image: req.file.filename
-		};  
+        }
 
         productsInDB.push(nuevoProducto);
 

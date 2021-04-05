@@ -1,1 +1,24 @@
-["Herramientas","Tornillos","Electricidad","Maquinaria","Clavos","Otros"]
+[{
+    "id":1,
+    "category":"Herramientas" 
+},
+{
+    "id":2,
+    "category":"Tornillos" 
+},
+{
+    "id":3,
+    "category":"Electricidad" 
+},
+{
+    "id":4,
+    "category":"Maquinaria" 
+},
+{
+    "id":5,
+    "category":"Clavos" 
+},
+{
+    "id":99,
+    "category":"Otros" 
+}]

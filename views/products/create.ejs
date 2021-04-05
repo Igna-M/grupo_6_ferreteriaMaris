@@ -76,7 +76,7 @@
                 </label>               
                 <select id="category" name="category" class="form-space">
                     <% for (let i = 0; i < categories.length; i++) { %>                    
-                    <option value="<%=categories[i]%>"><%=categories[i]%></option> 
+                    <option value="<%=categories[i].id%>"><%=categories[i].category%></option> 
                     <% } %>
                 </select>
             </div>
@@ -136,7 +136,7 @@
             <br>
 
             <div class="form-query">
-                <button class="form-space padd05 margen05 resetear" type="reset" value="Reset">Reset</button>
+                <!-- <button class="form-space padd05 margen05 resetear" type="reset" value="Reset">Reset</button> -->
                 <button class="form-space padd05 margen05 enviar" type="submit" value="Submit">Enviar</button>
             </div>
         
