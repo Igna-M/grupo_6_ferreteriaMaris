@@ -47,8 +47,7 @@
                     <div class="caja-boton">
                         
                         <form action="/products/delete/<%= products[i].id %>" method="POST">
-                        <!-- <form action="/products/delete/<%= products[i].id %>?_method=DELETE" method="POST"> -->
-                            <button type="submit" class="boton-borrar"><h3>Borrar</h3></button>
+                            <button type="submit" class="boton-borrar" name="borrar" value="<%= products[i].id %>"><h3>Borrar</h3></button>
                           </form>
 
                         

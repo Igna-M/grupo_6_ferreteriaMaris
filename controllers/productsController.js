@@ -60,12 +60,12 @@ const productsController = {
         return res.redirect('/products');
     },
 
-    
+
     delete: (req, res) => {
 
-        let newList = productsInDB.filter(producto => producto.id != req.params.id);
+        let newList = productsInDB.filter(producto => producto.id != req.body.borrar);
         
-		let deleteImage = productsInDB.find(producto => producto.id == req.params.id);
+		let deleteImage = productsInDB.find(producto => producto.id == req.body.borrar);
 
 		let imagePath = path.resolve(__dirname,'../public/images/uploads/products/' + deleteImage.image);
 
