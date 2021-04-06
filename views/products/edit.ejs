@@ -24,10 +24,23 @@
             <br>
 
             <div class="productImg">
-                <img src="/images/ConductoresElectricos.JPG" alt="Conductores Electricos">
-
+                <img src="../../images/uploads/products/<%= producto.image %>" alt="<%= producto.name %>">
             </div>
 
+            <br>
+
+                    <div class="form-query">
+                        <label>
+                            Cambiar imagen del producto
+                        </label>
+                        <input type="file" name="product_img" id="file" <%= locals.errors && errors.product_img ? 'is-invalid' : null %>"
+                        >
+                        <% if (locals.errors && errors.product_img) { %>
+                            <div class="text-danger">
+                                <%= errors.product_img.msg %>
+                            </div>
+                        <% } %>
+                    </div>
         </div>    
             
 
@@ -40,7 +53,7 @@
                     
                     <div class="form-query">
                         <label for="name">Nombre del producto</label>
-                        <input type="text" name="name" id="name" placeholder="Nombre del producto" class="form-space" <%= locals.errores && errores.name ? 'is-invalid' : null %> 
+                        <input type="text" name="name" id="name" value="<%= producto.name %>" class="form-space" <%= locals.errores && errores.name ? 'is-invalid' : null %> 
                         value="<%= locals.originalData ? originalData.name : null %>"
                         >
                         <% if (locals.errores && errores.name) { %>
@@ -52,7 +65,7 @@
 
                     <div class="form-query">
                         <label for="name">Marca</label>
-                        <input type="text" name="brand" id="brand" placeholder="Marca del producto" class="form-space" <%= locals.errores && errores.brand ? 'is-invalid' : null %> 
+                        <input type="text" name="brand" id="brand" value="<%= producto.brand %>" class="form-space" <%= locals.errores && errores.brand ? 'is-invalid' : null %> 
                         value="<%= locals.originalData ? originalData.brand : null %>"
                         >
                         <% if (locals.errores && errores.brand) { %>
@@ -66,7 +79,7 @@
 
                     <div class="form-query">
                         <label for="name">Modelo</label>
-                        <input type="text" name="model" id="model" placeholder="Modelo del producto" class="form-space" <%= locals.errores && errores.model ? 'is-invalid' : null %> 
+                        <input type="text" name="model" id="model" value="<%= producto.model %>" class="form-space" <%= locals.errores && errores.model ? 'is-invalid' : null %> 
                         value="<%= locals.originalData ? originalData.model : null %>"
                         >
                         <% if (locals.errores && errores.model) { %>
@@ -78,7 +91,7 @@
 
                     <div class="form-query">
                         <label for="description">Descripción</label>
-                        <input type="text" name="description" id="description" class="form-space" placeholder="Descripción del producto" <%= locals.errores && errores.description ? 'is-invalid' : null %> 
+                        <input type="text" name="description" id="description" class="form-space" value="<%= producto.description %>" <%= locals.errores && errores.description ? 'is-invalid' : null %> 
                         value="<%= locals.originalData ? originalData.description : null %>"
                         >
                         <% if (locals.errores && errores.description) { %>
@@ -94,7 +107,11 @@
                         </label>               
                         <select id="category" name="category" class="form-space">
                             <% for (let i = 0; i < categories.length; i++) { %>
-                            <option value="<%=categories[i].id%>"><%=categories[i].category%></option> 
+                                <% if (categories[i].id == producto.category) { %>
+                                    <option value="<%=categories[i].id%>" selected><%=categories[i].category%></option> 
+                                <% } else { %>
+                                    <option value="<%=categories[i].id%>"><%=categories[i].category%></option> 
+                                <% } %>
                             <% } %>
                         </select>
                     </div>
@@ -102,7 +119,7 @@
 
                     <div class="form-query">
                         <label for="features">Características específicas del producto</label>
-                        <input type="text" name="features" id="features" class="form-space" placeholder="Características del producto" <%= locals.errores && errores.features ? 'is-invalid' : null %> 
+                        <input type="text" name="features" id="features" class="form-space" value="<%= producto.features %>" <%= locals.errores && errores.features ? 'is-invalid' : null %> 
                         value="<%= locals.originalData ? originalData.features : null %>"
                         >
                         <% if (locals.errores && errores.features) { %>
@@ -114,7 +131,7 @@
 
                     <div class="form-query">
                         <label for="price">Precio</label>
-                        <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" placeholder="0" <%= locals.errores && errores.price ? 'is-invalid' : null %> 
+                        <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" value="<%= producto.price %>" <%= locals.errores && errores.price ? 'is-invalid' : null %> 
                         value="<%= locals.originalData ? originalData.price : null %>"
                         >
                         <% if (locals.errores && errores.price) { %>
@@ -126,27 +143,12 @@
 
                     <div class="form-query">
                         <label for="precio">Cantidad agregada</label>
-                        <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" placeholder="1" <%= locals.errores && errores.amount ? 'is-invalid' : null %> 
+                        <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" value="<%= producto.amount %>" <%= locals.errores && errores.amount ? 'is-invalid' : null %> 
                         value="<%= locals.originalData ? originalData.amount : null %>"
                         >
                         <% if (locals.errores && errores.amount) { %>
                             <div class="text-alert">
                                 <%= errores.amount.msg %> 
-                            </div>
-                        <% } %>
-                    </div>
-
-                    <br>
-
-                    <div class="form-query">
-                        <label>
-                            Imagen del producto
-                        </label>
-                        <input type="file" name="product_img" id="file" <%= locals.errors && errors.product_img ? 'is-invalid' : null %>"
-                        >
-                        <% if (locals.errors && errors.product_img) { %>
-                            <div class="text-danger">
-                                <%= errors.product_img.msg %>
                             </div>
                         <% } %>
                     </div>

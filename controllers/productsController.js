@@ -10,7 +10,7 @@ const categories = JSON.parse(fs.readFileSync(categoriesDataDBPath, 'utf-8'));
 const productsController = {
 
     productsList: function(req, res) {
-        aLaVista = {
+        let aLaVista = {
             categories: categories,
             products: productsInDB
         }
@@ -79,9 +79,12 @@ const productsController = {
     },
     
     edit: function(req, res) {
-        aLaVista = {
+
+        let editarProd = productsInDB.find(producto => producto.id == req.params.id);
+
+        let aLaVista = {
             categories: categories,
-            products: productsInDB
+            producto: editarProd
         }
         return res.render('products/edit', aLaVista);
     },

@@ -13,7 +13,7 @@ router.get('/create', productsController.createProduct);
 
 router.post('/create', uploadFile.single('product_img'), validation, productsController.create);
 
-router.get('/edit', productsController.edit);
+router.get('/edit/:id', productsController.edit);
 
 router.post('/delete', productsController.delete);
 
