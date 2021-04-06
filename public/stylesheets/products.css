@@ -39,7 +39,7 @@
     /* color: #40D10A; */
 }
 
-.resetear{
+.borrar{
     border: solid 2px #D12F2A;
 }
 
@@ -115,6 +115,9 @@
 	background-color:#bc3315;
 }
 
+.prod-title{
+    text-align: center;
+}
 
 @media (min-width:700px) {
     
@@ -122,5 +125,23 @@
         flex-basis: 22%;
         justify-content: space-between;
         padding: 15px;
+    }
+
+    .prod-columna1,
+    .prod-columna2{
+        padding: 2px;
+    }
+
+    .prod-columna1{
+        flex-basis: 44%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    .prod-columna2{
+        justify-content: flex-start;
+        flex-basis: 54%;
+        margin-top: 0px;
+        margin-bottom: 20px;                
     }
 }
