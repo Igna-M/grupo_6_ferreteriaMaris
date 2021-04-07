@@ -15,7 +15,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    max-width: 95%;
+    width: 95%;
     /* margin: 15px; */
     margin-top: 20px;
 }
@@ -119,6 +119,18 @@
     text-align: center;
 }
 
+
+
+/* Posiblemente haya que mover esto al media Width y después reveer la versión mobile */
+.contenedor-editar-producto{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+}
+
 @media (min-width:700px) {
     
     .art-lista{
@@ -133,15 +145,19 @@
     }
 
     .prod-columna1{
-        flex-basis: 44%;
+        flex-basis: 40%;
         margin-top: 0px;
         margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
     }
 
     .prod-columna2{
         justify-content: flex-start;
-        flex-basis: 54%;
+        flex-basis: 58%;
         margin-top: 0px;
-        margin-bottom: 20px;                
+        margin-bottom: 20px;     
+        align-items: center;
+        justify-content: center;           
     }
 }

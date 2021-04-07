@@ -46,5 +46,17 @@
     "price": "12",
     "amount": "500",
     "image": "product_img-1617655444902.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Bulones",
+    "brand": "Una marca",
+    "model": "un modelo",
+    "description": "Cabeza hexagonal",
+    "category": "1",
+    "features": "Plateados, muy resistentes",
+    "price": "35",
+    "amount": "200",
+    "image": "product_img-1617823885441.jpeg"
   }
 ]

@@ -9,7 +9,9 @@
 
 <body>
     <%- include('../partials/header') %>
-
+    <div class="create-prod-button">
+        <a href="/products" class="boton-detalles">Volver al listado de productos</a>
+    </div>
     <main class="crear-producto">
 
         <form action="/products/create" method="POST" autocomplete="on" enctype="multipart/form-data" class="ancho-total">
@@ -124,6 +126,7 @@
                 <label>
                     Imagen del producto
                 </label>
+                <br>
                 <input type="file" name="product_img" id="file" <%= locals.errors && errors.product_img ? 'is-invalid' : null %>"
                 >
                 <% if (locals.errors && errors.product_img) { %>

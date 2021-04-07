@@ -52,7 +52,7 @@
                           </form>
 
                         
-                        <a href="/productDetail" class="boton-detalles">Editar</a>
+                        <a href="products/edit/<%= products[i].id %>" class="boton-detalles">Editar</a>
                     </div>
                 </div>
 
@@ -67,7 +67,10 @@
             <br>
         </section>
 
-        
+        <div class="create-prod-button">
+            <a href="/products/create" class="boton-detalles">Crear un producto nuevo</a>
+        </div>
+
 
         <section class="separador2">
             <br>
