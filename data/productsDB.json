@@ -49,14 +49,14 @@
   },
   {
     "id": 6,
-    "name": "Bulones",
-    "brand": "Una marca",
+    "name": "Set Llave Allen",
+    "brand": "Alguna marca",
     "model": "un modelo",
-    "description": "Cabeza hexagonal",
+    "description": "una descripcion",
     "category": "1",
-    "features": "Plateados, muy resistentes",
-    "price": "35",
-    "amount": "200",
-    "image": "product_img-1617823885441.jpeg"
+    "features": "Una caracteristica",
+    "price": "34",
+    "amount": "14",
+    "image": "product_img-1617997851288.jpeg"
   }
 ]

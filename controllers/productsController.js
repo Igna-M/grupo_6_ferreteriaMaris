@@ -3,7 +3,7 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 
 const productsDataDBPath = path.resolve(__dirname, '../data/productsDB.json');
-const productsInDB = JSON.parse(fs.readFileSync(productsDataDBPath, 'utf-8'));
+const productsInDB = () => JSON.parse(fs.readFileSync(productsDataDBPath, 'utf-8'));
 const categoriesDataDBPath = path.resolve(__dirname, '../data/categories.json');
 const categories = JSON.parse(fs.readFileSync(categoriesDataDBPath, 'utf-8'));
 
@@ -12,7 +12,7 @@ const productsController = {
     productsList: function(req, res) {
         let aLaVista = {
             categories: categories,
-            products: productsInDB
+            products: productsInDB()
         }
         return res.render('products/productsList', aLaVista);
     },
@@ -25,10 +25,15 @@ const productsController = {
 
     create: function(req, res) {
         const errores = validationResult(req);
-        if (!errores.isEmpty()) {
+        
+        // console.log(errores);      
 
-            let filePath = path.resolve(__dirname,'../public/images/uploads/' + req.file.filename);
-            fs.unlinkSync(filePath);
+        if (!errores.isEmpty()) {
+            if (req.file){
+                // console.log("Entramos al if de la imagen");
+                let filePath = path.resolve(__dirname,'../public/images/uploads/products/' + req.file.filename);
+                fs.unlinkSync(filePath);
+            }
 
             let aLaVista = {
                 categories: categories,
@@ -38,7 +43,8 @@ const productsController = {
 			return res.render('products/create', aLaVista);
 		}
         
-        let lastElement = productsInDB[productsInDB.length -1];
+        let dataInDB = productsInDB()
+        let lastElement = dataInDB[dataInDB.length -1];
         let lastID = lastElement.id;
         let nextID = lastID + 1;
 
@@ -48,13 +54,9 @@ const productsController = {
             image: req.file.filename
         }
 
-        productsInDB.push(nuevoProducto);
+        dataInDB.push(nuevoProducto);
 
-        console.log('');
-        console.log('DataBase + Producto nuevo');
-        console.log(productsInDB);
-
-        let uploadProducts = JSON.stringify(productsInDB, null , 2);
+        let uploadProducts = JSON.stringify(dataInDB, null , 2);
 		fs.writeFileSync(productsDataDBPath, uploadProducts)
 
         return res.redirect('/products');
@@ -63,9 +65,9 @@ const productsController = {
 
     delete: (req, res) => {
 
-        let newList = productsInDB.filter(producto => producto.id != req.body.borrar);
+        let newList = productsInDB().filter(producto => producto.id != req.body.borrar);
         
-		let deleteImage = productsInDB.find(producto => producto.id == req.body.borrar);
+		let deleteImage = productsInDB().find(producto => producto.id == req.body.borrar);
 
 		let imagePath = path.resolve(__dirname,'../public/images/uploads/products/' + deleteImage.image);
 
@@ -78,9 +80,10 @@ const productsController = {
 		return res.redirect('/products');
     },
     
+    // Edit es la vista del producto que voy a editar
     edit: function(req, res) {
-
-        let editarProd = productsInDB.find(producto => producto.id == req.params.id);
+        
+        let editarProd = productsInDB().find(producto => producto.id == req.params.id);
 
         let aLaVista = {
             categories: categories,
@@ -88,6 +91,59 @@ const productsController = {
         }
         return res.render('products/edit', aLaVista);
     },
+    
+    // Update DB va a chequear si quiero editar o borrar el producto.
+    // En ambos casos, debo pasar el contenido del req.
+    update: (req, res) => {
+        console.log('Llegamos a Update');
+        console.log(req.body.name);
+
+        // datosCapturados = req.body
+        // console.log(datosCapturados);
+        // console.log('Body:', req.body);
+
+
+
+        // if (req.body.submit == 'borrar'){
+
+        //     return redirect('deleteProduct', req)
+
+        // } else if (req.body.submit == 'editar'){
+            
+        //     return redirect('updateProduct', req)
+
+        // }
+
+        return res.send('Bien, llegaste al update')
+    },
+    
+    // Para borrar lo que viene del formulario de edición.
+    deleteProduct: (req, res) => {
+
+        return res.render(req)
+    },
+
+    // Update product del formulario de edición.
+    updateProduct: (req, res) => {
+
+        return res.render(req)
+
+    //     let editarProd = productsInDB().find(producto => producto.id == req.params.id);
+
+        
+    //     let nuevoProducto = {
+    //         id: editarProd.id,
+    //         ...req.body,
+    //         image: req.file.filename
+    //     }
+        
+
+    //  let productoSubir = JSON.stringify(productoEditado, null , 2);
+    //  fs.writeFileSync(productsFilePath,productoSubir);
+
+    //  res.redirect("/")
+     
+ },
 }
 
 module.exports = productsController

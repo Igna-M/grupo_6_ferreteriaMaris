@@ -127,11 +127,14 @@
                     Imagen del producto
                 </label>
                 <br>
-                <input type="file" name="product_img" id="file" <%= locals.errors && errors.product_img ? 'is-invalid' : null %>"
-                >
-                <% if (locals.errors && errors.product_img) { %>
-                    <div class="text-danger">
-                        <%= errors.product_img.msg %>
+                <input type="file" name="product_img" id="file">
+                <% if (locals.errores && errores.product_img) { %>
+                    <div class="text-alert">
+                        <%= errores.product_img.msg %>
+                    </div>
+                <% } else if (locals.errores){ %>
+                    <div class="text-alert">
+                        Vuelve a cargar el archivo, por favor
                     </div>
                 <% } %>
             </div>

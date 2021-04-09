@@ -15,7 +15,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    width: 95%;
+    width: 100%;
     /* margin: 15px; */
     margin-top: 20px;
 }
@@ -35,12 +35,12 @@
 
 .enviar{
     border: solid 2px #40D10A;
-    /* background-color: #40D10A ; */
-    /* color: #40D10A; */
+    padding: 15px;
 }
 
 .borrar{
     border: solid 2px #D12F2A;
+    padding: 10px;
 }
 
 
@@ -145,7 +145,8 @@
     }
 
     .prod-columna1{
-        flex-basis: 40%;
+        width: 44%;
+        flex-basis: 30%;
         margin-top: 0px;
         margin-bottom: 20px;
         align-items: center;
@@ -153,8 +154,9 @@
     }
 
     .prod-columna2{
+        width: 54%;
         justify-content: flex-start;
-        flex-basis: 58%;
+        flex-basis: 38%;
         margin-top: 0px;
         margin-bottom: 20px;     
         align-items: center;
