@@ -65,6 +65,8 @@ const productsController = {
 
     delete: (req, res) => {
 
+        console.log('Pasando por DELETE......');
+
         let newList = productsInDB().filter(producto => producto.id != req.body.borrar);
         
 		let deleteImage = productsInDB().find(producto => producto.id == req.body.borrar);
@@ -96,7 +98,7 @@ const productsController = {
     // En ambos casos, debo pasar el contenido del req.
     update: (req, res) => {
         console.log('Llegamos a Update');
-        console.log(req.body.name);
+        console.log(req.body);
 
         // datosCapturados = req.body
         // console.log(datosCapturados);

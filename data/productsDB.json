@@ -58,5 +58,41 @@
     "price": "34",
     "amount": "14",
     "image": "product_img-1617997851288.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "Serrucho",
+    "brand": "Muchos Dientes",
+    "model": "45 dientes",
+    "description": "Corta todo",
+    "category": "1",
+    "features": "45 dientes",
+    "price": "600",
+    "amount": "550",
+    "image": "product_img-1618005576123.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Pinza Universal",
+    "brand": "Una marca",
+    "model": "un modelo",
+    "description": "Pinza Universal 180 Mm (7) 1000v Industrial",
+    "category": "1",
+    "features": "Mango naranja y amarillo",
+    "price": "650",
+    "amount": "14",
+    "image": "product_img-1618005793817.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "Beethoven",
+    "brand": "Borrar",
+    "model": "Borrar",
+    "description": "Borrar",
+    "category": "3",
+    "features": "Borrar",
+    "price": "2000",
+    "amount": "30",
+    "image": "product_img-1618081064993.jpg"
   }
 ]
