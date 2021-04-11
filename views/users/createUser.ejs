@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/products.css">
+    <title>Productos</title>
+</head>
+
+
+<body>
+    <%- include('../partials/header') %>
+    <div class="create-prod-button">
+        <a href="/users" class="boton-detalles">Volver al listado de usuarios</a>
+    </div>
+    <main class="crear-producto">
+
+        <form action="/users/create" method="POST" autocomplete="on" enctype="multipart/form-data" class="ancho-total">
+            
+            <br>
+            <h2>Crear usuario</h2>
+            <br>
+            
+            <div class="form-query">
+                <label for="fname">Nombre</label>
+                <input type="text" name="fname" id="fname" placeholder="Nombre" class="form-space" value="<%= locals.originalData ? originalData.fname : null %>">
+                <% if (locals.errores && errores.fname) { %>
+                    <div class="text-alert">
+                        <%= errores.fname.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="lname">Apellido</label>
+                <input type="text" name="lname" id="lname" placeholder="Apellido" class="form-space" value="<%= locals.originalData ? originalData.lname : null %>">
+                <% if (locals.errores && errores.lname) { %>
+                    <div class="text-alert">
+                        <%= errores.lname.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            </div>
+
+            <div class="form-query">
+                <label for="user">Nombre de usuario</label>
+                <input type="text" name="user" id="user" placeholder="Nombre de usuario" class="form-space" value="<%= locals.originalData ? originalData.user : null %>">
+                <% if (locals.errores && errores.user) { %>
+                    <div class="text-alert">
+                        <%= errores.user.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" class="form-space" placeholder="email@email.com" value="<%= locals.originalData ? originalData.email : null %>">
+                <% if (locals.errores && errores.email) { %>
+                    <div class="text-alert">
+                        <%= errores.email.msg %> 
+                    </div>
+                <% } %>
+            </div>
+            
+            <div class="form-query">
+                <label for="permisos">Permisos</label>               
+                <select id="category" name="permisos" class="form-space">
+                    <% for (let i = 0; i < permisos.length; i++) { %>
+                        <% if (permisos[i].id == '4') { %>
+                            <option value="<%=permisos[i].id%>" selected><%=permisos[i].category%></option> 
+                        <% } else { %>
+                            <option value="<%=permisos[i].id%>"><%=permisos[i].category%></option> 
+                        <% } %>
+                    <% } %>
+                </select>
+            </div>
+
+
+            <div class="form-query">
+                <label for="admin">Administrador</label>
+                <select name="admin" id="admin" class="option-query">
+                    <option value="true">Sí, administrador</option>
+                    <option value="false" selected>No</option>
+            </div>
+
+            <div class="form-query">
+                <label for="birth_date">Fecha de nacimiento</label>
+                <input type="date" name="birth_date" id="birth_date" class="form-space" value="<%= locals.originalData ? originalData.birth_date : null %>">
+                <% if (locals.errores && errores.price) { %>
+                    <div class="text-alert">
+                        <%= errores.birth_date.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" id="password" class="form-space" placeholder="contraseña">
+                <% if (locals.errores && errores.password) { %>
+                    <div class="text-alert">
+                        <%= errores.password.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <br>
+
+            <div class="form-query">
+                <label>Avatar</label>
+                <br>
+                <input type="file" name="avatar_img" id="file">
+                <% if (locals.errores && errores.avatar_img) { %>
+                    <div class="text-alert">
+                        <%= errores.avatar_img.msg %>
+                    </div>
+                <% } else if (locals.errores){ %>
+                    <div class="text-alert">
+                        Vuelve a cargar el archivo, por favor
+                    </div>
+                <% } %>
+            </div>
+
+            <br>
+
+            <div class="form-query">
+                <button class="form-space padd05 margen05 enviar" type="submit" value="submit">Enviar</button>
+            </div>
+        
+        </form>
+
+
+
+
+          
+
+    </main>
+        
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

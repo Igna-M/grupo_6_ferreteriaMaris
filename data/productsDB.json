@@ -94,5 +94,17 @@
     "price": "35",
     "amount": "1",
     "image": "product_img-1618106097101.jpeg"
+  },
+  {
+    "id": 11,
+    "name": "Nuevo producto",
+    "brand": "Nueva marca de producto",
+    "model": "Nuevo modelo de producto",
+    "description": "Nueva descripcion de producto",
+    "category": "4",
+    "features": "Nuevas caracteristicas de producto",
+    "price": "8000",
+    "amount": "20",
+    "image": "product_img-1618183271900.jpg"
   }
 ]

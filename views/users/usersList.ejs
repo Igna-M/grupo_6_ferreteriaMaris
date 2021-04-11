@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/products.css">
+    <title>Lista de productos</title>
+</head>
+<body>
+
+    <%- include('../partials/header') %>
+
+
+    <main>
+        
+        <div class="create-prod-button">
+            <a href="/users/create" class="boton-detalles">Crear un nuevo usuario</a>
+        </div>
+
+
+        <section class="destacados">           
+
+            <% for (let i = 0; i < usuarios.length; i++) { %>
+            <article class="art-lista">
+                <img src="../images/uploads/products/<%= usuarios[i].avatar %>" alt="Avatar <%= usuarios[i].user %>" class="destacados-img">
+                <div class="caja-descripcion">
+                    <h4 class="description"><%= usuarios[i].user %></h4>
+                    <hr>
+                    <div class="description-box">
+                        <p class="description-dato">Nombre: <%= usuarios[i].fname %></p>
+                        <p class="description-dato">Apellido: <%= usuarios[i].lname %></p>
+                        <p class="description-dato">email: <%= usuarios[i].email %></p>
+                        <p class="description-dato">Permisos: <%= permisos.find(permiso => permiso.id == usuarios[i].permisos).category  %></p>
+                        <p class="description-dato">Admin: <%= usuarios[i].admin ? 'Sí' : 'No' %></p>
+                        <p class="description-dato">Fecha de nacimiento: <%= usuarios[i].birth_date %></p>
+                        <p class="description-dato">Pass: <%= usuarios[i].birth_date %></p>
+                        <p class="description-dato">id: <%= usuarios[i].id %></p>
+                    </div>
+                    
+                    <div class="caja-boton">
+                        <form action="/users/delete/" method="POST">
+                            <button type="submit" class="boton-borrar" name="borrar" value="<%= usuarios[i].id %>"><h3>Borrar EDITAR</h3></button>
+                          </form>
+                        <a href="/products/edit/<%= usuarios[i].id %>" class="boton-detalles">Editar EDITAR</a>
+                    </div>
+                </div>
+
+            </article>
+            <% } %>
+
+        </section>
+
+        <section class="separador2">
+            <br>
+        </section>
+
+        <div class="create-prod-button">
+            <a href="/users/create" class="boton-detalles">Crear un nuevo usuario</a>
+        </div>
+
+        <section class="separador2">
+            <br>
+        </section>
+
+    </main>
+        
+    <%- include('../partials/footer') %>
+
+</body>
+
+</html>

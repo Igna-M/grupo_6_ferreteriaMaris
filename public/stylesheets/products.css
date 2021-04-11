@@ -120,7 +120,11 @@
     margin-bottom: 10px;
 }
 
-
+.option-query{
+    padding: 5px;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
 
 /* Posiblemente haya que mover esto al media Width y después reveer la versión mobile */
 .contenedor-editar-producto{

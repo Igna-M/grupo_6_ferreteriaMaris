@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/products.css">
+    <title>Productos</title>
+</head>
+
+
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="create-prod-button">
+        <a href="/products" class="boton-detalles">Volver al listado de productos</a>
+        <a href="/products/create" class="boton-detalles">Crear un producto nuevo</a>
+    </div>
+
+    <br>
+                    
+    <h1 class="prod-title">Editar producto</h1>
+
+
+    <form action="/products/update/<%= producto.id %>" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
+
+        <div class="prod-columna1">
+
+            <br>
+
+            <div class="productImg">
+                <img src="../../images/uploads/products/<%= producto.image %>" alt="<%= producto.name %>">
+            </div>
+
+            <br>
+
+            <div class="form-query">
+                <label>
+                    Cambiar imagen del producto
+                </label>
+                <br>
+                <input type="file" name="product_img" id="file">
+                <% if (locals.errors && errors.product_img) { %>
+                    <div class="text-danger">
+                        <%= errors.product_img.msg %>
+                    </div>
+                <% } %>
+            </div>
+        </div>    
+
+        <div class="prod-columna2">
+
+            <div class="form-query">                        
+                <label for="name">Nombre del producto</label>
+                <% if (locals.errores && errores.name) { %>
+                <input type="text" name="name" id="name" class="form-space" value="<%= producto.name %>">
+                    <div class="text-alert">
+                        <%= errores.name.msg %> 
+                    </div>
+                <% } else { %>
+                    <input type="text" name="name" id="name" class="form-space" value="<%= locals.userData ? userData.name : producto.name %>">
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="name">Marca</label>
+                <% if (locals.errores && errores.brand) { %>
+                <input type="text" name="brand" id="brand" class="form-space" value="<%= producto.brand %>">
+                    <div class="text-alert">
+                        <%= errores.brand.msg %> 
+                    </div>
+                <% } else { %>
+                    <input type="text" name="brand" id="brand" class="form-space" value="<%= locals.userData ? userData.brand : producto.brand %>">
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="name">Modelo</label>
+                <% if (locals.errores && errores.model) { %>
+                <input type="text" name="model" id="model" class="form-space" value="<%= producto.model %>">
+                    <div class="text-alert">
+                        <%= errores.model.msg %> 
+                    </div>
+                <% } else { %>
+                    <input type="text" name="model" id="model" class="form-space" value="<%= locals.userData ? userData.model : producto.model %>">
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="description">Descripción</label>
+                <% if (locals.errores && errores.description) { %>
+                    <input type="text" name="description" id="description" class="form-space" value="<%= producto.description %>">
+                    <div class="text-alert">
+                        <%= errores.description.msg %> 
+                    </div>
+                <% } else { %>
+                    <input type="text" name="description" id="description" class="form-space" value="<%= locals.userData ? userData.description : producto.description %>">
+                <% } %>
+            </div>
+            
+
+            <div class="form-query">
+                <label>
+                    Categoría
+                </label>               
+                <select id="category" name="category" class="form-space">
+                    <% for (let i = 0; i < categories.length; i++) { %>
+                        <% if (categories[i].id == producto.category) { %>
+                            <option value="<%=categories[i].id%>" selected><%=categories[i].category%></option> 
+                        <% } else { %>
+                            <option value="<%=categories[i].id%>"><%=categories[i].category%></option> 
+                        <% } %>
+                    <% } %>
+                </select>
+            </div>
+
+
+            <div class="form-query">
+                <label for="features">Características específicas del producto</label>
+                <% if (locals.errores && errores.features) { %>
+                    <input type="text" name="features" id="features" class="form-space" value="<%= producto.features %>">
+                    <div class="text-alert">
+                        <%= errores.features.msg %> 
+                    </div>
+                <% } else { %>
+                    <input type="text" name="features" id="features" class="form-space" value="<%= locals.userData ? userData.features : producto.features %>">
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="price">Precio</label>
+                <% if (locals.errores && errores.price) { %>
+                    <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" value="<%= producto.price %>">
+                    <div class="text-alert">
+                        <%= errores.price.msg %> 
+                    </div>
+                <% } else { %>
+                    <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" value="<%= locals.userData ? userData.price : producto.price %>">
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="precio">Cantidad agregada</label>
+                <% if (locals.errores && errores.amount) { %>
+                    <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" value="<%= producto.amount %>">
+                    <div class="text-alert">
+                        <%= errores.amount.msg %> 
+                    </div>
+                <% } else { %>
+                    <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" value="<%= locals.userData ? userData.amount : producto.amount %>">
+                <% } %>
+            </div>
+
+            <br>
+
+            <div class="form-query">
+                <button class="form-space padd05 margen05 enviar" type="submit" value="Submit">Enviar cambios</button>
+
+            </div>
+        </div>
+    </form>
+
+    <form action="/products/delete/" method="POST" id="form2">
+        <div class="prod-title">
+            <input type="hidden" name="borrar" value="<%= producto.id %>">
+            <button type="submit" class="form-space padd05 margen05 borrar"><h3>Borrar</h3></button>
+
+        </div>           
+    </form>
+
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

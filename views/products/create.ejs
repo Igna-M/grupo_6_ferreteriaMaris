@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-query">
-                <label for="name">Marca</label>
+                <label for="brand">Marca</label>
                 <input type="text" name="brand" id="brand" placeholder="Marca del producto" class="form-space" value="<%= locals.originalData ? originalData.brand : null %>">
                 <% if (locals.errores && errores.brand) { %>
                     <div class="text-alert">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-query">
-                <label for="name">Modelo</label>
+                <label for="model">Modelo</label>
                 <input type="text" name="model" id="model" placeholder="Modelo del producto" class="form-space" value="<%= locals.originalData ? originalData.model : null %>">
                 <% if (locals.errores && errores.model) { %>
                     <div class="text-alert">
@@ -65,7 +65,7 @@
             </div>
             
             <div class="form-query">
-                <label>
+                <label for="category">
                     Categoría
                 </label>               
                 <select id="category" name="category" class="form-space">
@@ -97,7 +97,7 @@
             </div>
 
             <div class="form-query">
-                <label for="precio">Cantidad agregada</label>
+                <label for="amount">Cantidad agregada</label>
                 <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" placeholder="1" value="<%= locals.originalData ? originalData.amount : null %>">
                 <% if (locals.errores && errores.amount) { %>
                     <div class="text-alert">

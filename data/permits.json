@@ -1,0 +1,32 @@
+[{
+    "id":"1",
+    "category":"Administrador"
+},
+{
+    "id":"2",
+    "category":"Editor" 
+},
+{
+    "id":"3",
+    "category":"Autor" 
+},
+{
+    "id":"4",
+    "category":"Colaborador" 
+},
+{
+    "id":"5",
+    "category":"Suscriptor" 
+},
+{
+    "id":"6",
+    "category":"Cliente" 
+},
+{
+    "id":"7",
+    "category":"Cliente Destacado" 
+},
+{
+    "id":"99",
+    "category":"Capo di tutti capi" 
+}]

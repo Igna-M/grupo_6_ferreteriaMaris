@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "fname": "Cosme",
+    "lname": "Fulanito",
+    "user": "cosme",
+    "email": "cosme@ferreteria.com",
+    "permisos": "99",
+    "admin": false,
+    "birth_date": "",
+    "pass": "",
+    "avatar_img": ""
+  },
+  {
+    "id": 2,
+    "fname": "Cosmes",
+    "lname": "Fulanitos",
+    "user": "cosmes",
+    "email": "cosmes@ferreteria.com",
+    "permisos": "3",
+    "admin": true,
+    "birth_date": "",
+    "pass": "",
+    "avatar_img": ""
+  }
+]
