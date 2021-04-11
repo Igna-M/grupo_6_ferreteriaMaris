@@ -85,14 +85,26 @@
   },
   {
     "id": 9,
-    "name": "Beethoven",
-    "brand": "Borrar",
-    "model": "Borrar",
-    "description": "Borrar",
-    "category": "3",
-    "features": "Borrar",
-    "price": "2000",
-    "amount": "30",
-    "image": "product_img-1618081064993.jpg"
+    "name": "Un Producto",
+    "brand": "Una marca",
+    "model": "modelo 3",
+    "description": "describir",
+    "category": "4",
+    "features": "Muy buenas",
+    "price": "233",
+    "amount": "12",
+    "image": "product_img-1618105691946.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Un tornillo",
+    "brand": "Una marca",
+    "model": "un modelo",
+    "description": "Describilo",
+    "category": "1",
+    "features": "Alguna caracteristica",
+    "price": "35",
+    "amount": "1",
+    "image": "product_img-1618106097101.jpeg"
   }
 ]

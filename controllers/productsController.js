@@ -65,8 +65,6 @@ const productsController = {
 
     delete: (req, res) => {
 
-        console.log('Pasando por DELETE......');
-
         let newList = productsInDB().filter(producto => producto.id != req.body.borrar);
         
 		let deleteImage = productsInDB().find(producto => producto.id == req.body.borrar);
@@ -97,55 +95,41 @@ const productsController = {
     // Update DB va a chequear si quiero editar o borrar el producto.
     // En ambos casos, debo pasar el contenido del req.
     update: (req, res) => {
-        console.log('Llegamos a Update');
-        console.log(req.body);
+        console.log('Llegamos a Update!!!');
+        // console.log(req);
+        console.log('BODY:', req.body);
+        // console.log(req.body.producto.name);
+
+
+        // USAR MAP PARA ACTUALIZAR EL ELEMENTO DEL ARRAY
 
         // datosCapturados = req.body
         // console.log(datosCapturados);
         // console.log('Body:', req.body);
 
 
-
-        // if (req.body.submit == 'borrar'){
-
-        //     return redirect('deleteProduct', req)
-
-        // } else if (req.body.submit == 'editar'){
-            
-        //     return redirect('updateProduct', req)
-
-        // }
-
-        return res.send('Bien, llegaste al update')
+        return res.send('Bien, llegaste al update!!!')
     },
     
-    // Para borrar lo que viene del formulario de edición.
-    deleteProduct: (req, res) => {
-
-        return res.render(req)
-    },
-
     // Update product del formulario de edición.
-    updateProduct: (req, res) => {
+    //     updateProduct: (req, res) => {
 
-        return res.render(req)
+    //         return res.render(req)
 
-    //     let editarProd = productsInDB().find(producto => producto.id == req.params.id);
+    //     //     let editarProd = productsInDB().find(producto => producto.id == req.params.id);
+            
+    //     //     let nuevoProducto = {
+    //     //         id: editarProd.id,
+    //     //         ...req.body,
+    //     //         image: req.file.filename
+    //     //     }
+            
+    //     //  let productoSubir = JSON.stringify(productoEditado, null , 2);
+    //     //  fs.writeFileSync(productsFilePath,productoSubir);
 
-        
-    //     let nuevoProducto = {
-    //         id: editarProd.id,
-    //         ...req.body,
-    //         image: req.file.filename
-    //     }
-        
+    //     //  res.redirect("/")    
+    // }
 
-    //  let productoSubir = JSON.stringify(productoEditado, null , 2);
-    //  fs.writeFileSync(productsFilePath,productoSubir);
-
-    //  res.redirect("/")
-     
- },
 }
 
 module.exports = productsController
