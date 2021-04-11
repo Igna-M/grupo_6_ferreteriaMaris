@@ -84,20 +84,8 @@
     "image": "product_img-1618005793817.jpeg"
   },
   {
-    "id": 9,
-    "name": "Un Producto",
-    "brand": "Una marca",
-    "model": "modelo 3",
-    "description": "describir",
-    "category": "4",
-    "features": "Muy buenas",
-    "price": "233",
-    "amount": "12",
-    "image": "product_img-1618105691946.jpg"
-  },
-  {
     "id": 10,
-    "name": "Un tornillo",
+    "name": "Nuevo titulo para el taladro",
     "brand": "Una marca",
     "model": "un modelo",
     "description": "Describilo",
