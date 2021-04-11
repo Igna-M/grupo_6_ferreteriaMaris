@@ -20,7 +20,7 @@
     <h1 class="prod-title">Editar producto</h1>
 
 
-    <form action="/products/update" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
+    <form action="/products/update/<%= producto.id %>" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
 
         <div class="prod-columna1">
 
@@ -50,48 +50,53 @@
 
             <div class="form-query">                        
                 <label for="name">Nombre del producto</label>
-                <input type="text" name="name" id="name" class="form-space" value="<%= locals.originalData ? originalData.name : producto.name %>">
                 <% if (locals.errores && errores.name) { %>
+                <input type="text" name="name" id="name" class="form-space" value="<%= producto.name %>">
                     <div class="text-alert">
                         <%= errores.name.msg %> 
                     </div>
+                <% } else { %>
+                    <input type="text" name="name" id="name" class="form-space" value="<%= locals.userData ? userData.name : producto.name %>">
                 <% } %>
             </div>
 
             <div class="form-query">
                 <label for="name">Marca</label>
-                <input type="text" name="brand" id="brand" class="form-space" value="<%= locals.originalData ? originalData.brand : producto.brand %>">
                 <% if (locals.errores && errores.brand) { %>
+                <input type="text" name="brand" id="brand" class="form-space" value="<%= producto.brand %>">
                     <div class="text-alert">
                         <%= errores.brand.msg %> 
                     </div>
+                <% } else { %>
+                    <input type="text" name="brand" id="brand" class="form-space" value="<%= locals.userData ? userData.brand : producto.brand %>">
                 <% } %>
             </div>
 
             <div class="form-query">
                 <label for="name">Modelo</label>
-                <input type="text" name="model" id="model" class="form-space" <%= locals.errores && errores.model ? 'is-invalid' : null %> 
-                value="<%= locals.originalData ? originalData.model : producto.model %>"
-                >
                 <% if (locals.errores && errores.model) { %>
+                <input type="text" name="model" id="model" class="form-space" value="<%= producto.model %>">
                     <div class="text-alert">
                         <%= errores.model.msg %> 
                     </div>
+                <% } else { %>
+                    <input type="text" name="model" id="model" class="form-space" value="<%= locals.userData ? userData.model : producto.model %>">
                 <% } %>
             </div>
 
             <div class="form-query">
                 <label for="description">Descripción</label>
-                <input type="text" name="description" id="description" class="form-space" <%= locals.errores && errores.description ? 'is-invalid' : null %> 
-                value="<%= locals.originalData ? originalData.description : producto.description %>"
-                >
                 <% if (locals.errores && errores.description) { %>
+                    <input type="text" name="description" id="description" class="form-space" value="<%= producto.description %>">
                     <div class="text-alert">
                         <%= errores.description.msg %> 
                     </div>
+                <% } else { %>
+                    <input type="text" name="description" id="description" class="form-space" value="<%= locals.userData ? userData.description : producto.description %>">
                 <% } %>
             </div>
             
+
             <div class="form-query">
                 <label>
                     Categoría
@@ -110,37 +115,37 @@
 
             <div class="form-query">
                 <label for="features">Características específicas del producto</label>
-                <input type="text" name="features" id="features" class="form-space" <%= locals.errores && errores.features ? 'is-invalid' : null %> 
-                value="<%= locals.originalData ? originalData.features : producto.features %>"
-                >
                 <% if (locals.errores && errores.features) { %>
+                    <input type="text" name="features" id="features" class="form-space" value="<%= producto.features %>">
                     <div class="text-alert">
                         <%= errores.features.msg %> 
                     </div>
+                <% } else { %>
+                    <input type="text" name="features" id="features" class="form-space" value="<%= locals.userData ? userData.features : producto.features %>">
                 <% } %>
             </div>
 
             <div class="form-query">
                 <label for="price">Precio</label>
-                <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" <%= locals.errores && errores.price ? 'is-invalid' : null %> 
-                value="<%= locals.originalData ? originalData.price : producto.price %>"
-                >
                 <% if (locals.errores && errores.price) { %>
+                    <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" value="<%= producto.price %>">
                     <div class="text-alert">
                         <%= errores.price.msg %> 
                     </div>
+                <% } else { %>
+                    <input type="number" min="0" max="9999999" step="1" name="price" id="price" class="form-space" value="<%= locals.userData ? userData.price : producto.price %>">
                 <% } %>
             </div>
 
             <div class="form-query">
                 <label for="precio">Cantidad agregada</label>
-                <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" value="<%= producto.amount %>" <%= locals.errores && errores.amount ? 'is-invalid' : null %> 
-                value="<%= locals.originalData ? originalData.amount : null %>"
-                >
                 <% if (locals.errores && errores.amount) { %>
+                    <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" value="<%= producto.amount %>">
                     <div class="text-alert">
                         <%= errores.amount.msg %> 
                     </div>
+                <% } else { %>
+                    <input type="number" min="0" max="9999999" step="1" name="amount" id="amount" class="form-space" value="<%= locals.userData ? userData.amount : producto.amount %>">
                 <% } %>
             </div>
 

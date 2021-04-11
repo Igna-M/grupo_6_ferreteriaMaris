@@ -2,16 +2,16 @@ const path = require('path');
 const { body } = require('express-validator');
 
 const validaciones = [
-	body('name').notEmpty().withMessage('El producto debe tener un nombre'),
-	body('brand').notEmpty().withMessage('El producto debe tener una marca'),
-	body('model').notEmpty().withMessage('El producto debe tener un modelo'),
-	body('description').notEmpty().withMessage('El producto debe tener una descripción'),
-	body('features').notEmpty().withMessage('Es una buena idea incluir las características del producto'),
+	body('name').notEmpty().withMessage('El producto debe tener un nombre. Seguimos usando el nombre original.'),
+	body('brand').notEmpty().withMessage('El producto debe tener una marca. Seguimos usando la marca original.'),
+	body('model').notEmpty().withMessage('El producto debe tener un modelo. Seguimos usando el modelo original.'),
+	body('description').notEmpty().withMessage('El producto debe tener una descripción. Seguimos usando la descripción original.'),
+	body('features').notEmpty().withMessage('Faltó la descripción. Seguimos usando la descripción original.'),
 	body('price')
-		.notEmpty().withMessage('¿Cuál es tu precio?').bail()
+		.notEmpty().withMessage('¿Cuál es tu precio? Seguimos usando el precio original.').bail()
 		.isNumeric().withMessage('Dime un numero'),
     body('amount')
-		.notEmpty().withMessage('¿Cuántos tenemos?').bail().
+		.notEmpty().withMessage('¿Cuántos tenemos? Seguimos usando la cantidad original.').bail().
 		isNumeric().withMessage('Dime un numero'),
 	body('product_img').custom((value, { req }) => {
 		if (req.file) {

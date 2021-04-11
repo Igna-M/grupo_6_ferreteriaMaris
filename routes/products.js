@@ -18,7 +18,7 @@ router.get('/edit/:id', productsController.edit);
 
 router.post('/delete', productsController.delete);
 
-router.post('/update', uploadFile.single('product_img'), validationEdit, productsController.update);
+router.post('/update/:id', uploadFile.single('product_img'), validationEdit, productsController.update);
 
 
 

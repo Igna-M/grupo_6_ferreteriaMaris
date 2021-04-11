@@ -93,9 +93,18 @@ const productsController = {
     
     // Recibo los datos del producto que quiero editar
     update: (req, res) => {
-        // USAR MAP PARA ACTUALIZAR EL ELEMENTO DEL ARRAY
+        
+        let editarProd = productsInDB().find(producto => producto.id == req.params.id);
+        console.log('Prducto a editar:', editarProd);
+
         const errores = validationResult(req);
         console.log(errores);
+
+        console.log('UserData:', req.body);
+
+        /// Validación y borrado de imagen OK. Si en el update, pongo una extensión no aceptada, avisa y borra el archivo.
+        // Si en los datos actualizados encuentra un error, y subí un archivo, borra ese archivo.
+        // Si no hay error, el archivo se carga (Al actualizar la base de datos, tengo que borrar el archivo anterior.)
 
         if (!errores.isEmpty()) {
             if (req.file){
@@ -103,10 +112,13 @@ const productsController = {
                 fs.unlinkSync(filePath);
             }
 
-            /// Hasta acá, estamos muy bien. Si en el update, pongo una extensión no aceptada, borra el archivop.
-            // Si en los datos actualizados encuentra un error, y subí un archivo, borra ese archivo.
-            // Si no hay error, el archivo se carga (Por ahora no borré el archivo anterior.)
-            
+            let aLaVista = {
+                categories: categories,
+				errores: errores.mapped(),
+				userData: req.body,
+                producto: editarProd
+			}
+			return res.render('products/edit', aLaVista);
 
         }
 
@@ -122,6 +134,32 @@ const productsController = {
         }
 
    
+        // USAR MAP PARA ACTUALIZAR EL ELEMENTO DEL ARRAY
+        // . . . . . . . . . . . . . . . . . . . . . . . . .
+        //  . . . . . . . . . . . . . . . . . . . . . . . .
+        //   . . . . . . . . . . . . . . . . . . . . . . .
+        //    . . . . . . . . . . . . . . . . . . . . . .
+        //     . . . . . . . . . . . . . . . . . . . . .
+
+        // let dataInDB = productsInDB()
+        // let lastElement = dataInDB[dataInDB.length -1];
+        // let lastID = lastElement.id;
+        // let nextID = lastID + 1;
+
+        // let nuevoProducto = {
+        //     id: nextID,
+        //     ...req.body,
+        //     image: req.file.filename
+        // }
+
+        // dataInDB.push(nuevoProducto);
+
+        // let uploadProducts = JSON.stringify(dataInDB, null , 2);
+		// fs.writeFileSync(productsDataDBPath, uploadProducts)
+
+        // return res.redirect('/products');
+
+
 
         return res.send('Bien, llegaste al update!!!')
     },
