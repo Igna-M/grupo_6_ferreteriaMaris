@@ -1,7 +1,7 @@
 const path = require('path');
 const { body } = require('express-validator');
 
-module.exports = [
+const validaciones = [
 	body('name').notEmpty().withMessage('El producto debe tener un nombre'),
 	body('brand').notEmpty().withMessage('El producto debe tener una marca'),
 	body('model').notEmpty().withMessage('El producto debe tener un modelo'),
@@ -14,12 +14,9 @@ module.exports = [
 		.notEmpty().withMessage('¿Cuántos tenemos?').bail().
 		isNumeric().withMessage('Dime un numero'),
 	body('product_img').custom((value, { req }) => {
-		let file = req.file;
-		let acceptedExtensions = ['.jpg', ".jpeg", '.png', '.gif'];	
-
-		if (!file) {
-			throw new Error('Una imagen dice más que mil palabras');
-		} else {
+		if (req.file) {
+			let file = req.file;
+			let acceptedExtensions = ['.jpg', ".jpeg", '.png', '.gif'];	
 			let fileExtension = path.extname(file.originalname);
 			if (!acceptedExtensions.includes(fileExtension)) {
 				throw new Error(`Las extensiones permitidas para el archivo son ${acceptedExtensions.join(', ')}`);
@@ -29,3 +26,6 @@ module.exports = [
 		return true;
 	})
 ]
+
+
+module.exports = validaciones

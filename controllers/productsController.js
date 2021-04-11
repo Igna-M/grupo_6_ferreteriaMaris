@@ -25,7 +25,6 @@ const productsController = {
 
     create: function(req, res) {
         const errores = validationResult(req);
-        
         // console.log(errores);      
 
         if (!errores.isEmpty()) {
@@ -92,25 +91,49 @@ const productsController = {
         return res.render('products/edit', aLaVista);
     },
     
-    // Update DB va a chequear si quiero editar o borrar el producto.
-    // En ambos casos, debo pasar el contenido del req.
+    // Recibo los datos del producto que quiero editar
     update: (req, res) => {
-        console.log('Llegamos a Update!!!');
-        // console.log(req);
-        console.log('BODY:', req.body);
-        // console.log(req.body.producto.name);
-
-
         // USAR MAP PARA ACTUALIZAR EL ELEMENTO DEL ARRAY
+        const errores = validationResult(req);
+        console.log(errores);
 
-        // datosCapturados = req.body
-        // console.log(datosCapturados);
-        // console.log('Body:', req.body);
+        if (!errores.isEmpty()) {
+            if (req.file){
+                let filePath = path.resolve(__dirname,'../public/images/uploads/products/' + req.file.filename);
+                fs.unlinkSync(filePath);
+            }
 
+            /// Hasta acá, estamos muy bien. Si en el update, pongo una extensión no aceptada, borra el archivop.
+            // Si en los datos actualizados encuentra un error, y subí un archivo, borra ese archivo.
+            // Si no hay error, el archivo se carga (Por ahora no borré el archivo anterior.)
+            
+
+        }
+
+
+
+
+        console.log('Llegamos a Update!!!');
+        datosCapturados = req.body
+        console.log(datosCapturados);
+
+        if (req.file) {
+            console.log(req.file);
+        }
+
+   
 
         return res.send('Bien, llegaste al update!!!')
     },
     
+    // Necesitamos un método para cargar en BULK a través de un csv
+    // Después, puede mostrar las características de los datos y darte la opción de cargar las fotos.
+
+
+
+
+
+
     // Update product del formulario de edición.
     //     updateProduct: (req, res) => {
 
