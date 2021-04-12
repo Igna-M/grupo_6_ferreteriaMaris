@@ -1,17 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-// var path = require('path');
-
 const usersController = require('../controllers/usersController');
 const uploadAvatar = require("../middlewares/usersMulter")
-
-
-// const usersBaseController = require("../controllers/userBaseController")
-// const validations = require('../middleware/validateRegister');
-// 
-// const guestsMiddleware = require('../middleware/guestMiddleware');
-// const authMiddleware = require('../middleware/authMiddleware');
+const validationCreateUser = require('../middlewares/createUserValidation');
 
 
 
@@ -19,7 +11,7 @@ router.get('/', usersController.users);
 
 router.get('/create', usersController.createForm);
 
-router.post('/create', uploadAvatar.single('avatar_img'), usersController.create);
+router.post('/create', uploadAvatar.single('avatar_img'), validationCreateUser, usersController.create);
 
 // router.post('/create', uploadAvatar.single('product_img'), validationCreateUser, usersController.create);
 

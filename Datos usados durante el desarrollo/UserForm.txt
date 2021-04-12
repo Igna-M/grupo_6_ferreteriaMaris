@@ -1,0 +1,25 @@
+{
+
+"userInput": {
+"fname": "Mario",
+"lname": "Bros",
+"user": "marius",
+"email": "mario@bros.com",
+"permisos": "99",
+"admin": "true",
+"birth_date": "1993-03-03",
+"password": "0303030303"
+},
+
+"userAvatar": {
+"fieldname": "avatar_img",
+"originalname": "Mario.png",
+"encoding": "7bit",
+"mimetype": "image/png",
+"destination": "/Users/ignaciomanzo/Python/DH Ejercicios/202102_Practicas/26_Ferreteria/grupo_6_ferreteriaMaris/public/images/uploads/users",
+"filename": "avatar_img-1618183511302.png",
+"path": "/Users/ignaciomanzo/Python/DH Ejercicios/202102_Practicas/26_Ferreteria/grupo_6_ferreteriaMaris/public/images/uploads/users/avatar_img-1618183511302.png",
+"size": 802
+
+}
+}

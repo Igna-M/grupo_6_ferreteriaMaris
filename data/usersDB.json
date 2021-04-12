@@ -1,26 +1,38 @@
 [
   {
     "id": 1,
-    "fname": "Cosme",
-    "lname": "Fulanito",
-    "user": "cosme",
-    "email": "cosme@ferreteria.com",
-    "permisos": "99",
-    "admin": false,
-    "birth_date": "",
-    "pass": "",
-    "avatar_img": ""
+    "fname": "Holden",
+    "lname": "Caulfield",
+    "user": "HoldenCaulfield",
+    "email": "Holden@ferreteria.com",
+    "admin": true,
+    "permisos": "1",
+    "birth_date": "1964-10-23",
+    "password": "$2b$12$zAMUnUDpeYjo28QiR2IxSeR9V5LLCorFgfB.Qh9ql9lfWseixOCSu",
+    "avatar": "avatar_img-1618200897383.jpeg"
   },
   {
     "id": 2,
-    "fname": "Cosmes",
-    "lname": "Fulanitos",
-    "user": "cosmes",
-    "email": "cosmes@ferreteria.com",
-    "permisos": "3",
-    "admin": true,
-    "birth_date": "",
-    "pass": "",
-    "avatar_img": ""
+    "fname": "Mario",
+    "lname": "Bros",
+    "user": "MarioBros",
+    "email": "mario@bros.com",
+    "permisos": "6",
+    "admin": false,
+    "birth_date": "1995-03-15",
+    "password": "$2b$12$.uzT5fwsPuruYuIe/dnM5.hI9owsMfzw17e9a34eRDhyNc5nfQwyC",
+    "avatar": "avatar_img-1618201482423.png"
+  },
+  {
+    "id": 3,
+    "fname": "Cosme",
+    "lname": "Fulanito",
+    "user": "CosmeFulanito",
+    "email": "cosme@ferreteria.com.ar",
+    "permisos": "1",
+    "admin": false,
+    "birth_date": "2002-05-17",
+    "password": "$2b$12$zHeXDrNWSguROXDM77ksz.75gWbsC4Fd9jLh7hk0.FurlNThLYvoC",
+    "avatar": "avatar_img-1618201615906.jpeg"
   }
 ]

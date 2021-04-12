@@ -106,5 +106,17 @@
     "price": "8000",
     "amount": "20",
     "image": "product_img-1618183271900.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Un Producto",
+    "brand": "Una marca",
+    "model": "un modelo",
+    "description": "una descripcion",
+    "category": "2",
+    "features": "Alguna caracteristica",
+    "price": "200",
+    "amount": "1600",
+    "image": "product_img-1618196362265.jpeg"
   }
 ]

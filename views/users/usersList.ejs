@@ -9,19 +9,17 @@
 
     <%- include('../partials/header') %>
 
-
     <main>
         
         <div class="create-prod-button">
             <a href="/users/create" class="boton-detalles">Crear un nuevo usuario</a>
         </div>
 
-
         <section class="destacados">           
 
             <% for (let i = 0; i < usuarios.length; i++) { %>
             <article class="art-lista">
-                <img src="../images/uploads/products/<%= usuarios[i].avatar %>" alt="Avatar <%= usuarios[i].user %>" class="destacados-img">
+                <img src="../images/uploads/users/<%= usuarios[i].avatar %>" alt="Avatar <%= usuarios[i].user %>" class="destacados-img">
                 <div class="caja-descripcion">
                     <h4 class="description"><%= usuarios[i].user %></h4>
                     <hr>
@@ -32,7 +30,6 @@
                         <p class="description-dato">Permisos: <%= permisos.find(permiso => permiso.id == usuarios[i].permisos).category  %></p>
                         <p class="description-dato">Admin: <%= usuarios[i].admin ? 'Sí' : 'No' %></p>
                         <p class="description-dato">Fecha de nacimiento: <%= usuarios[i].birth_date %></p>
-                        <p class="description-dato">Pass: <%= usuarios[i].birth_date %></p>
                         <p class="description-dato">id: <%= usuarios[i].id %></p>
                     </div>
                     

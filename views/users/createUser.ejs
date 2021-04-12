@@ -63,15 +63,29 @@
             </div>
             
             <div class="form-query">
-                <label for="permisos">Permisos</label>               
-                <select id="category" name="permisos" class="form-space">
+                <label for="permisos">Permisos</label>
+                <select id="permisos" name="permisos" class="form-space">
+                <% if (locals.originalData && originalData.permisos) { %>
+
                     <% for (let i = 0; i < permisos.length; i++) { %>
-                        <% if (permisos[i].id == '4') { %>
+                        <% if (permisos[i].id == originalData.permisos) { %>
                             <option value="<%=permisos[i].id%>" selected><%=permisos[i].category%></option> 
                         <% } else { %>
                             <option value="<%=permisos[i].id%>"><%=permisos[i].category%></option> 
                         <% } %>
                     <% } %>
+
+                <% } else { %>
+                    
+                        <% for (let i = 0; i < permisos.length; i++) { %>
+                            <% if (permisos[i].id == '4') { %>
+                                <option value="<%=permisos[i].id%>" selected><%=permisos[i].category%></option> 
+                            <% } else { %>
+                                <option value="<%=permisos[i].id%>"><%=permisos[i].category%></option> 
+                            <% } %>
+                        <% } %>
+
+                <% } %>
                 </select>
             </div>
 
@@ -99,6 +113,16 @@
                 <% if (locals.errores && errores.password) { %>
                     <div class="text-alert">
                         <%= errores.password.msg %> 
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-query">
+                <label for="confirm_pass">Confirmar contraseña</label>
+                <input type="password" name="confirm_pass" id="confirm_pass" class="form-space" placeholder="confirmar contraseña">
+                <% if (locals.errores && errores.confirm_pass) { %>
+                    <div class="text-alert">
+                        <%= errores.confirm_pass.msg %> 
                     </div>
                 <% } %>
             </div>
