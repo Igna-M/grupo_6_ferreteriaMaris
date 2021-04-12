@@ -29,10 +29,46 @@
     "lname": "Fulanito",
     "user": "CosmeFulanito",
     "email": "cosme@ferreteria.com.ar",
-    "permisos": "1",
+    "permisos": "5",
     "admin": false,
-    "birth_date": "2002-05-17",
-    "password": "$2b$12$zHeXDrNWSguROXDM77ksz.75gWbsC4Fd9jLh7hk0.FurlNThLYvoC",
-    "avatar": "avatar_img-1618201615906.jpeg"
+    "birth_date": "1999-03-22",
+    "password": "$2b$12$pI4a6JUCtxhiuKSFXRyhAu5YFlA4xReoePHB7awvVsqIaJZcimdXS",
+    "avatar": "avatar_img-1618257660169.jpeg"
+  },
+  {
+    "id": 4,
+    "fname": "Han",
+    "lname": "Solo",
+    "user": "HanSolo25",
+    "email": "han@ferre.com.ar",
+    "permisos": "99",
+    "admin": false,
+    "birth_date": "2003-02-22",
+    "password": "$2b$12$b5Bjeylkvssc5v.BNvlgI.aiiif/Tqh.vnBpqMG8IPu.yEJ4DXj7y",
+    "avatar": "avatar_img-1618257724147.jpeg"
+  },
+  {
+    "id": 5,
+    "fname": "Pelusa",
+    "lname": "Maradona",
+    "user": "pelusa86",
+    "email": "diego@ferre.com.ar",
+    "permisos": "3",
+    "admin": false,
+    "birth_date": "1960-10-30",
+    "password": "$2b$12$D0xIFpeQvSSagn.mjrRu0e8zn.0xEAwJiZIhTKnnwL3yMLTCPFaya",
+    "avatar": "avatar_img-1618257787930.jpeg"
+  },
+  {
+    "id": 6,
+    "fname": "Ben",
+    "lname": "Folds",
+    "user": "benfolds5",
+    "email": "ben@ferres.com.ar",
+    "permisos": "2",
+    "admin": false,
+    "birth_date": "1970-11-29",
+    "password": "$2b$12$HX5p0dT3ADmk.uCmDZulbuLW6Bvu8RPFfWYXXKp.aLvLsz07gappm",
+    "avatar": "avatar_img-1618257911452.jpeg"
   }
 ]

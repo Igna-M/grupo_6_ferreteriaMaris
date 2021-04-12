@@ -13,6 +13,8 @@ router.get('/create', usersController.createForm);
 
 router.post('/create', uploadAvatar.single('avatar_img'), validationCreateUser, usersController.create);
 
+router.post('/delete', usersController.delete);
+
 // router.post('/create', uploadAvatar.single('product_img'), validationCreateUser, usersController.create);
 
 // router.get('/ingresar', guestMiddleware, userBaseController.login);

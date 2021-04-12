@@ -78,7 +78,26 @@ const usersController = {
 		fs.writeFileSync(usersInDBPath, uploadProducts)
 
         return res.redirect('/users')
+    },
+
+
+    delete: (req, res) => {
+
+        let newList = usersInDB().filter(usuario => usuario.id != req.body.borrar);
+        
+		let deleteImage = usersInDB().find(usuario => usuario.id == req.body.borrar);
+
+		let imagePath = path.resolve(__dirname,'../public/images/uploads/users/' + deleteImage.avatar);
+
+		fs.unlinkSync(imagePath);
+         
+
+        let uploadProducts = JSON.stringify(newList, null , 2);
+		fs.writeFileSync(usersInDBPath, uploadProducts)
+
+		return res.redirect('/users');
     }
+    
     
 }
 
