@@ -147,7 +147,7 @@ const productsController = {
 
         return res.redirect('/products');
 
-    },
+    }
     
     // Necesitamos un método para cargar en BULK a través de un csv
     // Después, puede mostrar las características de los datos y darte la opción de cargar las fotos.

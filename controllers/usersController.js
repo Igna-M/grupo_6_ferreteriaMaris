@@ -57,9 +57,9 @@ const usersController = {
         let nextID = lastID + 1;
         let password = bcrypt.hashSync(req.body.password, 12);
 
-        let administrador = req.body.admin == 'Sí' ? true : false
+        let administrador = req.body.admin == 'True' ? true : false
 
-        let nuevoProducto = {
+        let newUser = {
             id: nextID,
             fname: req.body.fname,
             lname: req.body.lname,
@@ -72,7 +72,7 @@ const usersController = {
             avatar: req.file.filename
         }
 
-        usersInDataBase.push(nuevoProducto);
+        usersInDataBase.push(newUser);
 
         let uploadProducts = JSON.stringify(usersInDataBase, null , 2);
 		fs.writeFileSync(usersInDBPath, uploadProducts)
@@ -96,6 +96,94 @@ const usersController = {
 		fs.writeFileSync(usersInDBPath, uploadProducts)
 
 		return res.redirect('/users');
+    },
+
+    // Edit es la vista del usuario que voy a editar
+    edit: function(req, res) {
+        
+        let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
+
+        let aLaVista = {
+            permisos: permisos,
+            usuario: editUser
+        }
+
+        // return res.send(aLaVista);
+
+        return res.render('users/editUsers', aLaVista);
+    },
+    
+    // Recibo los datos del producto que quiero editar
+    update: (req, res) => {
+        let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
+        const errores = validationResult(req);
+
+        if (!errores.isEmpty()) { // Si hay errores, que borre la foto que acaba de subir.
+            if (req.file){
+                let filePath = path.resolve(__dirname,'../public/images/uploads/users/' + req.file.filename);
+                fs.unlinkSync(filePath);
+            }
+
+            let aLaVista = {
+                permisos: permisos,
+                usuario: editUser,
+                errores: errores.mapped(),
+                userData: req.body,
+            }
+
+            return res.render('users/editUsers', aLaVista);
+        }
+
+        let avatarInNewUser = editUser.avatar
+        if (req.file){
+            avatarInNewUser= req.file.filename
+
+            let filePath = path.resolve(__dirname,'../public/images/uploads/USERS/' + editUser.avatar);
+            fs.unlinkSync(filePath);
+        } 
+
+        // let password = bcrypt.hashSync(req.body.password, 12);
+        let administrador = req.body.admin == 'True' ? true : false
+
+        let newUser = {
+            id: editUser.id,
+            fname: req.body.fname,
+            lname: req.body.lname,
+            user: req.body.user,
+            email: req.body.email,
+            permisos: req.body.permisos,
+            admin: administrador,
+            birth_date: req.body.birth_date,
+            password: editUser.password,
+            avatar: avatarInNewUser
+        }
+
+        newDB = usersInDB().map(function(user){
+            if (user.id == editUser.id){
+                user = newUser
+            }
+            return user
+        })
+        
+        let uploadUsers = JSON.stringify(newDB, null , 2);
+        fs.writeFileSync(usersInDBPath, uploadUsers)
+
+    return res.redirect('/users');
+
+    },
+
+
+    updatePass: function(req, res) {
+            
+        let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
+
+        let aLaVista = {
+            usuario: editUser
+        }
+
+        // return res.send(aLaVista);
+
+        return res.send(aLaVista);
     }
     
     

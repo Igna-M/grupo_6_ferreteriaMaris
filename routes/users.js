@@ -4,6 +4,7 @@ var router = express.Router();
 const usersController = require('../controllers/usersController');
 const uploadAvatar = require("../middlewares/usersMulter")
 const validationCreateUser = require('../middlewares/createUserValidation');
+const validationUpdateUser = require('../middlewares/editUserValidation');
 
 
 
@@ -15,7 +16,12 @@ router.post('/create', uploadAvatar.single('avatar_img'), validationCreateUser, 
 
 router.post('/delete', usersController.delete);
 
-// router.post('/create', uploadAvatar.single('product_img'), validationCreateUser, usersController.create);
+router.get('/edit/:id', usersController.edit);
+
+router.post('/update/:id', uploadAvatar.single('avatar_img'), validationUpdateUser, usersController.update);
+
+router.get('/updatePass/:id', usersController.updatePass);
+
 
 // router.get('/ingresar', guestMiddleware, userBaseController.login);
 

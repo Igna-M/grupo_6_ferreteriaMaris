@@ -22,5 +22,4 @@ router.post('/update/:id', uploadFile.single('product_img'), validationEdit, pro
 
 
 
-
 module.exports = router;

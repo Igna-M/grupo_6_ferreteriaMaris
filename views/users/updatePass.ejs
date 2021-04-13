@@ -3,7 +3,7 @@
 <head>
     <%- include('../partials/head') %>
     <link rel="stylesheet" href="/stylesheets/products.css">
-    <title>Usuarios</title>
+    <title>Productos</title>
 </head>
 
 
@@ -22,7 +22,7 @@
 
     <form action="/users/update/<%= usuario.id %>" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
 
-        <div class="user-columna1">
+        <div class="prod-columna1">
 
             <br>
 
@@ -46,7 +46,7 @@
             </div>
         </div>    
 
-        <div class="user-columna2">
+        <div class="prod-columna2">
 
             <div class="form-query">                        
                 <label for="name">Nombre</label>
@@ -62,25 +62,13 @@
 
             <div class="form-query">
                 <label for="name">Apellido</label>
-                <% if (locals.errores && errores.lname) { %>
+                <% if (locals.errores && errores.brand) { %>
                 <input type="text" name="lname" id="lname" class="form-space" value="<%= usuario.lname %>">
                     <div class="text-alert">
                         <%= errores.lname.msg %> 
                     </div>
                 <% } else { %>
                     <input type="text" name="lname" id="lname" class="form-space" value="<%= locals.userData ? userData.lname : usuario.lname %>">
-                <% } %>
-            </div>
-
-            <div class="form-query">
-                <label for="user">Nombre de usuario</label>
-                <% if (locals.errores && errores.user) { %>
-                <input type="text" name="user" id="user" class="form-space" value="<%= usuario.user %>">
-                    <div class="text-alert">
-                        <%= errores.user.msg %> 
-                    </div>
-                <% } else { %>
-                    <input type="text" name="user" id="user" class="form-space" value="<%= locals.userData ? userData.user : usuario.user %>">
                 <% } %>
             </div>
 
@@ -117,11 +105,11 @@
                 <label for="description">Administrador</label>
                 <select name="admin" id="admin" class="option-query">
                     <% if (usuario.admin) { %>
-                        <option value="True" selected>Sí, administrador</option>
-                        <option value="False">No</option>
+                        <option value="true" selected>Sí, administrador</option>
+                        <option value="false">No</option>
                     <% } else { %>
-                        <option value="True">Sí, administrador</option>
-                        <option value="False" selected>No</option>
+                        <option value="true">Sí, administrador</option>
+                        <option value="false" selected>No</option>
                     <% } %>
                     <% if (locals.errores && errores.admin) { %>
                         <div class="text-alert">
@@ -144,16 +132,49 @@
                 <% } %>
             </div>
 
+
+            <div class="form-query cambiarContrasenna">
+                <label for="birth_date"><h3>Cambiar contraseña</h3></label>
+            
+                <div class="form-query">
+                    <label for="old_password">Contraseña actual</label>
+                    <input type="password" name="old_password" id="old_password" class="form-space" placeholder="contraseña actual">
+                    <% if (locals.errores && errores.old_password) { %>
+                        <div class="text-alert">
+                            <%= errores.old_password.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+            
+                <div class="form-query">
+                    <label for="new_password">Nueva contraseña</label>
+                    <input type="password" name="new_password" id="new_password" class="form-space" placeholder="nueva contraseña">
+                    <% if (locals.errores && errores.new_password) { %>
+                        <div class="text-alert">
+                            <%= errores.new_password.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+    
+                <div class="form-query">
+                    <label for="confirm_pass">Confirmar nueva contraseña</label>
+                    <input type="password" name="confirm_pass" id="confirm_pass" class="form-space" placeholder="confirmar nueva contraseña">
+                    <% if (locals.errores && errores.confirm_pass) { %>
+                        <div class="text-alert">
+                            <%= errores.confirm_pass.msg %> 
+                        </div>
+                    <% } %>
+                </div>
+
+            </div>
+
+            <br>
+
             <div class="form-query">
                 <button class="form-space padd05 margen05 enviar" type="submit" value="Submit">Enviar cambios</button>
-            </div>
-            <br>
-            <div class="caja-boton">
-                <a href="/users/updatePass/<%= usuario.id %>" class="boton-detalles">Cambiar contraseña</a>
+
             </div>
         </div>
-        <br>
-            
     </form>
 
     <form action="/users/delete/" method="POST" id="form2">
@@ -163,7 +184,7 @@
 
         </div>           
     </form>
-    <br>
+
     <%- include('../partials/footer') %>
 
 </body>
