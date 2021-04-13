@@ -55,8 +55,8 @@
     "description": "una descripcion",
     "category": "1",
     "features": "Una caracteristica",
-    "price": "34",
-    "amount": "14",
+    "price": "38",
+    "amount": "20",
     "image": "product_img-1617997851288.jpeg"
   },
   {
@@ -70,53 +70,5 @@
     "price": "600",
     "amount": "550",
     "image": "product_img-1618005576123.jpeg"
-  },
-  {
-    "id": 8,
-    "name": "Pinza Universal",
-    "brand": "Una marca",
-    "model": "un modelo",
-    "description": "Pinza Universal 180 Mm (7) 1000v Industrial",
-    "category": "1",
-    "features": "Mango naranja y amarillo",
-    "price": "650",
-    "amount": "14",
-    "image": "product_img-1618005793817.jpeg"
-  },
-  {
-    "id": 10,
-    "name": "Nuevo titulo para el taladro",
-    "brand": "Una marca",
-    "model": "un modelo",
-    "description": "Describilo",
-    "category": "1",
-    "features": "Alguna caracteristica",
-    "price": "35",
-    "amount": "1",
-    "image": "product_img-1618106097101.jpeg"
-  },
-  {
-    "id": 11,
-    "name": "Nuevo producto",
-    "brand": "Nueva marca de producto",
-    "model": "Nuevo modelo de producto",
-    "description": "Nueva descripcion de producto",
-    "category": "4",
-    "features": "Nuevas caracteristicas de producto",
-    "price": "8000",
-    "amount": "20",
-    "image": "product_img-1618183271900.jpg"
-  },
-  {
-    "id": 12,
-    "name": "Un Producto",
-    "brand": "Una marca",
-    "model": "un modelo",
-    "description": "una descripcion",
-    "category": "2",
-    "features": "Alguna caracteristica",
-    "price": "200",
-    "amount": "1600",
-    "image": "product_img-1618196362265.jpeg"
   }
 ]

@@ -9,16 +9,17 @@
 
 <body>
     <%- include('../partials/header') %>
+    
     <div class="create-prod-button">
         <a href="/users" class="boton-usuarios">Volver al listado de usuarios</a>
         <a href="/users/create" class="boton-usuarios">Crear un usuario nuevo</a>
     </div>
+    
     <br>
                     
     <h1 class="prod-title">Login</h1>
 
-
-    <form action="/users/login/" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
+    <form action="/users/login/" method="POST" id="form" autocomplete="on" class="ancho-total contenedor-editar-producto">
 
         <div class="prod-columna1">
             
@@ -27,21 +28,31 @@
                 <div class="form-query">
                     <label for="name">Email</label>
                     <input type="text" name="email" id="email" class="form-space" placeholder="ingresa tu email">                    
+                    <% if (locals.errores && errores.email) { %>
+                        <p class="text-alert"><%= errores.email.msg %> </p>
+                    <% } %>
                 </div>
 
 
                 <div class="form-query">
-                    <label for="password">Contraseña actual</label>
+                    <label for="password">Contraseña</label>
                     <input type="password" name="password" id="password" class="form-space" placeholder="ingresa tu contraseña">
                 </div>
+
+                <% if (locals.errores && errores.password) { %>
+                    <h2 class="login-alert"><%= errores.password.msg %> </h2>
+                <% } %>
 
             </div>
 
             <div class="form-query">
                 <button class="form-space padd05 margen05 boton-login" type="submit" value="Submit">Ingresar</button>
             </div>
+
         </div>
+
     </form>
+
     <br>
 
     <%- include('../partials/footer') %>

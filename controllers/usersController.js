@@ -55,7 +55,6 @@ const usersController = {
         // Chequear si el mail ya existe
         let searchByMail = User.findByField('email', req.body.email)
         if (searchByMail){
-
             if (req.file){
                 let filePath = path.resolve(__dirname,'../public/images/uploads/users/' + req.file.filename);
                 fs.unlinkSync(filePath);
@@ -74,7 +73,6 @@ const usersController = {
             }
 
             delete userInput.email
-
             let aLaVista = {
                 permisos: permisos,
 				errores: errores,
@@ -174,14 +172,6 @@ const usersController = {
         let administrador = req.body.admin == 'True' ? true : false
 
         let newUser = {
-            // id: parseInt(editUser.id),
-            // fname: req.body.fname,
-            // lname: req.body.lname,
-            // user: req.body.user,
-            // email: req.body.email,
-            // permisos: req.body.permisos,
-            // admin: administrador,
-            // birth_date: req.body.birth_date,
             ...req.body,
             id: parseInt(editUser.id),
             admin: administrador,
@@ -245,12 +235,60 @@ const usersController = {
     },
 
     login: function(req, res){
-        
-
-        
-
+        console.log(req.session);
         return res.render('users/login')
     },
+
+    loginProcess: function(req, res){
+        let userToLogin = User.findByField('email', req.body.email)
+
+        if (!userToLogin){
+            let errores = {
+                email: {
+                    msg: 'Verifica el email ingresado'
+                },
+            }
+            let aLaVista = {
+				errores: errores,
+			}
+            return res.render('users/login', aLaVista)
+        } 
+            
+        let comparePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+
+        if (!comparePassword){
+            let errores = {
+                password: {
+                    msg: 'Los datos no concuerdan'
+                },
+            }
+            let aLaVista = {
+                errores: errores,
+            }
+            return res.render('users/login', aLaVista)
+
+        } 
+        
+        delete userToLogin.password
+        req.session.usserLogged = userToLogin
+
+        console.log("Te logueaste con éxito!!!");
+        
+        return res.send(req.session.usserLogged)
+    },
+
+    profile: function(req, res){
+        
+        let userProfile = usersInDB().find(usuario => usuario.id == req.params.id);
+
+        let aLaVista = {
+            permisos: permisos,
+            usuario: userProfile
+        }
+
+        return res.render('users/profile/', aLaVista)
+    },
+
 
 
 }

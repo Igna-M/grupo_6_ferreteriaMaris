@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/products.css">
+    <title>Perfil de usuario</title>
+</head>
+
+
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="create-prod-button">
+        <a href="/users" class="boton-detalles">Volver al listado de usuarios</a>
+        <a href="/users/create" class="boton-detalles">Crear un usuario nuevo</a>
+    </div>
+
+    <br>
+                    
+    <h1 class="prod-title">Perfil del usuario: <%= usuario.user %> </h1>
+
+    <div class="ancho-total contenedor-editar-producto">
+        <div class="user-columna1">
+            <br>
+            <div class="productImg">
+                <img src="../../images/uploads/users/<%= usuario.avatar %>" alt="<%= usuario.user %>">
+            </div>
+            <br>
+        </div>    
+
+        <div class="user-columna2">
+
+            <div class="form-query">                        
+                <label for="name">Nombre: <%= usuario.fname %></label>
+            </div>
+
+            <div class="form-query">                        
+                <label for="name">Apellido: <%= usuario.lname %></label>
+            </div>
+
+            <div class="form-query">                        
+                <label for="name">Nombre de usuario: <%= usuario.user %></label>
+            </div>
+
+            <div class="form-query">                        
+                <label for="name">email: <%= usuario.email %></label>
+            </div>
+
+            <div class="form-query">
+                <label>Permisos: <%=permisos[usuario.permisos].category%></label>
+            </div>
+
+
+            <div class="form-query">
+                <label for="description">Administrador: <%= usuario.admin ? 'Sí' : 'No' %></label>
+            </div>
+
+            
+            <div class="form-query">
+                <label for="birth_date">Fecha de nacimiento: <%= usuario.birth_date %></label>
+            </div>
+
+            <br>
+            <div class="caja-boton">
+                <a href="/users/edit/<%= usuario.id %>" class="boton-detalles">Editar usuario</a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- <form action="/users/delete/" method="POST" id="form2">
+        <div class="prod-title">
+            <input type="hidden" name="borrar" value="<%= usuario.id %>">
+            <button type="submit" class="form-space padd05 margen05 borrar"><h3>Borrar</h3></button>
+
+        </div>           
+    </form>
+    <br> -->
+    <%- include('../partials/footer') %>
+
+</body>
+</html>

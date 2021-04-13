@@ -54,6 +54,14 @@
     color: #D12F2A;
 }
 
+.login-alert{
+    margin-top: 20px;
+    padding: 5px;
+    color: #D12F2A;
+    border: solid 3px #D12F2A;
+    background-color: #004985;
+}
+
 .ancho-total{
     width: 100%;
 }

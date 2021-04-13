@@ -26,5 +26,9 @@ router.post('/updatePassword', updatePassValidation, usersController.updatePass)
 
 router.get('/login', usersController.login);
 
+router.post('/login', usersController.loginProcess);
+
+router.get('/profile/:id', usersController.profile);
+
 
 module.exports = router;
