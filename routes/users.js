@@ -24,6 +24,7 @@ router.get('/updatePass/:id', usersController.updatePassForm);
 
 router.post('/updatePassword', updatePassValidation, usersController.updatePass);
 
+router.get('/login', usersController.login);
 
 
 module.exports = router;

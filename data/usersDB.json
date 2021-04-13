@@ -70,5 +70,17 @@
     "birth_date": "1970-11-29",
     "password": "$2b$12$HX5p0dT3ADmk.uCmDZulbuLW6Bvu8RPFfWYXXKp.aLvLsz07gappm",
     "avatar": "avatar_img-1618257911452.jpeg"
+  },
+  {
+    "fname": "Dimitri Dimitrevich",
+    "lname": "Shostakovich",
+    "user": "dimitri53",
+    "email": "dimitri@ferreteria.com.ar",
+    "permisos": "3",
+    "admin": true,
+    "birth_date": "1900-12-21",
+    "id": 7,
+    "password": "$2b$12$9ZDkdBgr.84RCDIRWeRwoORNyIMsoSQb7HeRVXNljmmT80zeiMcIm",
+    "avatar": "avatar_img-1618342988770.jpeg"
   }
 ]

@@ -38,6 +38,11 @@
     padding: 15px;
 }
 
+.boton-login{
+    border: solid 2px #157ED2;
+    padding: 20px;
+}
+
 .borrar{
     border: solid 2px #D12F2A;
     padding: 10px;

@@ -8,7 +8,7 @@ const usersInDBPath = path.resolve(__dirname, '../data/usersDB.json');
 const usersInDB = () => JSON.parse(fs.readFileSync(usersInDBPath, 'utf-8'));
 const permitsPath = path.resolve(__dirname, '../data/permits.json');
 const permisos = JSON.parse(fs.readFileSync(permitsPath, 'utf-8'));
-
+const User = require('../models/User')
 
 const usersController = {
 
@@ -52,6 +52,37 @@ const usersController = {
 			return res.render('users/createUser', aLaVista);
 		}
 
+        // Chequear si el mail ya existe
+        let searchByMail = User.findByField('email', req.body.email)
+        if (searchByMail){
+
+            if (req.file){
+                let filePath = path.resolve(__dirname,'../public/images/uploads/users/' + req.file.filename);
+                fs.unlinkSync(filePath);
+            }
+
+            let errores = {
+                email: {
+                    msg: 'El email ingresado ya está registrado'
+                },
+                password: {
+                    msg: 'Vuelve a generar una contraseña'
+                },
+                confirm_pass: {
+                    msg: 'Confirma la contraseña'
+                }
+            }
+
+            delete userInput.email
+
+            let aLaVista = {
+                permisos: permisos,
+				errores: errores,
+				originalData: userInput
+			}
+			return res.render('users/createUser', aLaVista);
+        }
+
         let usersInDataBase = usersInDB()
         let lastElement = usersInDataBase[usersInDataBase.length -1];
         let lastID = lastElement.id;
@@ -62,16 +93,12 @@ const usersController = {
 
         let newUser = {
             id: nextID,
-            fname: req.body.fname,
-            lname: req.body.lname,
-            user: req.body.user,
-            email: req.body.email,
-            permisos: req.body.permisos,
+            ...req.body,
             admin: administrador,
-            birth_date: req.body.birth_date,
             password: password,
             avatar: req.file.filename
         }
+        delete newUser.confirm_pass;
 
         usersInDataBase.push(newUser);
 
@@ -147,16 +174,19 @@ const usersController = {
         let administrador = req.body.admin == 'True' ? true : false
 
         let newUser = {
-            id: editUser.id,
-            fname: req.body.fname,
-            lname: req.body.lname,
-            user: req.body.user,
-            email: req.body.email,
-            permisos: req.body.permisos,
+            // id: parseInt(editUser.id),
+            // fname: req.body.fname,
+            // lname: req.body.lname,
+            // user: req.body.user,
+            // email: req.body.email,
+            // permisos: req.body.permisos,
+            // admin: administrador,
+            // birth_date: req.body.birth_date,
+            ...req.body,
+            id: parseInt(editUser.id),
             admin: administrador,
-            birth_date: req.body.birth_date,
             password: editUser.password,
-            avatar: avatarInNewUser
+            avatar: avatarInNewUser            
         }
 
         newDB = usersInDB().map(function(user){
@@ -212,7 +242,15 @@ const usersController = {
         }
         return res.send(aLaVista)
         // return res.render('users/updatePass', aLaVista);
-    }
+    },
+
+    login: function(req, res){
+        
+
+        
+
+        return res.render('users/login')
+    },
 
 
 }
