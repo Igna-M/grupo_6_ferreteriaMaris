@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 let bcrypt = require('bcrypt');
+// const { send } = require('process');
 
 const usersInDBPath = path.resolve(__dirname, '../data/usersDB.json');
 const usersInDB = () => JSON.parse(fs.readFileSync(usersInDBPath, 'utf-8'));
@@ -115,14 +116,13 @@ const usersController = {
     
     // Recibo los datos del producto que quiero editar
     update: (req, res) => {
-        let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
+        console.log('En el update del controlador')
+        let editUser = usersInDB().find(usuario => usuario.id == req.body.id);
+        console.log(editUser);
         const errores = validationResult(req);
 
         if (!errores.isEmpty()) { // Si hay errores, que borre la foto que acaba de subir.
-            if (req.file){
-                let filePath = path.resolve(__dirname,'../public/images/uploads/users/' + req.file.filename);
-                fs.unlinkSync(filePath);
-            }
+            
 
             let aLaVista = {
                 permisos: permisos,
@@ -135,6 +135,7 @@ const usersController = {
         }
 
         let avatarInNewUser = editUser.avatar
+
         if (req.file){
             avatarInNewUser= req.file.filename
 
@@ -169,24 +170,51 @@ const usersController = {
         fs.writeFileSync(usersInDBPath, uploadUsers)
 
     return res.redirect('/users');
-
     },
 
 
-    updatePass: function(req, res) {
-            
+    updatePassForm: function(req, res) {
         let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
-
         let aLaVista = {
             usuario: editUser
         }
+        return res.render('users/updatePass', aLaVista);
+    },
+    
+    updatePass: function(req, res) {
+        console.log('LLegamos a updatePass');
+        console.log('updatePass.body:', req.body);
+        let editUser = usersInDB().find(usuario => usuario.email == req.body.email);
 
-        // return res.send(aLaVista);
+        const errores = validationResult(req);
+        console.log(errores);
 
-        return res.send(aLaVista);
+        if (editUser == undefined){
+            let aLaVista = {
+                permisos: permisos,
+                usuarios: usersInDB()
+            }
+            return res.redirect('/users')
+        }
+
+        if (!errores.isEmpty()) {
+            let aLaVista = {
+                usuario: editUser,
+                errores: errores.mapped(),
+                userData: req.body,
+            }
+            return res.render('users/updatePass', aLaVista);
+        }
+
+        let aLaVista = {
+            body: req.body.email,
+            usuario: editUser
+        }
+        return res.send(aLaVista)
+        // return res.render('users/updatePass', aLaVista);
     }
-    
-    
+
+
 }
 
 module.exports = usersController

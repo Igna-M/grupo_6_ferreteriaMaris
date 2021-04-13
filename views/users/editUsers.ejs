@@ -20,7 +20,7 @@
     <h1 class="prod-title">Editar usuario</h1>
 
 
-    <form action="/users/update/<%= usuario.id %>" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
+    <form action="/users/update/" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
 
         <div class="user-columna1">
 
@@ -144,6 +144,7 @@
                 <% } %>
             </div>
 
+            <input type="hidden" name="id" value="<%= usuario.id %>">
             <div class="form-query">
                 <button class="form-space padd05 margen05 enviar" type="submit" value="Submit">Enviar cambios</button>
             </div>

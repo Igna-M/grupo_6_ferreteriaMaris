@@ -5,7 +5,7 @@ const usersController = require('../controllers/usersController');
 const uploadAvatar = require("../middlewares/usersMulter")
 const validationCreateUser = require('../middlewares/createUserValidation');
 const validationUpdateUser = require('../middlewares/editUserValidation');
-
+const updatePassValidation = require('../middlewares/updatePassValidation');
 
 
 router.get('/', usersController.users);
@@ -18,28 +18,12 @@ router.post('/delete', usersController.delete);
 
 router.get('/edit/:id', usersController.edit);
 
-router.post('/update/:id', uploadAvatar.single('avatar_img'), validationUpdateUser, usersController.update);
+router.post('/update', uploadAvatar.single('avatar_img'), validationUpdateUser, usersController.update);
 
-router.get('/updatePass/:id', usersController.updatePass);
+router.get('/updatePass/:id', usersController.updatePassForm);
 
+router.post('/updatePassword', updatePassValidation, usersController.updatePass);
 
-// router.get('/ingresar', guestMiddleware, userBaseController.login);
-
-// router.get('/registro', guestMiddleware, userBaseController.register);
-
-// router.get('/perfil',authMiddleware, userBaseController.profile);
-
-// router.get('/editar', userBaseController.edit);
-
-// router.get('/salir', userBaseController.logout);
-
-// router.post('/acceder', userBaseController.access);
-
-// router.post('/',uploadFile.single("avatar"),validations, userBaseController.save);
-
-// router.put('/perfil', userBaseController.update);
-
-// router.delete('/desactivar', userBaseController.disable);
 
 
 module.exports = router;

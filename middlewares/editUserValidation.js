@@ -1,7 +1,7 @@
 const path = require('path');
 const { body } = require('express-validator');
 
-usersValidation = [
+let usersValidation = [
 	body('fname').notEmpty().withMessage('¿Cómo es tu nombre?'),
 	body('lname').notEmpty().withMessage('¿Cómo es tu apellido?'),
 	body('user').notEmpty().withMessage('Elige un nombre de usuario'),
