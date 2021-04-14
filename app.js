@@ -9,13 +9,16 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 
-
 var app = express();
+var userLoggedMiddleware = require('./middlewares/userLoggedMiddleware')
+
 app.use(session({
   secret:"las golondrinas vuelan en invierno",
   resave: false,
   saveUninitialized: false
 }));
+
+app.use(userLoggedMiddleware)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

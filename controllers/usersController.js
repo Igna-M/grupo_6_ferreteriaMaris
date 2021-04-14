@@ -290,8 +290,6 @@ const usersController = {
         console.log('REQ:', req.session.userLogged);
 
         let userProfile = req.session.userLogged
-        
-        console.log('USERProfile:', userProfile);
 
         let aLaVista = {
             permisos: permisos,
@@ -303,7 +301,7 @@ const usersController = {
 
     logout: function(req, res){
         
-        req.session.destroy
+        req.session.destroy()
 
         return res.redirect('/')
     },

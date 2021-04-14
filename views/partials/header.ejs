@@ -12,15 +12,17 @@
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
 
-		<div class="login">
-			<p><a href="/users/login">Login</a></p>
-			<p><a href="/users/create">Registro</a></p>
-		</div>		
+		<div class="login"></div>
+			<% if (locals.userLogged) { %>
+				<img src="../images/uploads/users/<%= locals.userLogged.avatar %>" class="avatar" alt="avatar">
+				<p class="txtBlanco">Hola <%= locals.userLogged.user %></p>
+					<p><a href="/users/logout">Logout</a></p>
+			<% } else { %>
+					<p><a href="/users/create">Registro</a></p>
+					<p><a href="/users/login">Login</a></p>	
+			<% } %>
+		</div>
 
-		<a href="#" class="shopping-cart">
-			<input type="checkbox" id="btn-modal">
-			<label for="btn-modal" class="fas fa-shopping-cart"></label>
-		</a>
 	</section>
 
 	
@@ -38,8 +40,11 @@
 					<li><a href="/">Ofertas</a></li>
 					<li><a href="/">Quiénes somos</a></li>
 				</ul>
+				<a href="#" class="shopping-cart">
+					<input type="checkbox" id="btn-modal">
+					<label for="btn-modal" class="fas fa-shopping-cart"></label>
+				</a>
 			</nav>
-		
 		</div>
 
 		<nav class="nav-bar-desktop">
@@ -50,6 +55,10 @@
 				<li><a href="/">Ofertas</a></li>
 				<li><a href="/">Quiénes somos</a></li>
 			</ul>
+			<a href="#" class="shopping-cart">
+				<input type="checkbox" id="btn-modal">
+				<label for="btn-modal" class="fas fa-shopping-cart"></label>
+			</a>
 		</nav>
 
 	</section>

@@ -70,6 +70,17 @@ header {
     padding: 5px;
 }
 
+.txtBlanco{
+    color: white;
+}
+
+.avatar{
+    max-width:60px;
+    border-radius: 100%;
+    max-height: 70px;
+    margin: 2px 8px;
+}
+
 .query-busqueda{
     min-width: 300px;
     height: 30px;
