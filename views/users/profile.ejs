@@ -47,7 +47,8 @@
             </div>
 
             <div class="form-query">
-                <label>Permisos: <%=permisos[usuario.permisos].category%></label>
+                <!-- <label>Permisos: <%=permisos[usuario.permisos].category%></label> -->
+                <label>Permisos: <%= permisos.find(permiso => permiso.id == usuario.permisos).category%></label>
             </div>
 
 

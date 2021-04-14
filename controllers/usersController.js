@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
-let bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
+
 // const { send } = require('process');
 
 const usersInDBPath = path.resolve(__dirname, '../data/usersDB.json');
@@ -124,6 +125,7 @@ const usersController = {
 		return res.redirect('/users');
     },
 
+
     // Edit es la vista del usuario que voy a editar
     edit: function(req, res) {
         
@@ -139,6 +141,7 @@ const usersController = {
         return res.render('users/editUsers', aLaVista);
     },
     
+
     // Recibo los datos del producto que quiero editar
     update: (req, res) => {
         console.log('En el update del controlador')
@@ -201,6 +204,7 @@ const usersController = {
         return res.render('users/updatePass', aLaVista);
     },
     
+
     updatePass: function(req, res) {
         console.log('LLegamos a updatePass');
         console.log('updatePass.body:', req.body);
@@ -235,18 +239,21 @@ const usersController = {
     },
 
     login: function(req, res){
-        console.log(req.session);
         return res.render('users/login')
     },
+
 
     loginProcess: function(req, res){
         let userToLogin = User.findByField('email', req.body.email)
 
         if (!userToLogin){
             let errores = {
-                email: {
-                    msg: 'Verifica el email ingresado'
+                password: {
+                    msg: 'Los datos no concuerdan'
                 },
+            //     email: {
+            //         msg: 'Verifica el email ingresado'
+            //     },
             }
             let aLaVista = {
 				errores: errores,
@@ -270,25 +277,36 @@ const usersController = {
         } 
         
         delete userToLogin.password
-        req.session.usserLogged = userToLogin
+        req.session.userLogged = userToLogin
 
         console.log("Te logueaste con éxito!!!");
         
-        return res.send(req.session.usserLogged)
+        return res.redirect('/users/profile')
     },
+
 
     profile: function(req, res){
         
-        let userProfile = usersInDB().find(usuario => usuario.id == req.params.id);
+        console.log('REQ:', req.session.userLogged);
+
+        let userProfile = req.session.userLogged
+        
+        console.log('USERProfile:', userProfile);
 
         let aLaVista = {
             permisos: permisos,
             usuario: userProfile
         }
 
-        return res.render('users/profile/', aLaVista)
+        return res.render('users/profile', aLaVista)
     },
 
+    logout: function(req, res){
+        
+        req.session.destroy
+
+        return res.redirect('/')
+    },
 
 
 }

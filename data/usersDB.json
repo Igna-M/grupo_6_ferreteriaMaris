@@ -24,26 +24,26 @@
     "avatar": "avatar_img-1618201482423.png"
   },
   {
-    "id": 3,
     "fname": "Cosmes",
     "lname": "Fulanito",
     "user": "CosmeFulanito",
     "email": "cosme@ferreteria.com.ar",
-    "permisos": "99",
+    "permisos": "7",
     "admin": false,
     "birth_date": "1989-03-22",
+    "id": 3,
     "password": "$2b$12$pI4a6JUCtxhiuKSFXRyhAu5YFlA4xReoePHB7awvVsqIaJZcimdXS",
     "avatar": "avatar_img-1618284520714.jpeg"
   },
   {
-    "id": 4,
     "fname": "Han",
     "lname": "Solo",
     "user": "HanSolo25",
     "email": "han@ferre.com.ar",
-    "permisos": "99",
+    "permisos": "3",
     "admin": false,
     "birth_date": "2003-02-22",
+    "id": 4,
     "password": "$2b$12$b5Bjeylkvssc5v.BNvlgI.aiiif/Tqh.vnBpqMG8IPu.yEJ4DXj7y",
     "avatar": "avatar_img-1618257724147.jpeg"
   },

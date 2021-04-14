@@ -41,10 +41,10 @@ header {
 .cabecera{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 4px;
-    border-bottom: #F2F6F7 solid 3px;
+    border-bottom: #F2F6F7 solid 2px;
 }
 
 .logo{
@@ -59,24 +59,32 @@ header {
 }
 
 .login{
-    display: block;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
     margin-right: 0;
-    border: greenyellow solid 1px;
+    /* border: greenyellow solid 1px; */
     width: 30%;
     font-size: 12px;
     text-align: center;
     padding: 5px;
 }
 
+.query-busqueda{
+    min-width: 300px;
+    height: 30px;
+}
 
 .cabecera-abajo {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: #004985;
+    background-color: #212529;
+    /* background-color: #004985; */
     padding: 4px;
 }
+
 
 .burguer-button {
     background-color:#004985;

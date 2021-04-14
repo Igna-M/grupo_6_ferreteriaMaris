@@ -3,15 +3,30 @@
 
 		<div class="logo">
 			<a href="/">
-				<img alt="Logo_Ferreteria_Maris" src="/images/Logos/LogoRectEstLF_300.jpg" class="img-logo"> 
+				<img alt="Logo_Ferreteria_Maris" src="/images/Logos/logoInbaco.png" class="img-logo"> 
 			</a>
 		</div>
 		
-		<p class="login"><a href="/users/login">Login</a></p>
+		<form class="search-bar" action="#" method="GET">
+			<input type="text" placeholder="Buscar producto" name="search-bar" class="query-busqueda">
+			<button type="submit"><i class="fa fa-search"></i></button>
+		</form>
+
+		<div class="login">
+			<p><a href="/users/login">Login</a></p>
+			<p><a href="/users/create">Registro</a></p>
+		</div>		
+
+		<a href="#" class="shopping-cart">
+			<input type="checkbox" id="btn-modal">
+			<label for="btn-modal" class="fas fa-shopping-cart"></label>
+		</a>
 	</section>
+
+	
 	
 	<section class="cabecera-abajo">
-		<div class="cabecera-abajo-top">
+		<div class="">
 			<a href="#" class="burguer-button">
 				<i class="fas fa-bars"></i><!--la media query a partir de 767?-->
 			</a>    
@@ -21,33 +36,11 @@
 					<li><a href="/">Productos</a></li>
 					<li><a href="/">Novedades</a></li>
 					<li><a href="/">Ofertas</a></li>
-					<li><a href="/register">Registro</a></li>
 					<li><a href="/">Quiénes somos</a></li>
 				</ul>
 			</nav>
 		
 		</div>
-
-		<form class="search-bar" action="#" method="GET">
-			<input type="text" placeholder="Buscar producto" name="search-bar">
-			<button type="submit"><i class="fa fa-search"></i></button>
-		</form>
-
-		<a href="#" class="shopping-cart">
-			<input type="checkbox" id="btn-modal">
-    <label for="btn-modal" class="fas fa-shopping-cart"></label>
-    <!-- <div class="modal">
-        <div class="contenedor">
-            <header>Carrito de compras</header>
-            <label for="btn-modal">X</label>
-            <div class="contenido">
-                <div class="modal-content">
-                </div>    
-            </div>
-        </div>
-    </div>         -->
-
-		</a>
 
 		<nav class="nav-bar-desktop">
 			<ul>
@@ -55,7 +48,6 @@
 				<li><a href="/">Productos</a></li>
 				<li><a href="/">Novedades</a></li>
 				<li><a href="/">Ofertas</a></li>
-				<li><a href="/register">Registro</a></li>
 				<li><a href="/">Quiénes somos</a></li>
 			</ul>
 		</nav>

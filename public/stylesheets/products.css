@@ -55,11 +55,13 @@
 }
 
 .login-alert{
-    margin-top: 20px;
-    padding: 5px;
-    color: #D12F2A;
-    border: solid 3px #D12F2A;
-    background-color: #004985;
+    margin-top: 25px;
+    padding: 15px;
+    color: white;
+    border: solid 3px white;
+    background-color: #D12F2A;
+    /* border: solid 3px #D12F2A;
+    background-color: #004985; */
 }
 
 .ancho-total{
