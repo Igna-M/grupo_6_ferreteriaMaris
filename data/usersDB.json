@@ -58,5 +58,29 @@
     "birth_date": "1960-10-30",
     "password": "$2b$12$D0xIFpeQvSSagn.mjrRu0e8zn.0xEAwJiZIhTKnnwL3yMLTCPFaya",
     "avatar": "avatar_img-1618257787930.jpeg"
+  },
+  {
+    "fname": "Taylor",
+    "lname": "Swift",
+    "user": "taylor2002",
+    "email": "taylor@ferre.com.ar",
+    "permisos": "5",
+    "admin": true,
+    "birth_date": "1999-05-20",
+    "id": 6,
+    "password": "$2b$12$xwETFJrYFoNmWTuGUnFLIeBmxMAcKZkiC3RNQtG9BkuxGsAVLSk5S",
+    "avatar": "avatar_img-1618451471574.jpeg"
+  },
+  {
+    "id": 7,
+    "fname": "Gabriela",
+    "lname": "Sabatini",
+    "user": "gabiSabatini",
+    "email": "gabi@ferre.com.ar",
+    "permisos": "3",
+    "admin": true,
+    "birth_date": "1972-09-22",
+    "password": "$2b$12$64OrVarxs/WtBB/ZL4gj9.XcI97G2xVic7b3sOohhFPCrTmTh6GH.",
+    "avatar": "avatar_img-1618451777916.jpeg"
   }
 ]

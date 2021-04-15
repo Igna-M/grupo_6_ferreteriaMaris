@@ -14,7 +14,7 @@
 
 		<div class="login"></div>
 			<% if (locals.userLogged) { %>
-				<img src="../images/uploads/users/<%= locals.userLogged.avatar %>" class="avatar" alt="avatar">
+				<img src="../../images/uploads/users/<%= locals.userLogged.avatar %>" class="avatar" alt="avatar">
 				<p class="txtBlanco">Hola <%= locals.userLogged.user %></p>
 					<p><a href="/users/logout">Logout</a></p>
 			<% } else { %>
