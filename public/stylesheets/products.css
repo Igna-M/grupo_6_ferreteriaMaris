@@ -188,6 +188,14 @@ label{
     background-color:limegreen;
 }
 
+.recordarme{
+    /* padding: 15px; */
+    margin: 20px 5px 2px;
+}
+
+.letrasBlancas{
+    color: white;
+}
 
 @media (min-width:700px) {
     

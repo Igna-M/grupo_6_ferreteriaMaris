@@ -239,11 +239,13 @@ const usersController = {
     },
 
     login: function(req, res){
+        
         return res.render('users/login')
     },
 
 
     loginProcess: function(req, res){
+        
         let userToLogin = User.findByField('email', req.body.email)
 
         if (!userToLogin){
@@ -251,9 +253,6 @@ const usersController = {
                 password: {
                     msg: 'Los datos no concuerdan'
                 },
-            //     email: {
-            //         msg: 'Verifica el email ingresado'
-            //     },
             }
             let aLaVista = {
 				errores: errores,
@@ -279,15 +278,15 @@ const usersController = {
         delete userToLogin.password
         req.session.userLogged = userToLogin
 
-        console.log("Te logueaste con éxito!!!");
+        if (req.body.remember_user){
+            res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 60})
+        }
         
         return res.redirect('/users/profile')
     },
 
 
     profile: function(req, res){
-        
-        console.log('REQ:', req.session.userLogged);
 
         let userProfile = req.session.userLogged
 
@@ -300,9 +299,8 @@ const usersController = {
     },
 
     logout: function(req, res){
-        
+        res.clearCookie('userEmail')
         req.session.destroy()
-
         return res.redirect('/')
     },
 

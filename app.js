@@ -12,13 +12,6 @@ var productsRouter = require('./routes/products');
 var app = express();
 var userLoggedMiddleware = require('./middlewares/userLoggedMiddleware')
 
-app.use(session({
-  secret:"las golondrinas vuelan en invierno",
-  resave: false,
-  saveUninitialized: false
-}));
-
-app.use(userLoggedMiddleware)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret:"las golondrinas vuelan en invierno",
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(userLoggedMiddleware)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

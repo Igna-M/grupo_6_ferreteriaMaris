@@ -23,7 +23,7 @@
 
         <div class="prod-columna1">
             
-            <div class="form-query cambiarContrasenna">
+            <div class="form-query letrasBlancas cambiarContrasenna">
             
                 <div class="form-query">
                     <label for="name">Email</label>
@@ -38,6 +38,11 @@
                     <label for="password">Contraseña</label>
                     <input type="password" name="password" id="password" class="form-space" placeholder="ingresa tu contraseña">
                 </div>
+
+                <!-- <label class="form-check-label"> -->
+                <label>
+                    <input class="recordarme" type="checkbox" class="form-check-input" name="remember_user">Recordar mi usuario
+                </label>
 
                 <% if (locals.errores && errores.password) { %>
                     <h2 class="login-alert"><%= errores.password.msg %> </h2>
