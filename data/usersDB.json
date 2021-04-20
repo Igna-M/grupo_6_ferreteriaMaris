@@ -82,5 +82,18 @@
     "birth_date": "1972-09-22",
     "password": "$2b$12$64OrVarxs/WtBB/ZL4gj9.XcI97G2xVic7b3sOohhFPCrTmTh6GH.",
     "avatar": "avatar_img-1618451777916.jpeg"
+  },
+  {
+    "id": 8,
+    "fname": "George",
+    "lname": "Costanza",
+    "user": "TheOpposite",
+    "email": "george@ferres.com.ar",
+    "permisos": "4",
+    "admin": false,
+    "birth_date": "1968-09-17",
+    "password": "$2b$12$OjtF/shtMLNF/6UUzFJwx.oJvmehXjVH.NAzKt6oElWw2vPZLk33W",
+    "remember_user": "on",
+    "avatar": "avatar_img-1618951703996.jpeg"
   }
 ]
