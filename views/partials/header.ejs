@@ -12,16 +12,18 @@
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
 
-		<div class="login"></div>
-			<% if (locals.userLogged) { %>
+		<% if (locals.userLogged) { %>
+			<div class="login txtBlanco">
 				<img src="../../images/uploads/users/<%= locals.userLogged.avatar %>" class="avatar" alt="avatar">
-				<p class="txtBlanco">Hola <%= locals.userLogged.user %></p>
-					<p><a href="/users/logout">Logout</a></p>
-			<% } else { %>
-					<p><a href="/users/create">Registro</a></p>
-					<p><a href="/users/login">Login</a></p>	
-			<% } %>
-		</div>
+				<p>Hola <%= locals.userLogged.user %></p>
+				<p><a href="/users/logout">Logout</a></p>
+			</div>		
+		<% } else { %>
+			<div class="not-login txtBlanco"></div>
+				<p><a href="/users/create">Registro</a></p>
+				<p><a href="/users/login">Login</a></p>	
+			</div>
+		<% } %>
 
 	</section>
 
@@ -35,7 +37,7 @@
 			<nav class="nav-bar-burger"> <!--En principio, no lo mostramos. Sólo para cuando activemos la funcionalidad de la hamburguesa-->
 				<ul>
 					<li><a href="/">Home</a></li>
-					<li><a href="/">Productos</a></li>
+					<li><a href="/products">Productos</a></li>
 					<li><a href="/">Novedades</a></li>
 					<li><a href="/">Ofertas</a></li>
 					<li><a href="/">Quiénes somos</a></li>
@@ -50,7 +52,7 @@
 		<nav class="nav-bar-desktop">
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="/">Productos</a></li>
+				<li><a href="/products">Productos</a></li>
 				<li><a href="/">Novedades</a></li>
 				<li><a href="/">Ofertas</a></li>
 				<li><a href="/">Quiénes somos</a></li>
