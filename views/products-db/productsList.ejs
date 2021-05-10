@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/products.css">
+    <title>Lista de productos</title>
+</head>
+<body>
+
+    <%- include('../partials/header') %>
+
+
+    <main>
+        
+        <!-- <section class="separador1">
+            <br>
+        </section> -->
+
+
+        <div class="create-prod-button">
+            <a href="/products/db/create" class="boton-detalles">Crear un producto nuevo</a>
+        </div>
+
+        <section class="destacados">
+        
+
+            <!-- En este section van los productos-->
+            
+
+            <% for (let i = 0; i < products.length; i++) { %>
+            <article class="art-lista">
+                <img src="../images/uploads/products/<%= products[i].image %>" alt="<%= products[i].name %>" class="destacados-img">
+                <div class="caja-descripcion">
+                    <h4 class="description"><%= products[i].name %></h4>
+                    <hr>
+                    <div class="description-box">
+                        <p class="description-dato">Marca: <%= products[i].brand %></p>
+                        <p class="description-dato">Modelo: <%= products[i].model %></p>
+                        <p class="description-dato"><%= products[i].description %></p>
+                        <p class="description-dato">Características: <%= products[i].features %></p>
+                        <p class="description-dato">Categoría: <%= categories.find(categoria => categoria.id == products[i].category_id).category_name  %></p>
+                        <p class="description-dato">Precio: $ <%= products[i].price %></p>
+                        <p class="description-dato">Disponible: <%= products[i].amount %></p>
+                        <p class="description-dato">id: <%= products[i].id %></p>
+                    </div>
+                    <div class="caja-boton">
+                        
+                        <!-- <form action="/products/delete/<%= products[i].id %>" method="POST"> -->
+                        <form action="/products/db/delete/" method="POST">
+                            <button type="submit" class="boton-borrar" name="borrar" value="<%= products[i].id %>"><h3>Borrar</h3></button>
+                        </form>
+
+                        
+                        <a href="/products/db/edit/<%= products[i].id %>" class="boton-detalles">Editar</a>
+                    </div>
+                </div>
+
+            </article>
+            <% } %>
+
+
+
+        </section>
+
+        <section class="separador2">
+            <br>
+        </section>
+
+        <div class="create-prod-button">
+            <a href="/products/create" class="boton-detalles">Crear un producto nuevo</a>
+        </div>
+
+
+        <section class="separador2">
+            <br>
+        </section>
+
+    </main>
+        
+    <%- include('../partials/footer') %>
+
+</body>
+
+</html>

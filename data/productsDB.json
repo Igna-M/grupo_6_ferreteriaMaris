@@ -70,5 +70,17 @@
     "price": "600",
     "amount": "550",
     "image": "product_img-1618005576123.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Long Sledge Hammer",
+    "brand": "PTA",
+    "model": "t3120",
+    "description": "Gran martillo",
+    "category": "1",
+    "features": "Negro y naranja",
+    "price": "645",
+    "amount": "20",
+    "image": "product_img-1620405357870.jpeg"
   }
 ]

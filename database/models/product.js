@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Category, { 
         as: "category",
-        foreignKey: "category"
-    })
+        foreignKey: "category_id"
+      })
     }
   };
   Product.init({
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     brand: DataTypes.STRING,
     model: DataTypes.STRING,
     description: DataTypes.STRING,
-    category: DataTypes.INTEGER,
+    category_id: DataTypes.INTEGER,
     features: DataTypes.STRING,
     price: DataTypes.DECIMAL,
     amount: DataTypes.INTEGER,

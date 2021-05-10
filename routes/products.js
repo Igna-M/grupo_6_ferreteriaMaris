@@ -7,6 +7,9 @@ const validationEdit = require('../middlewares/editProductValidation');
 const productsController = require('../controllers/productsController');
 const uploadFile = require('../middlewares/productsMulter')
 
+const productsDBController = require('../controllers/productsDBController');
+
+
 
 router.get('/', productsController.productsList);
 
@@ -21,5 +24,13 @@ router.post('/delete', productsController.delete);
 router.post('/update/:id', uploadFile.single('product_img'), validationEdit, productsController.update);
 
 
+
+router.get('/db', productsDBController.productsList);
+
+router.get('/db/create', productsDBController.createProduct);
+
+router.post('/db/create', uploadFile.single('product_img'), validationCreate, productsDBController.create);
+
+router.post('/db/delete', productsController.delete);
 
 module.exports = router;
