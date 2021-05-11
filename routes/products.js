@@ -31,6 +31,11 @@ router.get('/db/create', productsDBController.createProduct);
 
 router.post('/db/create', uploadFile.single('product_img'), validationCreate, productsDBController.create);
 
-router.post('/db/delete', productsController.delete);
+router.post('/db/delete', productsDBController.delete);
+
+router.get('/db/edit/:id', productsDBController.edit);
+
+router.post('/db/update/:id', uploadFile.single('product_img'), validationEdit, productsDBController.update);
+
 
 module.exports = router;

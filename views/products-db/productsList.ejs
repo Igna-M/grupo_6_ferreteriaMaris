@@ -46,7 +46,7 @@
                     <div class="caja-boton">
                         
                         <!-- <form action="/products/delete/<%= products[i].id %>" method="POST"> -->
-                        <form action="/products/db/delete/" method="POST">
+                        <form action="products/db/delete/" method="POST">
                             <button type="submit" class="boton-borrar" name="borrar" value="<%= products[i].id %>"><h3>Borrar</h3></button>
                         </form>
 
@@ -67,7 +67,7 @@
         </section>
 
         <div class="create-prod-button">
-            <a href="/products/create" class="boton-detalles">Crear un producto nuevo</a>
+            <a href="/products/db/create" class="boton-detalles">Crear un producto nuevo</a>
         </div>
 
 
