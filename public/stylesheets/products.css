@@ -197,6 +197,29 @@ label{
     color: white;
 }
 
+
+.con-errores{
+    color: yellow;
+    background-color: red;
+}
+
+.con-errores-js{
+    max-width: 40%;
+    color: yellow;
+    background-color: red;
+    list-style-type: none;
+    padding: 8px;
+    margin: auto;
+    border: solid 3px white;
+    text-align: center;
+}
+
+/* div.errores-centrado{
+    max-width: 50%;
+    margin: auto;
+    text-align: center;
+} */
+
 @media (min-width:700px) {
     
     .art-lista{

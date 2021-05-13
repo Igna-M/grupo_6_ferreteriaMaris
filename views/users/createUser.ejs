@@ -14,7 +14,7 @@
     </div>
     <main class="crear-producto">
 
-        <form action="/users/create" method="POST" autocomplete="on" enctype="multipart/form-data" class="ancho-total">
+        <form action="/users/create" method="POST" autocomplete="on" enctype="multipart/form-data" class="ancho-total" id="form">
             
             <br>
             <h2>Crear usuario</h2>
@@ -23,6 +23,7 @@
             <div class="form-query">
                 <label for="fname">Nombre</label>
                 <input type="text" name="fname" id="fname" placeholder="Nombre" class="form-space" value="<%= locals.originalData ? originalData.fname : null %>">
+                <p class="con-errores-js" id="js-errores-fname" style="display: none;"></p>
                 <% if (locals.errores && errores.fname) { %>
                     <div class="text-alert">
                         <%= errores.fname.msg %> 
@@ -33,6 +34,7 @@
             <div class="form-query">
                 <label for="lname">Apellido</label>
                 <input type="text" name="lname" id="lname" placeholder="Apellido" class="form-space" value="<%= locals.originalData ? originalData.lname : null %>">
+                <p class="con-errores-js" id="js-errores-lname" style="display: none;"></p>
                 <% if (locals.errores && errores.lname) { %>
                     <div class="text-alert">
                         <%= errores.lname.msg %> 
@@ -45,6 +47,7 @@
             <div class="form-query">
                 <label for="user">Nombre de usuario</label>
                 <input type="text" name="user" id="user" placeholder="Nombre de usuario" class="form-space" value="<%= locals.originalData ? originalData.user : null %>">
+                <p class="con-errores-js" id="js-errores-user" style="display: none;"></p>
                 <% if (locals.errores && errores.user) { %>
                     <div class="text-alert">
                         <%= errores.user.msg %> 
@@ -55,6 +58,7 @@
             <div class="form-query">
                 <label for="email">email</label>
                 <input type="email" name="email" id="email" class="form-space" placeholder="email@email.com" value="<%= locals.originalData ? originalData.email : null %>">
+                <p class="con-errores-js" id="js-errores-email" style="display: none;"></p>
                 <% if (locals.errores && errores.email) { %>
                     <div class="text-alert">
                         <%= errores.email.msg %> 
@@ -95,11 +99,14 @@
                 <select name="admin" id="admin" class="option-query">
                     <option value="True">Sí, administrador</option>
                     <option value="False" selected>No</option>
+                </select>
             </div>
+
 
             <div class="form-query">
                 <label for="birth_date">Fecha de nacimiento</label>
                 <input type="date" name="birth_date" id="birth_date" class="form-space" value="<%= locals.originalData ? originalData.birth_date : null %>">
+                <p class="con-errores-js" id="js-errores-birth_date" style="display: none;"></p>
                 <% if (locals.errores && errores.price) { %>
                     <div class="text-alert">
                         <%= errores.birth_date.msg %> 
@@ -109,7 +116,8 @@
 
             <div class="form-query">
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-space" placeholder="contraseña">
+                <input type="password" name="password" id="password" class="form-space" placeholder="contraseña" autocomplete="username email">
+                <p class="con-errores-js" id="js-errores-password" style="display: none;"></p>
                 <% if (locals.errores && errores.password) { %>
                     <div class="text-alert">
                         <%= errores.password.msg %> 
@@ -119,7 +127,8 @@
 
             <div class="form-query">
                 <label for="confirm_pass">Confirmar contraseña</label>
-                <input type="password" name="confirm_pass" id="confirm_pass" class="form-space" placeholder="confirmar contraseña">
+                <input type="password" name="confirm_pass" id="confirm_pass" class="form-space" placeholder="confirmar contraseña" autocomplete="username email">
+                <p class="con-errores-js" id="js-errores-confirm_pass" style="display: none;"></p>
                 <% if (locals.errores && errores.confirm_pass) { %>
                     <div class="text-alert">
                         <%= errores.confirm_pass.msg %> 
@@ -133,6 +142,7 @@
                 <label>Avatar</label>
                 <br>
                 <input type="file" name="avatar_img" id="file">
+                <p class="con-errores-js" id="js-errores-file" style="display: none;"></p>
                 <% if (locals.errores && errores.avatar_img) { %>
                     <div class="text-alert">
                         <%= errores.avatar_img.msg %>
@@ -150,7 +160,8 @@
             </label>
 
             <div class="form-query">
-                <button class="form-space padd05 margen05 enviar" type="submit" value="submit">Crear usuario</button>
+                <button class="form-space padd05 margen05 enviar" type="submit" id="submit" value="submit">Crear usuario</button>
+                <p class="con-errores-js" id="js-errores-submit" style="display: none;"></p>
             </div>
         
         </form>
@@ -158,11 +169,11 @@
 
 
 
-          
+
 
     </main>
         
     <%- include('../partials/footer') %>
-
+    <script src="/js/users.js"></script>
 </body>
 </html>
