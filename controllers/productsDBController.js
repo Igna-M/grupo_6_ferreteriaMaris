@@ -77,12 +77,7 @@ const productsDBController = {
             
         await Products.destroy({where: {id: req.body.borrar}, force: true})
 
-        // let newList = productsInDB().filter(producto => producto.id != req.body.borrar);
-        
-		// let deleteImage = productsInDB().find(producto => producto.id == req.body.borrar);
-
 		let imagePath = path.resolve(__dirname,'../public/images/uploads/products/' + productoParaBorrar.image);
-
 		fs.unlinkSync(imagePath);
 
 		return res.redirect('/products/db');

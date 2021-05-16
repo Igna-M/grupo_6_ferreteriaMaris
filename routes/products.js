@@ -7,6 +7,8 @@ const validationEdit = require('../middlewares/editProductValidation');
 const productsController = require('../controllers/productsController');
 const uploadFile = require('../middlewares/productsMulter')
 
+const productsApiController = require("../controllers/apiControllers/productsApiController")
+
 const productsDBController = require('../controllers/productsDBController');
 
 
@@ -36,6 +38,19 @@ router.post('/db/delete', productsDBController.delete);
 router.get('/db/edit/:id', productsDBController.edit);
 
 router.post('/db/update/:id', uploadFile.single('product_img'), validationEdit, productsDBController.update);
+
+
+
+
+router.get("/api/productsList", productsApiController.productsList)
+router.get("/api/showProduct/:id", productsApiController.showProduct)
+router.post("/api/storeProduct", productsApiController.storeProduct)
+router.delete("/api/deleteProduct/:id", productsApiController.deleteProduct)
+router.get("/api/searchProduct", productsApiController.searchProduct)
+
+// Consignas del proyecto integrador
+router.get("/api/products", productsApiController.products)
+router.get("/api/product/:id", productsApiController.productDetail)
 
 
 module.exports = router;
