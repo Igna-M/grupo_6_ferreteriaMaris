@@ -68,6 +68,9 @@ const productsController = {
 
 
     products: (req,res) =>{
+
+        var hostname = req.headers.host; // hostname = 'localhost:3000'
+
         let getCategorias = Categories.findAll(
             {
             include: [{association: 'productos'}]
@@ -97,8 +100,9 @@ const productsController = {
                             brand: unProducto.brand,
                             model: unProducto.model,
                             stock: unProducto.amount,
+                            price: unProducto.price,
                             category: unProducto.categories.category_name,
-                            link: '/products/api/Product/'+unProducto.id
+                            link: 'http://' + hostname + '/products/api/Product/'+unProducto.id
                         }
                     }),
                     status: 200,
