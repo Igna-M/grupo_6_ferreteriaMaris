@@ -4,7 +4,6 @@ const Categories = db.Category
 const Op = db.Sequelize.Op
 
 
-
 const productsController = {
 
     productsList: (req,res) =>{
@@ -104,6 +103,10 @@ const productsController = {
                     }),
                     status: 200,
                 })
+                .catch(error => {
+                    console.error(error.message)
+                        return res.json('Ha ocurrido un error')
+                });
         })
     },
 
@@ -137,6 +140,10 @@ const productsController = {
                     })
                 }
             })
+        .catch(error => {
+            console.error(error.message)
+                return res.json('Ha ocurrido un error')
+        });
     },
 
 }
