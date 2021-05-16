@@ -77,12 +77,20 @@ const productsController = {
         let getProductos = Products.findAll({
             include: [{association: 'categories'}]
         })
-
+        
         Promise.all([getCategorias, getProductos])
             .then(function([categorias, productos]){
                 return res.status(200).json({
                     count: productos.length,
-                    countByCategory: 'Cantidad por categoría',
+                    countByCategory:
+                    {
+                        Heramientas: productos.filter(prod => prod.category_id == 1).length,
+                        Tornillos: productos.filter(prod => prod.category_id == 2).length,
+                        Electricidad: productos.filter(prod => prod.category_id == 3).length,
+                        Maquinaria: productos.filter(prod => prod.category_id == 4).length,
+                        Clavos: productos.filter(prod => prod.category_id == 5).length,
+                        Otros: productos.filter(prod => prod.category_id == 6).length
+                    },
                     products: productos.map(function(unProducto){
                         return {
                             id: unProducto.id,
@@ -94,7 +102,7 @@ const productsController = {
                             link: '/products/api/Product/'+unProducto.id
                         }
                     }),
-                    status: 200
+                    status: 200,
                 })
         })
     },
@@ -111,19 +119,23 @@ const productsController = {
 
         Promise.all([getCategorias, getProducto])
             .then(function([categorias, producto]){
-                return res.status(200).json({
-                    id: producto.id,
-                    name: producto.name,
-                    brand: producto.brand,
-                    model: producto.model,
-                    description: producto.description,
-                    category: producto.categories.category_name,
-                    features: producto.features,
-                    price: producto.price,
-                    amount: producto.amount,
-                    image: producto.image,
-                    status: 200
-                })
+                if (!producto){
+                    return res.status(200).json("No hay productos con el ID ingresado")
+                } else {
+                    return res.status(200).json({
+                        id: producto.id,
+                        name: producto.name,
+                        brand: producto.brand,
+                        model: producto.model,
+                        description: producto.description,
+                        category: producto.categories.category_name,
+                        features: producto.features,
+                        price: producto.price,
+                        amount: producto.amount,
+                        image: producto.image,
+                        status: 200
+                    })
+                }
             })
     },
 
