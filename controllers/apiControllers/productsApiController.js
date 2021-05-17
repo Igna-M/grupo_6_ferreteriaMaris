@@ -84,6 +84,13 @@ const productsController = {
         
         Promise.all([getCategorias, getProductos])
             .then(function([categorias, productos]){
+                cadaCategoria = []
+                categorias.map(function(categ){
+                    let categ_temp = categ.category_name
+                    let cant_prod = categ.productos.length
+                    cadaCategoria.push([categ_temp, cant_prod])
+                })
+                
                 return res.status(200).json({
                     count: productos.length,
                     countByCategory:
@@ -95,6 +102,7 @@ const productsController = {
                         Clavos: productos.filter(prod => prod.category_id == 5).length,
                         Otros: productos.filter(prod => prod.category_id == 6).length
                     },
+                    countByCategoryV2: cadaCategoria,
                     products: productos.map(function(unProducto){
                         return {
                             id: unProducto.id,
