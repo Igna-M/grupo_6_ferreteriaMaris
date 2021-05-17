@@ -316,6 +316,11 @@ footer p {
     box-shadow: 0 0 10px rgb(100, 100 , 100);
 }
 
+hr.separar{
+    max-width: 40%;
+    margin: 10px 2px;
+}
+
 .medio-contacto{
     background-color: #F2F6F7;
     border:#004985 1px solid;
@@ -478,10 +483,12 @@ footer{
 
 .productArticulosSimilares{
     background-color:#157ED2;
-    padding: 5px;
+    padding: 2px;
     color: #F2F6F7;
     border:#004985 2px solid;
     margin-bottom: 15px;
+    width: 90%;
+    text-align: center;
 }
 
 .productArticulosSimilares,
@@ -493,12 +500,14 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
-    border: #F2F6F7 1px solid;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
 }
 
 .pequeno-cubo article{
-    border: #F2F6F7 2px solid;
+    /* border: #F2F6F7 2px solid; */
+    padding: 2px;
 }
 
 .pequeno-cubo article p{
@@ -509,11 +518,12 @@ footer{
 }
 
 .related-productImg img{
-    max-width: 100%;
-            
+    width: 100%;
 }
 
-
+.relacionados{
+    width: 48%;
+}
 
 /****** @media *******/
 

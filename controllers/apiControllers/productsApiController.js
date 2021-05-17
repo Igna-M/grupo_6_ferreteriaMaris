@@ -7,7 +7,9 @@ const Op = db.Sequelize.Op
 const productsController = {
 
     productsList: (req,res) =>{
-        Products.findAll()
+        Products.findAll({
+            include: [{association: 'categories'}]
+        })
         .then(productos => {
             return res.status(200).json({
                 total: productos.length,
