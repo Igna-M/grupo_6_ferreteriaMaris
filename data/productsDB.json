@@ -82,17 +82,5 @@
     "price": "645",
     "amount": "22",
     "image": "product_img-1620405357870.jpeg"
-  },
-  {
-    "id": 9,
-    "name": "Un Producto nuevo",
-    "brand": "Una marca nueva",
-    "model": "Otro modelo desconocido",
-    "description": "una descripcion x",
-    "category": "3",
-    "features": "Una caracteristica",
-    "price": "46",
-    "amount": "20",
-    "image": "product_img-1620761185496.jpeg"
   }
 ]

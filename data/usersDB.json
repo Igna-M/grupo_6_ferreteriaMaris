@@ -24,15 +24,15 @@
     "avatar": "avatar_img-1618201482423.png"
   },
   {
-    "id": "3",
     "fname": "Cosmes",
     "lname": "Fulanito",
     "user": "CosmeFulanito",
     "permisos": "7",
     "admin": true,
-    "birth_date": "1988-03-25",
+    "birth_date": "1990-03-25",
+    "id": 3,
     "email": "cosme@ferreteria.com.ar",
-    "password": "$2b$12$41OJHzqZMynXaA36BF571.80vE1uLNNOb9deO2WozOeFx5IF/IzoO",
+    "password": "$2b$12$/kS8CvZxkp7euHPfOeHgneUjCdDTcjt3HkLgGJujYrFesfkpkGW9i",
     "avatar": "avatar_img-1618284520714.jpeg"
   },
   {
