@@ -214,6 +214,11 @@ label{
     text-align: center;
 }
 
+.texto-centrado{
+    text-align: center;
+}
+
+
 /* div.errores-centrado{
     max-width: 50%;
     margin: auto;

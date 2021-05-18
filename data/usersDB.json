@@ -12,27 +12,27 @@
     "avatar": "avatar_img-1618200897383.jpeg"
   },
   {
-    "id": 2,
+    "id": "2",
     "fname": "Mario",
     "lname": "Bros",
     "user": "MarioBros",
-    "email": "mario@bros.com",
     "permisos": "6",
     "admin": false,
     "birth_date": "1995-03-15",
+    "email": "mario@bros.com",
     "password": "$2b$12$.uzT5fwsPuruYuIe/dnM5.hI9owsMfzw17e9a34eRDhyNc5nfQwyC",
     "avatar": "avatar_img-1618201482423.png"
   },
   {
+    "id": "3",
     "fname": "Cosmes",
     "lname": "Fulanito",
     "user": "CosmeFulanito",
-    "email": "cosme@ferreteria.com.ar",
     "permisos": "7",
-    "admin": false,
-    "birth_date": "1989-03-22",
-    "id": 3,
-    "password": "$2b$12$pI4a6JUCtxhiuKSFXRyhAu5YFlA4xReoePHB7awvVsqIaJZcimdXS",
+    "admin": true,
+    "birth_date": "1988-03-25",
+    "email": "cosme@ferreteria.com.ar",
+    "password": "$2b$12$41OJHzqZMynXaA36BF571.80vE1uLNNOb9deO2WozOeFx5IF/IzoO",
     "avatar": "avatar_img-1618284520714.jpeg"
   },
   {

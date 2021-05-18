@@ -5,8 +5,8 @@ let usersValidation = [
 	body('fname').notEmpty().withMessage('¿Cómo es tu nombre?'),
 	body('lname').notEmpty().withMessage('¿Cómo es tu apellido?'),
 	body('user').notEmpty().withMessage('Elige un nombre de usuario'),
-	body('email').notEmpty().withMessage('Agrega un email').bail()
-		.isEmail().withMessage('Agrega un email válido'),
+	// body('email').notEmpty().withMessage('Agrega un email').bail()
+	// 	.isEmail().withMessage('Agrega un email válido'),
 	body('birth_date')
 		.notEmpty().withMessage('Ingresa tu fecha de nacimiento').bail()
 		.isDate().withMessage('El formato de la fecha es dd/mm/aaaa'),		

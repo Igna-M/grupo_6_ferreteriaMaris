@@ -121,7 +121,6 @@ const usersController = {
 		let imagePath = path.resolve(__dirname,'../public/images/uploads/users/' + deleteImage.avatar);
 
 		fs.unlinkSync(imagePath);
-         
 
         let uploadProducts = JSON.stringify(newList, null , 2);
 		fs.writeFileSync(usersInDBPath, uploadProducts)
@@ -148,14 +147,12 @@ const usersController = {
 
     // Recibo los datos del producto que quiero editar
     update: (req, res) => {
-        console.log('En el update del controlador')
+
         let editUser = usersInDB().find(usuario => usuario.id == req.body.id);
-        console.log(editUser);
         const errores = validationResult(req);
 
         if (!errores.isEmpty()) { // Si hay errores, que borre la foto que acaba de subir.
             
-
             let aLaVista = {
                 permisos: permisos,
                 usuario: editUser,
@@ -182,6 +179,7 @@ const usersController = {
             ...req.body,
             id: parseInt(editUser.id),
             admin: administrador,
+            email: editUser.email,
             password: editUser.password,
             avatar: avatarInNewUser            
         }
@@ -200,8 +198,9 @@ const usersController = {
     },
 
 
-    updatePassForm: function(req, res) {
-        let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
+    updatePassForm: function(req, res) {        
+        let editUser = usersInDB().find(usuario => usuario.email == req.body.email);
+        // let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
         let aLaVista = {
             usuario: editUser
         }
@@ -210,36 +209,57 @@ const usersController = {
     
 
     updatePass: function(req, res) {
-        console.log('LLegamos a updatePass');
-        console.log('updatePass.body:', req.body);
-        let editUser = usersInDB().find(usuario => usuario.email == req.body.email);
 
-        const errores = validationResult(req);
-        console.log(errores);
-
-        if (editUser == undefined){
-            let aLaVista = {
-                permisos: permisos,
-                usuarios: usersInDB()
-            }
-            return res.redirect('/users')
+        if (req.body.user_email != req.body.email){
+            return res.send('Los emails no coinciden!')
         }
 
+        // Revisar el chequeo del mail ingresado con el mail que vino por POST
+        let editUser = usersInDB().find(usuario => usuario.email == req.body.email);
+        // console.log('editUser', editUser); 
+
+        const errores = validationResult(req);
+        
         if (!errores.isEmpty()) {
             let aLaVista = {
-                usuario: editUser,
+                usuario: editUser, // Enviar nueva versión, sin los campos inseguros. ¿Sólo usuario, mail y avatar?
                 errores: errores.mapped(),
-                userData: req.body,
+                userData: req.body, // Creo que no tengo que mandar nada acá.
             }
             return res.render('users/updatePass', aLaVista);
         }
 
-        let aLaVista = {
-            body: req.body.email,
-            usuario: editUser
+        if (req.body.new_password === req.body.confirm_pass) {
+            if (comparePassword = bcrypt.compareSync(req.body.old_password, editUser.password)){
+                let newPass = bcrypt.hashSync(req.body.new_password, 12);
+
+                let newUser = {
+                    ...editUser,
+                    password: newPass,
+                }
+
+                newDB = usersInDB().map(function(user){
+                    if (user.id == editUser.id){
+                        user = newUser
+                    }
+                    return user
+                })
+                
+                let uploadUsers = JSON.stringify(newDB, null , 2);
+                fs.writeFileSync(usersInDBPath, uploadUsers)
+
+                let aLaVista = {
+                    // body: req.body.email,
+                    usuarioViejo: editUser,
+                    usuarioNuevo: newUser
+                }
+                return res.redirect('/users');
+            }
+
+            return res.send('Hubo algún error')
+
         }
-        return res.send(aLaVista)
-        // return res.render('users/updatePass', aLaVista);
+        return res.send('Hubo algún error')
     },
 
     login: function(req, res){

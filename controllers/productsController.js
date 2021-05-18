@@ -122,7 +122,7 @@ const productsController = {
             imageInNewProd = req.file.filename
 
             let filePath = path.resolve(__dirname,'../public/images/uploads/products/' + editarProd.image);
-            console.log('Imagen borrada:', editarProd.image);
+
             fs.unlinkSync(filePath);
         } 
 

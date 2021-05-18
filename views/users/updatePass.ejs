@@ -21,7 +21,7 @@
     <h1 class="prod-title">Cambiar contraseña</h1>
 
 
-    <form action="/users/updatePassword/" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
+    <form action="/users/updatePassword/" method="POST" autocomplete="on" class="ancho-total contenedor-editar-producto">
 
         <div class="prod-columna1">
 
@@ -35,15 +35,18 @@
             
             <div class="form-query cambiarContrasenna">
             
+                <input type="hidden" id="user_email" name="user_email" value="<%= usuario.email %>">
+
                 <div class="form-query">
-                    <label for="name">Email</label>
+                    <label for="email">Email</label>
                     <% if (locals.errores && errores.email) { %>
-                    <input type="text" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email" value="<%= locals.userData ? userData.email : null %>">
+                        <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email">
+                    <!-- <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email" value="<%= locals.userData ? userData.email : null %>"> -->
                         <div class="text-alert">
                             <%= errores.email.msg %> 
                         </div>
                     <% } else { %>
-                        <input type="text" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email">
+                        <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email">
                     <% } %>
                 </div>
 
@@ -81,10 +84,11 @@
             </div>
 
             <div class="form-query">
-                <button class="form-space padd05 margen05 enviar" type="submit" value="Submit">Enviar cambios</button>
+                <button class="form-space padd05 margen05 enviar" type="submit">Cambiar contraseña</button>
             </div>
         </div>
     </form>
+
 
     <div class="create-prod-button">
         <a href="/users" class="boton-usuarios">Volver al listado de usuarios</a>

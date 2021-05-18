@@ -18,11 +18,14 @@
     <br>
                     
     <h1 class="prod-title">Editar usuario</h1>
-
-
+    
     <form action="/users/update/" method="POST" id="form1" autocomplete="on" enctype="multipart/form-data" class="ancho-total contenedor-editar-producto">
 
         <div class="user-columna1">
+
+            <br>
+
+            <p class="texto-centrado"> estás logeado con <%= usuario.email %></p>
 
             <br>
 
@@ -84,7 +87,7 @@
                 <% } %>
             </div>
 
-            <div class="form-query">
+            <!-- <div class="form-query">
                 <label for="name">Email</label>
                 <% if (locals.errores && errores.email) { %>
                 <input type="text" name="email" id="email" class="form-space" value="<%= usuario.email %>">
@@ -94,7 +97,7 @@
                 <% } else { %>
                     <input type="text" name="email" id="email" class="form-space" value="<%= locals.userData ? userData.email : usuario.email %>">
                 <% } %>
-            </div>
+            </div> -->
 
 
             <div class="form-query">
@@ -149,13 +152,24 @@
                 <button class="form-space padd05 margen05 enviar" type="submit" value="Submit">Enviar cambios</button>
             </div>
             <br>
-            <div class="caja-boton">
-                <a href="/users/updatePass/<%= usuario.id %>" class="boton-detalles">Cambiar contraseña</a>
-            </div>
+
+        
         </div>
         <br>
             
     </form>
+
+    <div class="caja-boton-pass">
+        <div>
+
+        </div>
+        
+        <form action="/users/updatePass/" method="POST">
+            <input type="hidden" name="email" value="<%= usuario.email %>">
+            <button  type="submit" class="cambiar-pass">Cambiar contraseña</button>
+            <!-- <a href="/users/updatePass/<%= usuario.id %>" class="boton-detalles">Cambiar contraseña</a> -->
+        </form>
+    </div>
 
     <form action="/users/delete/" method="POST" id="form2">
         <div class="prod-title">

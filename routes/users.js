@@ -4,7 +4,7 @@ var router = express.Router();
 const usersController = require('../controllers/usersController');
 const uploadAvatar = require("../middlewares/usersMulter")
 const validationCreateUser = require('../middlewares/createUserValidation');
-const validationUpdateUser = require('../middlewares/editUserValidation');
+const editUserValidation = require('../middlewares/editUserValidation');
 const updatePassValidation = require('../middlewares/updatePassValidation');
 
 // para redireccionar al profile desde las rutas que sirven para entrar a la sesión
@@ -24,9 +24,9 @@ router.post('/delete', usersController.delete);
 
 router.get('/edit/:id', usersController.edit);
 
-router.post('/update', uploadAvatar.single('avatar_img'), validationUpdateUser, usersController.update);
+router.post('/update', uploadAvatar.single('avatar_img'), editUserValidation, usersController.update);
 
-router.get('/updatePass/:id', usersController.updatePassForm);
+router.post('/updatePass', usersController.updatePassForm);
 
 router.post('/updatePassword', updatePassValidation, usersController.updatePass);
 

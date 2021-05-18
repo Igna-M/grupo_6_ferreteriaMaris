@@ -50,13 +50,13 @@
   {
     "id": 6,
     "name": "Set Llave Allen",
-    "brand": "Alguna marca",
-    "model": "un modelo",
+    "brand": "Alguna marca Allen",
+    "model": "un modelo Allen",
     "description": "una descripcion",
     "category": "1",
     "features": "Una caracteristica",
     "price": "38",
-    "amount": "20",
+    "amount": "26",
     "image": "product_img-1617997851288.jpeg"
   },
   {
@@ -80,7 +80,7 @@
     "category": "1",
     "features": "Negro y naranja",
     "price": "645",
-    "amount": "20",
+    "amount": "22",
     "image": "product_img-1620405357870.jpeg"
   },
   {
