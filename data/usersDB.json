@@ -27,8 +27,8 @@
     "fname": "Cosme",
     "lname": "Fulanito",
     "user": "CosmeFulanito",
-    "permisos": "7",
-    "admin": true,
+    "permisos": "6",
+    "admin": false,
     "birth_date": "1990-03-25",
     "id": 3,
     "email": "cosme@ferreteria.com.ar",
@@ -95,5 +95,17 @@
     "password": "$2b$12$OjtF/shtMLNF/6UUzFJwx.oJvmehXjVH.NAzKt6oElWw2vPZLk33W",
     "remember_user": "on",
     "avatar": "avatar_img-1618951703996.jpeg"
+  },
+  {
+    "fname": "Fry",
+    "lname": "Futurama",
+    "user": "Fututama2000",
+    "permisos": "4",
+    "admin": false,
+    "birth_date": "1980-02-22",
+    "id": 9,
+    "email": "fry@ferreteria.com.ar",
+    "password": "$2b$12$xJfjAnyryxpKaSILbd5r7.lDkw8.bwbI6T3txmPvBaQLKg954NEpS",
+    "avatar": "avatar_img-1621444946900.gif"
   }
 ]

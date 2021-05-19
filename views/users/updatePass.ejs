@@ -43,13 +43,13 @@
                 <div class="form-query">
                     <label for="email">Email</label>
                     <% if (locals.errores && errores.email) { %>
-                        <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email">
+                        <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email" required>
                     <!-- <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email" value="<%= locals.userData ? userData.email : null %>"> -->
                         <div class="text-alert">
                             <%= errores.email.msg %> 
                         </div>
                     <% } else { %>
-                        <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email">
+                        <input type="email" name="email" id="email" class="form-space" placeholder="<%= usuario.user %>, ingresa tu email" required>
                     <% } %>
                 </div>
 
