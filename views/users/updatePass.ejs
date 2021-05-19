@@ -33,6 +33,9 @@
             
             <h3 class="prod-title"><%= usuario.user %></h3>
             
+            <% if (error_email) { %>
+                <p class="con-errores-js" > <%= error_email %></p>
+            <% } %>
             <div class="form-query cambiarContrasenna">
             
                 <input type="hidden" id="user_email" name="user_email" value="<%= usuario.email %>">

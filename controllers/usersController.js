@@ -202,7 +202,8 @@ const usersController = {
         let editUser = usersInDB().find(usuario => usuario.email == req.body.email);
         // let editUser = usersInDB().find(usuario => usuario.id == req.params.id);
         let aLaVista = {
-            usuario: editUser
+            usuario: editUser,
+            error_email: ''
         }
         return res.render('users/updatePass', aLaVista);
     },
@@ -219,18 +220,30 @@ const usersController = {
         // console.log('editUser', editUser); 
 
         const errores = validationResult(req);
-        
+
         if (!errores.isEmpty()) {
+
+            let miniUser = editUser
+            delete miniUser.password
+            delete miniUser.permisos
+            delete miniUser.admin
+            delete miniUser.lname
+            delete miniUser.birth_date
+
             let aLaVista = {
-                usuario: editUser, // Enviar nueva versión, sin los campos inseguros. ¿Sólo usuario, mail y avatar?
+                usuario: miniUser, // Enviar nueva versión, sin los campos inseguros. ¿Sólo usuario, mail y avatar?
                 errores: errores.mapped(),
-                userData: req.body, // Creo que no tengo que mandar nada acá.
+                error_email: '',
+                // userData: req.body, // Creo que no tengo que mandar nada acá.
             }
             return res.render('users/updatePass', aLaVista);
         }
 
+        console.log(editUser);
+
         if (req.body.new_password === req.body.confirm_pass) {
-            if (comparePassword = bcrypt.compareSync(req.body.old_password, editUser.password)){
+            
+            if (bcrypt.compareSync(req.body.old_password, editUser.password)){
                 let newPass = bcrypt.hashSync(req.body.new_password, 12);
 
                 let newUser = {
@@ -248,19 +261,40 @@ const usersController = {
                 let uploadUsers = JSON.stringify(newDB, null , 2);
                 fs.writeFileSync(usersInDBPath, uploadUsers)
 
-                let aLaVista = {
-                    // body: req.body.email,
-                    usuarioViejo: editUser,
-                    usuarioNuevo: newUser
-                }
                 return res.redirect('/users');
             }
 
-            return res.send('Hubo algún error')
+            let miniUser = editUser
+            delete miniUser.password
+            delete miniUser.permisos
+            delete miniUser.admin
+            delete miniUser.lname
+            delete miniUser.birth_date
+
+            let aLaVista = {
+                usuario: miniUser, // Enviar nueva versión, sin los campos inseguros. ¿Sólo usuario, mail y avatar?
+                error_email: 'Has ingresado datos erroneos',
+                // userData: req.body, // Creo que no tengo que mandar nada acá.
+            }
+            return res.render('users/updatePass', aLaVista);
 
         }
-        return res.send('Hubo algún error')
+
+        let miniUser = editUser
+        delete miniUser.password
+        delete miniUser.permisos
+        delete miniUser.admin
+        delete miniUser.lname
+        delete miniUser.birth_date
+
+        let aLaVista = {
+            usuario: miniUser, // Enviar nueva versión, sin los campos inseguros. ¿Sólo usuario, mail y avatar?
+            error_email: 'Has ingresado datos erroneos',
+            // userData: req.body, // Creo que no tengo que mandar nada acá.
+        }
+        return res.render('users/updatePass', aLaVista);
     },
+    
 
     login: function(req, res){
         
