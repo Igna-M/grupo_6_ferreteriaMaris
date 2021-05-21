@@ -212,7 +212,15 @@ const usersController = {
     updatePass: function(req, res) {
 
         if (req.body.user_email != req.body.email){
-            return res.send('Los emails no coinciden!')
+            
+            let editUser = usersInDB().find(usuario => usuario.email == req.body.user_email);
+
+            let aLaVista = {
+                usuario: editUser,
+                error_email: 'Los emails no coinciden!'
+            }
+            // return res.send('Los emails no coinciden!')
+            return res.render('users/updatePass', aLaVista);
         }
 
         // Revisar el chequeo del mail ingresado con el mail que vino por POST
